@@ -15,7 +15,7 @@ import Back from "../assets/back.png";
 import Loader from "../Components/OnboardingLoader";
 import Hide from "../assets/hide.png";
 import View from "../assets/view.png";
-import foodplan from "../assets/foodplan.jpg"; // Importing the top background image
+import foodplan from "../assets/foodplan.jpg"; 
 
 const SignUp = () => {
   const [fullName, setFullName] = useState("");
@@ -60,7 +60,7 @@ const SignUp = () => {
             "Existing user. Please login with your email address.";
         }
         setErrorMessage(customErrorMessage);
-        toast.error(customErrorMessage); // Use customErrorMessage instead of errorMessage
+        toast.error(customErrorMessage); 
       })
       .finally(() => setIsLoading(false));
   };
