@@ -82,3 +82,12 @@
 .custom-radio input[type="radio"]:checked + .radio-indicator {
   background-color: #4268FB; 
 }
+
+.placeholder-bottom-right::placeholder {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  color: gray; 
+}
+
+

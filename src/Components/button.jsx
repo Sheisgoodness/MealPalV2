@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const Button = ({ children, className, ...props }) => {
+const Button = ({ children, className, to, ...props }) => {
   const btnClass =
     props.color === "blue"
       ? "bg-[#4268fb] text-white text-sm px-8 py-2 rounded cursor-pointer outline-none border-none"
@@ -8,12 +9,17 @@ const Button = ({ children, className, ...props }) => {
 
   return (
     <div className={className}>
-      <button
-        className={`${btnClass} ${className}`}
-        onClick={props.btnClicked}
-      >
-        {children}
-      </button>
+      {to ? (
+        <Link to={to}>
+          <button className={`${btnClass} ${className}`}>
+            {children}
+          </button>
+        </Link>
+      ) : (
+        <button className={`${btnClass} ${className}`} onClick={props.btnClicked}>
+          {children}
+        </button>
+      )}
     </div>
   );
 };
@@ -23,6 +29,7 @@ Button.propTypes = {
   className: PropTypes.string,
   btnClicked: PropTypes.func,
   color: PropTypes.string,
+  to: PropTypes.string,
 };
 
 export default Button;
