@@ -87,3 +87,27 @@
 .custom-radio input[type="radio"]:checked + .radio-indicator {
   background-color: #4268FB; 
 }
+
+.search-bar {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.w-9 {
+  width: 1.5rem;
+}
+
+.h-9 {
+  height: 1.5rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+

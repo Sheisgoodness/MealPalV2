@@ -75,7 +75,7 @@ If you already have an account, log in using these steps:
 
 ### Team Delta
 
-- Florence Ajayi []()
+- Babatunde Maryam [Joyfuol](https://github.com/Joyfuol)
 
 ### Team ETA - Gamification
 
@@ -101,7 +101,14 @@ If you already have an account, log in using these steps:
 
   # Team Contributions
 
-  - Referral Link Generation and Point Awards: [janeAnezi] implemented the referral link generation feature and the logic for awarding points to users based on successful referrals.
+  - Profile : [Joyfuol] Worked on the profile input section by changing the dummy text to a placeholder which allows users to input their details without having to delete any text.
+
+- Allergies : [Joyfuol] Added more allergies to ensure users with different ailments can benefit from the app.
+
+- Diet Options : [Joyfuol] Included more diets to the dietary options. This will enable 70% of individuals to benefit from the app.
+
+- Meal list : [Joyfuol] Updated the recommended meal plans by adding different types of meal ranging from African dishes, Chinese dishes ...
+
 
   - Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
 
