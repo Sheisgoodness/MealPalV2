@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import iconButton from "/src/assets/IconButton.png";
-import Categories from "/src/Components/Categories"
+// import Categories from "/src/Components/Categories"
+import PropTypes from "prop-types";
+import SelectCategory from "/src/Components/Categories";
+
 
   
 const SearchBar = ({ query, setQuery }) => {
@@ -10,9 +13,11 @@ const SearchBar = ({ query, setQuery }) => {
   };
 
   
-  const toggleFilterPanel = () => {
+  // const toggleFilterPanel = () => {
   
-  };
+  // };
+
+  const toggleFilterPanel = () => {};
 
   return (
     <div className="flex items-center mb-10">
@@ -236,18 +241,18 @@ const RecommendedMealPlans = () => {
     return true;
   });
 
-  const availableCategories = [
-    "Recommended",
-    "Popular",
-    "Vegan Only",
-    "Classic",
-    "Keto",
-    "LowCarbs",
-    "Flexitarian",
-    "Omnivore",
-    "Vegan",
-    "Non-Vegan",
-  ];
+  // const availableCategories = [
+  //   "Recommended",
+  //   "Popular",
+  //   "Vegan Only",
+  //   "Classic",
+  //   "Keto",
+  //   "LowCarbs",
+  //   "Flexitarian",
+  //   "Omnivore",
+  //   "Vegan",
+  //   "Non-Vegan",
+  // ];
 
   return (
     <>

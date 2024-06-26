@@ -101,6 +101,10 @@ If you already have an account, log in using these steps:
 - Achi Faith [IfyFaith24](https://github.com/ifyfaith24)
 - Chinechelum Eucharia [Eucharian8](https://github.com/Eucharian8)
 
+### Team Two
+
+- Babatunde Maryam [Joyfuol](https://github.com/Joyfuol)
+
 
   # Overview
 
