@@ -6,24 +6,24 @@ import MealPointsPage from "./pages/MealPointsPage";
 import MealHistoryPage from "./pages/MealHistoryPage";
 import "./App.css";
 import ReferralPage from "./pages/ReferralPage";
+import Makepost from "./pages/makepost";
 import Onboarding from "./pages/Onboarding";
 import Preview from "./pages/Previewmeal";
 import Mealdetails from "./pages/MealFullDetails";
 import SignUp from "./pages/SignUp";
 import RecommendedMeal from "./pages/RecommendedMeal";
+import SelectCategory from "./Components/selectCategory";
 import SignIn from "./pages/SignIn";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import CommunityPage from "./pages/CommunityPage";
 import Navbar from "./Components/Navbar";
 import Notification from "./pages/NotificationPage";
-import HealthIssuesForm from "./Components/Healthissues";
-import SelectPreferencePage from "./pages/SelectPreferencePage";
-import MealSchedulePage from "./pages/MealSchedulePage";
-import MealNutrientsPage from "./pages/MealNutrientsPage";
-import IngredientsPage from "./pages/IngredientsPage";
-import FeedbackFormPage from "./pages/FeedbackFormPage";
-import ThankYouPage from "./pages/ThankYouPage";
+// import Savedmeal from "./pages/Savedmeal";
+import ContactUsPage from "./pages/ContactUsPage";
+import SuccessPage from "./pages/SuccessPage";
+import BookmarkPage from "./pages/BookmarkPage";
+import FAQPage from "./pages/FAQPage";
 
 function App() {
   const { userLoggedIn } = useAuth();
@@ -69,6 +69,7 @@ function App() {
               </PrivateRoute>
             }
           />
+
           <Route
             path="/mealhistory"
             element={
@@ -110,6 +111,30 @@ function App() {
             }
           />
           <Route
+            path="/makepost"
+            element={
+              <PrivateRoute>
+                <Makepost />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/selectcategory"
+            element={
+              <PrivateRoute>
+                <SelectCategory />
+              </PrivateRoute>
+            }
+          />
+           <Route
+            path="/report"
+            element={
+              <PrivateRoute>
+                <Report />
+              </PrivateRoute>
+            }
+          />
+          <Route
             path="/communitypage"
             element={
               <PrivateRoute>
@@ -133,63 +158,40 @@ function App() {
               </PrivateRoute>
             }
           />
-
-          {/* New route for Health Issues */}
+      
+            <Route
+            path="/contactUs"
+            element={
+              <PrivateRoute>
+                <ContactUsPage />
+              </PrivateRoute>
+            }
+          />
+          
           <Route
-            path="/healthissuesform"
+            path="/success"
             element={
               <PrivateRoute>
-                <HealthIssuesForm />
+                <SuccessPage />
+              </PrivateRoute>
+            }
+          />
+
+           <Route
+            path="/bookmark"
+            element={
+              <PrivateRoute>
+                <BookmarkPage />
               </PrivateRoute>
             }
           />
            <Route
-            path="/SelectPreference"
+            path="/faq"
             element={
               <PrivateRoute>
-                <SelectPreferencePage />
+                <FAQPage />
               </PrivateRoute>
             }
-          />
-           <Route
-            path="/MealSchedule"
-            element={
-              <PrivateRoute>
-                <MealSchedulePage />
-              </PrivateRoute>
-            }         
-          />
-           <Route
-            path="/MealNutrients"
-            element={
-              <PrivateRoute>
-                <MealNutrientsPage />
-              </PrivateRoute>
-            }          
-          />
-           <Route
-            path="/Ingredients"
-            element={
-              <PrivateRoute>
-                <IngredientsPage />
-              </PrivateRoute>
-            }          
-          />
-           <Route
-            path="/FeedbackForm"
-            element={
-              <PrivateRoute>
-                <FeedbackFormPage />
-              </PrivateRoute>
-            }          
-          />
-           <Route
-            path="/ThankYou"
-            element={
-              <PrivateRoute>
-                <ThankYouPage />
-              </PrivateRoute>
-            }          
           />
         </Routes>
       </>

@@ -150,72 +150,11 @@ const PostMain = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex flex-col py-4 w-full bg-[#f4f4f4] rounded-5xl shadow-lg">
-        <div className="flex items-center pb-4 pl-4 w-full">
-          <form className="w-full">
-            <div className="flex justify-between items-center">
-              <div className="w-full ml-4">
-                <textarea
-                  type="text"
-                  name="text"
-                  placeholder="Write something"
-                  className="outline-none w-full bg-[#f4f4f4] rounded-md"
-                  ref={text}
-                ></textarea>
-              </div>
-              <div className="mx-4">
-                {image && (
-                  <img
-                    className="h-24 rounded-xl"
-                    src={image}
-                    alt="previewImage"
-                  ></img>
-                )}
-              </div>
-            </div>
-          </form>
-        </div>
-        <span
-          style={{ width: `${progressBar}%` }}
-          className="bg-[#101010] py-1 rounded-md"
-        ></span>
-        <div className="flex justify-between pt-10 bottom-0">
-          <div className="pl-5">
-            <button
-              className="py-2 px-5 bg-[#4248fb] text-white font-semibold rounded-full shadow-md hover:bg-[#4248fb]-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75"
-              onClick={handleSubmitPost}
-            >
-              Post
-            </button>
-          </div>
-          <div className="flex items-center">
-            <label
-              htmlFor="addImage"
-              className="cursor-pointer flex items-center"
-            >
-              <img className="h-10 mr-4" src={addImage} alt="addImage"></img>
-              <input
-                id="addImage"
-                type="file"
-                style={{ display: "none" }}
-                onChange={handleUpload}
-              ></input>
-            </label>
-            {file && (
-              <button className="text" onClick={submitImage}>
-                Upload
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
-      <TagButton />
+
       <div className="flex flex-col py-4 w-full">
-        {state?.error ? (
-          <div className="flex justify-center items-center">
-            <alert color="red">
-              Something went wrong refresh and try again...
-            </alert>
+        {state?.posts?.length == 0 ? (
+          <div className="flex justify-center items-center min-h-[50vh]">
+            <p className="text-[#777777] text-2xl">No Post Found</p>
           </div>
         ) : (
           <div>
