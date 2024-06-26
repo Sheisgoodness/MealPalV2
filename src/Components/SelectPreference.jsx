@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
+import { auth, db, onAuthStateChanged } from "../firebase/firebase";
+import { doc, setDoc } from "firebase/firestore";
 import back from '../assets/back.png';
 
 const options = {
@@ -12,7 +14,20 @@ const options = {
 
 const SelectPreference = () => {
   const [selectedItems, setSelectedItems] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setCurrentUser(user);
+      } else {
+        navigate("/login");
+      }
+    });
+
+    return () => unsubscribe();
+  }, [navigate]);
 
   const handleSelect = (category, item) => {
     const newItem = { category, item };
@@ -25,6 +40,19 @@ const SelectPreference = () => {
 
   const isSelected = (category, item) => {
     return selectedItems.some(i => i.category === category && i.item === item);
+  };
+
+  const handleSavePreferences = async () => {
+    if (currentUser) {
+      try {
+        await setDoc(doc(db, "userPreferences", currentUser.uid), {
+          selectPreferences: selectedItems,
+        });
+        navigate("/MealSchedule");
+      } catch (error) {
+        console.error("Error saving preferences: ", error);
+      }
+    }
   };
 
   return (
@@ -63,15 +91,13 @@ const SelectPreference = () => {
         </div>
       ))}
       
-      <Link to={`/MealSchedule`}>
-          <button
-            className="font-manrope text-md font-medium leading-normal
-          flex w-[358px] h-[40px] p-4
-         justify-center items-center mt-4 gap-2 flex-shrink-0 rounded-[8px] border bg-[#4268FB]"
-          >
-            Generate meal plan
-          </button>
-        </Link>
+      <button
+        onClick={handleSavePreferences}
+        className="font-manrope text-md font-medium leading-normal
+          flex w-[358px] h-[40px] p-4 justify-center items-center mt-4 gap-2 flex-shrink-0 rounded-[8px] border bg-[#4268FB]"
+      >
+        Generate meal plan
+      </button>
     </div>
   );
 };
