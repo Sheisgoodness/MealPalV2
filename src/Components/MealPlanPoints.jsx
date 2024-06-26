@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import SearchBar from "../Components/SearchBar";
 
 function MealPlanPoints() {
 
@@ -11,21 +10,20 @@ function MealPlanPoints() {
     function createMealPlan() {
 
         // to navigate to the meal plan page
-        navigate('/mealplan');
+        navigate('/CreateMealPlan');
     }
 
     
-    function mealHistory() {
-        // to navigate to the meal history page
-        navigate('/saved');
-    }
+    // function mealHistory() {
+    //     // to navigate to the meal history page
+    //     navigate('/saved');
+    // }
 
   
     return(
         <>
         
             <div className='flex flex-col justify-center items-center mt-2'>
-            <SearchBar />
                 <div className="bg-[#F0F6FF]  text-black rounded-xl flex w-[359px] h-[180px] p-3
                  items-center content-center gap-x-4 gap-y-[11px] flex-shrink-0 flex-wrap mt-6">
                     <h1 className="font-manrope text-2xl font-semibold leading-[140%] ">0 Meal Plan</h1>

@@ -1,4 +1,4 @@
-/* #root {
+ /* /* #root { 
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -44,8 +44,51 @@
 .custom-radio-btn {
   width: 20px; 
   height: 20px; 
+} */
+
+/* src/components/ContactUs.css */
+
+form div {
+  margin-bottom: 15px;
 }
 
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  height: 50px;
+}
+
+textarea {
+  height: 100px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 50px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  margin: 20px 0;
+}
+
+button:hover {
+  background-color: #0056b3;
+  width: 100%;
+  /* text-transform: center; */
+}
 .custom-checkbox {
   width: 20px;
   height: 20px;
@@ -58,7 +101,9 @@
   right: 10px;
   color: gray; 
 }
-
+.search-community::placeholder{
+  color: #70707066;
+}
 .custom-radio input[type="radio"] {
   display: none;
 }
@@ -88,6 +133,7 @@
   background-color: #4268FB; 
 }
 
+/* <<<<<<< HEAD */
 .search-bar {
   padding: 8px;
   border: 1px solid #ccc;
@@ -111,3 +157,28 @@
   cursor: pointer;
 }
 
+=======
+/* community report page  */
+
+.custom-checkbox1 {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 1px solid #101010;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+  position: relative;
+}
+
+/* Custom checkbox style for checked state */
+.custom-checkbox1:checked {
+  background-color: #4248fb; /* Example color */
+  border-color: #101010; /* Example color */
+}
+
+
+
+/* >>>>>>> cff50d023a6999a2f16b987978ee7c47a192b24c */

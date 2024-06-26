@@ -1,12 +1,38 @@
 import React from "react";
-import image from "../assets/foodplan.jpg";
+import image1 from "../assets/StarterImages/Image-1.png";
+import image2 from "../assets/StarterImages/Image-2.png";
+import image3 from "../assets/StarterImages/Image-3.png";
+import image4 from "../assets/StarterImages/Image-1.png";
+import image5 from "../assets/StarterImages/Image-2.png";
+import image6 from "../assets/StarterImages/Image-3.png";
+import image7 from "../assets/StarterImages/Image-7.png";
+import image8 from "../assets/StarterImages/Image-8.png";
+import image9 from "../assets/StarterImages/Image-9.png";
+import image10 from "../assets/StarterImages/Image-10.png";
+import image11 from "../assets/StarterImages/Image-11.png";
+import image12 from "../assets/StarterImages/Image-12.png";
 import { Link } from "react-router-dom";
 
 const GetStarted = ({ onNext }) => {
+  const images = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    image9,
+    image10,
+    image11,
+    image12
+  ];
+
   return (
     <div className="min-h-screen w-screen flex flex-col">
-      <div className="flex-[5] grid grid-cols-4 grid-rows-3 gap-2 p-2">
-        {Array.from({ length: 12 }).map((_, index) => (
+      <div className="flex-[5] grid grid-cols-3 grid-rows-4 gap-2 p-2">
+        {images.map((image, index) => (
           <div
             key={index}
             className="bg-cover bg-center"
@@ -14,7 +40,7 @@ const GetStarted = ({ onNext }) => {
               backgroundImage: `url(${image})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              borderRadius: "8px", // Add border radius here
+              borderRadius: "8px",
             }}
           ></div>
         ))}

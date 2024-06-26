@@ -7,6 +7,7 @@ import fetchMeals from "../loadData";
 import SearchBar from "../Components/SearchBar";
 import recommend from "../assets/recommend.png";
 
+
 function HomePage() {
   const [meals, setMeals] = useState([]);
   const [filteredMeals, setFilteredMeals] = useState([]);
@@ -138,7 +139,7 @@ function HomePage() {
         Load More
       </button>
       <div className="inline-flex py-4  gap-4 justify-center content-center">
-        <Link to={`/mealplan`}>
+        <Link to={`/CreateMealPlan`}>
           <button
             type="btn"
             className="px-2 py-1 border  

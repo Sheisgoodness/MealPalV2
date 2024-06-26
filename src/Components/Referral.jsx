@@ -1,31 +1,44 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import share from "../assets/meal-history/Share.png";
 import link from "../assets/meal-history/Link.png";
+import { useAuth } from "../Contexts/AuthContext";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/firebase";
 
 export default function Referral() {
-  const [referralLink, setReferralLink] = useState("");
+  const { currentUser } = useAuth();
+  const [referralLink, setReferralLink] = useState(currentUser?.uid);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [copiedCount, setCopiedCount] = useState(0);
+  const [copiedCount, setCopiedCount] = useState("loading...");
+
+  const getPointsFromFirebase = async () => {
+    try {
+      const docss = await getDoc(doc(db, "users", currentUser?.uid));
+
+      console.log(docss.data(), currentUser?.uid);
+      if (docss.exists() && docss.data()?.points) {
+        const data = docss.data();
+        setCopiedCount(data.points);
+      } else {
+        setCopiedCount(0);
+      }
+    } catch (e) {
+      console.error("Error getting points from firebase:", e);
+    }
+  };
 
   // to set loggedin state to true to automatically generate referral link
   useEffect(() => {
     setIsLoggedIn(true);
+    getPointsFromFirebase();
     generateReferralLink();
-  }, []);
-
-  // to retrieve the points from localStorage and display the latest points for each user
-  useEffect(() => {
-    const points = localStorage.getItem("Points");
-    if (points) {
-      setCopiedCount(parseInt(points));
-    }
   }, []);
 
   // to generate the referral link
   const generateReferralLink = async () => {
     try {
       const referralCode = generateRandomReferralCode();
-      const referralLink = `https://MealPal.com/signup?referral=${referralCode}`;
+      const referralLink = `https://meal-pal-v2-delta.vercel.app/signup?referral=${referralCode}`;
       // to Save referral code to local storage
       localStorage.setItem("referralCode", referralCode);
 
@@ -37,15 +50,7 @@ export default function Referral() {
 
   // to generate random characters  for referral link
   const generateRandomReferralCode = () => {
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let referralCode = "";
-    for (let i = 0; i < 6; i++) {
-      referralCode += characters.charAt(
-        Math.floor(Math.random() * characters.length)
-      );
-    }
-    return referralCode;
+    return currentUser?.uid;
   };
 
   // to copy the referral link to clipboard

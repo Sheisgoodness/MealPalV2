@@ -111,11 +111,22 @@ function Navbar() {
               <NavItem to="/communitypage" currentPath={location.pathname}>
                 Community Forum
               </NavItem>
+
+              {/*  New NavItem added */}
+              <NavItem to="/ContactUs" currentPath={location.pathname}>
+                ContactUs
+              </NavItem>
+              <NavItem to="/bookmark" currentPath={location.pathname}>
+                Bookmark
+              </NavItem>
+              <NavItem to="/Faq" currentPath={location.pathname}>
+                FAQ
+              </NavItem>
               <button
                 className="block py-2 px-3 text-red-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-red md:dark:hover:text-red-300 dark:hover:bg-gray-700 dark:hover:text-red-500 md:dark:hover:bg-transparent cursor-pointer"
                 onClick={handleSignOut}
               >
-                Sign Out
+                LogOut
               </button>
             </ul>
           </div>

@@ -31,7 +31,12 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
   const { ADD_LIKE, HANDLE_ERROR } = postActions;
   const [open, setOpen] = useState(false);
   const [comments, setComments] = useState([]);
+  const [showOptions, setShowOptions] = useState(false)
 
+  function toggleShowOption() {
+    setShowOptions(prevShowOptions => !prevShowOptions);
+    console.log(currentUser)
+  }
   const handleOpen = (e) => {
     e.preventDefault();
     setOpen((prevOpen) => !prevOpen); // Toggle the open state
@@ -97,68 +102,69 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
   };
 
   return (
-    <div className="mb-4">
-      <div className="flex flex-col border border-white-300 shadow-md py-4 bg-white rounded-t-3xl px-5">
-        <div className="flex items-center pb-4">
-          <Link to="/profile" onClick={handleNavigateToProfile}>
-            <div className="flex -space-x-1 overflow-hidden">
-              <img
-                className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                src={logo || avatar}
-                alt="image"
-              />
-            </div>
-          </Link>
-
-          <div className="flex justify-between w-full">
-            <div>
-              <p className="ml-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
-                {name}
-              </p>
-              <p className="ml-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
-                {email}
-              </p>
-            </div>
-
-            <p className="mr-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
-              {timestamp}
-            </p>
-          </div>
-        </div>
+   <div className="relative">
+       <div className="my-6 border border-[#F1F1F1] rounded-md p-3 shadow-neutral-300">
+      <div className="flex gap-2 items-center" to="/profile" onClick={handleNavigateToProfile}>
+        <img className="object-cover rounded-full object-center w-[50px] h-[50px]" src={logo || avatar} alt="user photo" />
         <div>
-          <p className=" pb-4 font-roboto font-medium text-sm text-gray-700 no-underline tracking-normal leading-none">
-            {text}
-          </p>
-          {image && (
-            <img className="mt-5  w-full" src={image} alt="postImage"></img>
-          )}
+          <h4 className="font-medium truncate max-w-[180px] text-md text-[#101010]">{name}</h4>
+          <p className="text-[#504F4F] text-[14px]">{timestamp}</p>
         </div>
-        <div className="flex justify-around items-center pt-4">
-          <button
-            className="flex items-center cursor-pointer rounded-lg p-2 hover:bg-gray-100"
-            onClick={handleLike}
-          >
-            <img className="h-8" src={like} alt=""></img>
-            <p className="font-roboto font-medium text-md text-gray-700 no-underline tracking-normal leading-none">
-              Love {""}
-            </p>
-            ({state.likes?.length > 0 && state?.likes?.length})
-          </button>
-          <div
-            className="flex items-center cursor-pointer rounded-lg p-2 hover:bg-gray-10"
-            onClick={handleOpen}
-          >
-            <div className="flex items-center cursor-pointer">
-              <img className="h-8" src={comment} alt="comment"></img>
-              <p className="font-roboto font-medium text-md text-gray-700 no-underline tracking-normal leading-none">
-                Comments ({commentCount})
-              </p>
-            </div>
+      </div>
+      <p className="text-[#272727] font-normal text-[16px] leading-6 my-3">{text}</p>
+      {image &&
+      <div className="w-full rounded-lg">
+        <img className="w-full h-[150px] object-cover object-center rounded-lg" src={image} alt="food" />
+      </div>
+      }
+      <div className="flex items-center justify-between mt-7 mb-3">
+        <div className="flex items-center gap-8">
+          <div className="flex items-center gap-2">
+            <span onClick={handleLike} className="material-symbols-outlined text-[25px] font-thin">favorite</span>
+            <span>{state?.likes?.length}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span onClick={handleOpen} className="material-symbols-outlined text-[25px] font-thin">chat</span>
+            <span>{commentCount}</span>
           </div>
         </div>
+        <span className="material-symbols-outlined text-[25px] font-thin">bookmark</span>
       </div>
       {open && <CommentSection postId={id}></CommentSection>}
     </div>
+    <div onClick={toggleShowOption} className="absolute top-4 right-4 ">
+          <span className="material-symbols-outlined text-[#D9D9D9] text-3xl cursor-pointer">more_horiz</span>
+    </div>
+    {
+        showOptions && (
+          <div className="absolute top-12 right-4 text-[#242424] flex flex-col gap-3 bg-[#F4F4F4] px-4 py-3 rounded-lg">
+            <div className="items-center flex gap-2">
+              <span className="material-symbols-outlined">content_copy</span>
+              <span className="">Copy Link</span>
+            </div>
+            {currentUser.displayName === name ? (
+              <>
+                <div className="items-center flex gap-2">
+                  <span className="material-symbols-outlined">border_color</span>
+                  <span>Edit</span>
+                </div>
+                <div className="items-center flex gap-2">
+                  <span className="material-symbols-outlined">delete</span>
+                  <span>Delete</span>
+                </div>
+              </>
+            ) : (
+              <Link to="/report">
+                <div className="items-center flex gap-2">
+                <span className="material-symbols-outlined">flag</span>
+                <span>Report</span>
+                </div>
+              </Link>
+            )}
+          </div>
+        )
+      }
+   </div>
   );
 };
 

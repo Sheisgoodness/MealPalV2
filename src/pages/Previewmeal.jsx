@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import MealListing from "../Components/MealListing";
+import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
+
 
 
 function Preview() {
@@ -97,12 +99,15 @@ function Preview() {
       </div>
 
       <div className="flex align-center justify-center gap-2 ">
+        <Link to= '/savedmeal'>
         <button
           type="btn"
           className="px-2 py-1 bg-[#4268FB] text-white rounded-md text-sm"
         >
           Add to bookmark
         </button>
+        </Link>
+
         <button
           type="btn"
           className="px-10 py-2 bg-[#777777] text-white rounded-md text-sm"
