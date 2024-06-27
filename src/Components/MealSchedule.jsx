@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import chevron from "../assets/chevron.png";
-import bookmark from "../assets/bookmark.png";
 import back from '../assets/back.png';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import fetchMeals from '../loadData';
 
 const initialMealPlan = {
   Week1: {
-    Day1: ["Vege-Salad Breakfast", "Vege-Salad Lunch", "Vege-Salad Dinner"],
-    Day2: ["Vege-Salad Breakfast", "Vege-Salad Lunch", "Vege-Salad Dinner"],
-    Day3: ["Vege-Salad Breakfast", "Vege-Salad Lunch", "Vege-Salad Dinner"],
+    Day1: [],
+    Day2: [],
+    Day3: [],
   },
   Week2: {
-    Day1: ["Vege-Salad Breakfast", "Vege-Salad Lunch", "Vege-Salad Dinner"],
-    Day2: ["Vege-Salad Breakfast", "Vege-Salad Lunch", "Vege-Salad Dinner"],
-    Day3: ["Vege-Salad Breakfast", "Vege-Salad Lunch", "Vege-Salad Dinner"],
+    Day1: [],
+    Day2: [],
+    Day3: [],
   },
 };
 
@@ -21,6 +22,56 @@ const MealSchedule = () => {
   const [mealPlan, setMealPlan] = useState(initialMealPlan);
   const [activeWeek, setActiveWeek] = useState('Week1');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchUserPreferences = async () => {
+      const db = getFirestore();
+      const dislikesDoc = await getDoc(doc(db, 'userPreferences', 'dislikes'));
+      const preferencesDoc = await getDoc(doc(db, 'userPreferences', 'selectPreferences'));
+      const allergiesDoc = await getDoc(doc(db, 'userPreferences', 'allergies'));
+
+      const dislikes = dislikesDoc.data()?.options || [];
+      const selectPreferences = preferencesDoc.data()?.preferences || [];
+      const allergies = allergiesDoc.data()?.options || [];
+
+      return { dislikes, selectPreferences, allergies };
+    };
+
+    const fetchMealData = async () => {
+      try {
+        const { dislikes, selectPreferences, allergies } = await fetchUserPreferences();
+        
+        const week1Day1 = await fetchMeals(0, selectPreferences, dislikes, allergies);
+        const week1Day2 = await fetchMeals(3, selectPreferences, dislikes, allergies);
+        const week1Day3 = await fetchMeals(6, selectPreferences, dislikes, allergies);
+
+        const week2Day1 = await fetchMeals(1, selectPreferences, dislikes, allergies);
+        const week2Day2 = await fetchMeals(4, selectPreferences, dislikes, allergies);
+        const week2Day3 = await fetchMeals(7, selectPreferences, dislikes, allergies);
+
+        setMealPlan({
+          Week1: {
+            Day1: week1Day1,
+            Day2: week1Day2,
+            Day3: week1Day3,
+          },
+          Week2: {
+            Day1: week2Day1,
+            Day2: week2Day2,
+            Day3: week2Day3,
+          },
+        });
+      } catch (error) {
+        console.error('Error fetching meal data:', error);
+      }
+    };
+
+    fetchMealData();
+  }, []);
+
+  const handleChevronClick = (meal) => {
+    navigate('/MealNutrients', { state: { meal } });
+  };
 
   return (
     <div className="flex flex-col justify-center items-center mb-10 mt-6 p-6">
@@ -30,13 +81,13 @@ const MealSchedule = () => {
         style={{ cursor: 'pointer', position: 'absolute', top: 70, left: 10, width: 20, height: 20 }}
         onClick={() => navigate(-1)}
       />
-    <div className='flex flex-col items-start'>
-    <h1 className="text-2xl font-bold text-start">Meal schedule</h1>
-      <textarea
-        className="w-[334px] border p-2 mt-2 rounded"
-        placeholder="Add a description here"
-      />
-    </div>
+      <div className='flex flex-col items-start'>
+        <h1 className="text-2xl font-bold text-start">Meal schedule</h1>
+        <textarea
+          className="w-[334px] border p-2 mt-2 rounded"
+          placeholder="Add a description here"
+        />
+      </div>
      
       <div className="flex items-center gap-3 w-[360px] mt-4">
         <button
@@ -54,39 +105,45 @@ const MealSchedule = () => {
       </div>
 
       <div className="flex flex-col mt-4 pl-12 pr-6">
-        {Object.keys(mealPlan[activeWeek]).map(day => (
-          <div key={day} className="flex flex-col items-start gap-4 mb-4">
-            <h3 className="text-md font-medium">{day}</h3>
-            {mealPlan[activeWeek][day].map((meal, index) => {
-              const [mealName, mealType] = meal.split(' ');
-              return (
-                <div
-                  key={index}
-                  className="flex justify-between items-center border-gray-100 border-b-2 p-2  w-[390px]"
-                >
-                  <div className="flex flex-col justify-center items-start">
-                    <p>{mealName}</p>
-                    <p className="bg-[#F4F4F4] text-blue-500 p-1 rounded">{mealType}</p>
-                  </div>
-                  <img
-                    src={chevron}
-                    alt="chevron right"
-                    className="h-4 w-4"
-                  />
-                </div>
-              );
-            })}
+      {Object.keys(mealPlan[activeWeek]).map(day => (
+  <div key={day} className="flex flex-col items-start gap-4 mb-4">
+    <h3 className="text-md font-medium">{day}</h3>
+    {Array.isArray(mealPlan[activeWeek][day]) ? (
+      mealPlan[activeWeek][day].map((meal, index) => (
+        <div
+          key={index}
+          className="flex justify-between items-center border-gray-100 border-b-2 p-2  w-[390px]"
+        >
+          <div className="flex flex-col justify-center items-start">
+            <p>{meal.title}</p>
+            <p className="bg-[#F4F4F4] text-blue-500 p-1 rounded">{meal.type}</p>
           </div>
-        ))}
+          <Link to="/MealNutrients" className="cursor-pointer" onClick={() => handleChevronClick(meal)}>
+            <img
+              src={chevron}
+              alt="chevron right"
+              className="h-4 w-4"
+            />
+          </Link>
+        </div>
+      ))
+    ) : (
+      <p className="m-3 text-red-600 w-[360px]">
+      No meals found. API call has been exceeded for the day. Try again in
+      24 hours.
+    </p>
+    )}
+  </div>
+))}
       </div>
       <div>
         <Link to={`/MealNutrients`}>
           <button
             className="font-manrope text-md font-medium mt-10 leading-normal
             flex w-[358px] h-[40px] p-4
-           justify-center items-center gap-2 flex-shrink-0 rounded-[8px] border text-white bg-[#4268FB]"
+            justify-center items-center gap-2 flex-shrink-0 rounded-[8px] border text-white bg-[#4268FB]"
           >
-           Proceed
+            Proceed
           </button>
         </Link>
       </div>

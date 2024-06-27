@@ -1,77 +1,90 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Frameone from "../assets/Frameone.png";
 import reset from "../assets/reset.png";
 import servingIcon from "../assets/servingIcon.png";
 import bookmark from "../assets/bookmark.png";
-import back from "../assets/back.png";
+import back from '../assets/back.png';
 
 const MealNutrients = () => {
+  const [recipeDetail, setRecipeDetail] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { meal } = location.state;
+
+  const apiKey = process.env.REACT_APP_API_KEY;
+
+  useEffect(() => {
+    const fetchRecipe = async () => {
+      try {
+        const response = await fetch(
+          `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${apiKey}`
+        );
+        const recipeDetailData = await response.json();
+        setRecipeDetail(recipeDetailData);
+      } catch (error) {
+        console.error("Error fetching recipe:", error);
+      }
+    };
+
+    fetchRecipe();
+  }, [apiKey, meal.id]);
+
   const handleIngredientsClick = () => {
-    navigate('/Ingredients');
+    navigate(`/Ingredients/${meal.id}`);
   };
+
+  if (!recipeDetail) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="flex flex-col p-6 justify-center items-center">
       <img
         src={back}
         alt="Back"
-        style={{ cursor: 'pointer', position: 'absolute', top: 70, left: 10, width: 20, height: 20 }}
+        style={{
+          cursor: "pointer",
+          position: "absolute",
+          top: 70,
+          left: 10,
+          width: 20,
+          height: 20,
+        }}
         onClick={() => navigate(-1)}
       />
       <div className="flex flex-col gap-3 w-[358px] h-[159px]">
         <h1 className="font-manrope text-lg font-semibold leading-normal">
-          Cabbage Stir Fry
+          {recipeDetail.title}
         </h1>
-        <img
-          src={Frameone}
-          alt="food image"
-          className="rounded rounded-t-md"
-        />
+        <img src={Frameone} alt="food image" className="rounded rounded-t-md" />
       </div>
       <div className="flex mt-4 gap-6">
-        <div className="inline-flex p-2 items-center gap-2 w-[137px] h-[32px]
-             rounded-md border border-gray-300 bg-gray-50">
-          <img
-            src={reset}
-            alt="reset icon"
-            className="w-4 h-4"
-          />
+        <div className="inline-flex p-2 items-center gap-2 w-[137px] h-[32px] rounded-md border border-gray-300 bg-gray-50">
+          <img src={reset} alt="reset icon" className="w-4 h-4" />
           <p className="text-[#171717] font-manrope text-xs font-semibold leading-[1.2]">
-            1 HOUR , 10 MINS
+            {recipeDetail.readyInMinutes} MINS
           </p>
         </div>
-        <div className="inline-flex p-2 items-center gap-2 w-[137px] h-[32px]
-             rounded-md border border-gray-300 bg-gray-50">
-          <img
-            src={servingIcon}
-            alt="serving icon"
-            className="w-4 h-4"
-          />
+        <div className="inline-flex p-2 items-center gap-2 w-[137px] h-[32px] rounded-md border border-gray-300 bg-gray-50">
+          <img src={servingIcon} alt="serving icon" className="w-4 h-4" />
           <p className="text-[#171717] font-manrope text-xs font-semibold leading-[1.2]">
-            1 SERVING
+            {recipeDetail.servings} SERVINGS
           </p>
         </div>
       </div>
       <div className="flex w-[390px] items-center mt-6 h-[62px] border-b-2 p-4 border-b-gray-100 gap-6">
-        <div className="flex p-1 md:p-2 justify-center items-center w-[71px] h-[26px] gap-2 rounded-xl 
-            border border-[#4268FB] bg-[#F0F6FF]">
+        <div className="flex p-1 md:p-2 justify-center items-center w-[71px] h-[26px] gap-2 rounded-xl border border-[#4268FB] bg-[#F0F6FF]">
           <p className="text-[#4268FB] text-center font-manrope text-xs font-semibold leading-[1.5]">
             Nutrients
           </p>
         </div>
-        <div className="flex p-1 md:p-2 justify-center items-center w-[110px] h-[26px] gap-2 rounded-xl 
-             bg-[#F4F4F4] cursor-pointer"
-             onClick={handleIngredientsClick}>
-          
-            <p className="text-center font-manrope text-xs font-semibold leading-[1.5]">
-              Ingredients
-            </p>
-         
+        <div className="flex p-1 md:p-2 justify-center items-center w-[110px] h-[26px] gap-2 rounded-xl bg-[#F4F4F4] cursor-pointer" onClick={handleIngredientsClick}>
+          <p className="text-center font-manrope text-xs font-semibold leading-[1.5]">
+            Ingredients
+          </p>
         </div>
-        <div className="flex p-1 md:p-2 justify-center items-center w-[130px] h-[26px] gap-2 rounded-xl 
-             bg-[#F4F4F4]">
+        <div className="flex p-1 md:p-2 justify-center items-center w-[130px] h-[26px] gap-2 rounded-xl bg-[#F4F4F4]">
           <p className="text-center font-manrope text-xs font-semibold leading-[1.5]">
             How to prepare it
           </p>
@@ -84,7 +97,7 @@ const MealNutrients = () => {
             Calories
           </p>
           <p className="text-gray-900 font-manrope font-semibold text-base leading-[1.4]">
-            250g
+            {recipeDetail.nutrition.nutrients.find(nutrient => nutrient.title === 'Calories')?.amount || '-'}
           </p>
         </div>
         <div className="flex justify-between h-[22px]">
@@ -92,7 +105,7 @@ const MealNutrients = () => {
             Total Fat
           </p>
           <p className="text-gray-900 font-manrope font-semibold text-base leading-[1.4]">
-            10g
+            {recipeDetail.nutrition.nutrients.find(nutrient => nutrient.title === 'Fat')?.amount || '-'}
           </p>
         </div>
         <div className="flex justify-between h-[22px]">
@@ -100,7 +113,7 @@ const MealNutrients = () => {
             Protein
           </p>
           <p className="text-gray-900 font-manrope font-semibold text-base leading-[1.4]">
-            27g
+            {recipeDetail.nutrition.nutrients.find(nutrient => nutrient.title === 'Protein')?.amount || '-'}
           </p>
         </div>
         <div className="flex justify-between h-[22px]">
@@ -108,7 +121,7 @@ const MealNutrients = () => {
             Total Carbohydrates
           </p>
           <p className="text-gray-900 font-manrope font-semibold text-base leading-[1.4]">
-            12g
+            {recipeDetail.nutrition.nutrients.find(nutrient => nutrient.title === 'Carbohydrates')?.amount || '-'}
           </p>
         </div>
         <div className="flex justify-between h-[22px]">
@@ -116,7 +129,7 @@ const MealNutrients = () => {
             Sugar
           </p>
           <p className="text-gray-900 font-manrope font-semibold text-base leading-[1.4]">
-            11g
+            {recipeDetail.nutrition.nutrients.find(nutrient => nutrient.title === 'Sugar')?.amount || '-'}
           </p>
         </div>
       </div>
@@ -133,6 +146,6 @@ const MealNutrients = () => {
       </Link>
     </div>
   );
-};
+}
 
 export default MealNutrients;
