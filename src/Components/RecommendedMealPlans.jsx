@@ -1,20 +1,17 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import iconButton from "/src/assets/IconButton.png";
 // import Categories from "/src/Components/Categories"
 import PropTypes from "prop-types";
 import SelectCategory from "/src/Components/Categories";
 
-
-  
 const SearchBar = ({ query, setQuery }) => {
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
 
-  
   // const toggleFilterPanel = () => {
-  
+
   // };
 
   const toggleFilterPanel = () => {};
@@ -60,6 +57,11 @@ const RecommendedMealPlans = () => {
     }));
   };
 
+  // const handleMealClick = (meal) => {
+  //   // alert(`Clicked on ${meal.name}`);
+  //   // You can also use navigate to a different route, e.g.,
+  //   navigate(`/meal/${meal.name}`);
+  // };
   // const navigate = useNavigate();
 
   const meals = [
@@ -201,6 +203,7 @@ const RecommendedMealPlans = () => {
 
     // Add more meals as needed
   ];
+
 
   const filteredMeals = meals.filter((meal) => {
     //   meal.name.toLowerCase().includes(query.toLowerCase())

@@ -9,6 +9,7 @@ export default {
       backgroundImage: {
         'foodbg': "url('./src/assets/images/foodbg.jpg')",
       }, 
+      
       keyframes: {
         'custom-ping': {
           '50%, 100%': { transform: 'scale(2)', opacity: 0 },
