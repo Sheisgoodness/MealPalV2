@@ -133,6 +133,31 @@ button:hover {
   background-color: #4268FB; 
 }
 
+/* <<<<<<< HEAD */
+.search-bar {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.w-9 {
+  width: 1.5rem;
+}
+
+.h-9 {
+  height: 1.5rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+
 /* community report page  */
 
 .custom-checkbox1 {
@@ -156,3 +181,4 @@ button:hover {
 
 
 
+/* >>>>>>> cff50d023a6999a2f16b987978ee7c47a192b24c */
