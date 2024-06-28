@@ -132,7 +132,7 @@ function App() {
             path="/report"
             element={
               <PrivateRoute>
-                <Report />
+                <report />
               </PrivateRoute>
             }
           />
