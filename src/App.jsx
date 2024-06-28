@@ -25,7 +25,7 @@ import SuccessPage from "./pages/SuccessPage";
 import BookmarkPage from "./pages/BookmarkPage";
 import FAQPage from "./pages/FAQPage";
 import Report from "./pages/report";
-import MealDetail from "./Components/MealDetail"
+import MealDetail from "./Components/MealDetail";
 
 function App() {
   const { userLoggedIn } = useAuth();
