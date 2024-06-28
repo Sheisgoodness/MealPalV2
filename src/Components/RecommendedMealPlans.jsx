@@ -1,9 +1,10 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import iconButton from "/src/assets/IconButton.png";
 // import Categories from "/src/Components/Categories"
 import PropTypes from "prop-types";
 import SelectCategory from "/src/Components/Categories";
+import Bookmark from "/src/assets/bookmark.png";
 
 const SearchBar = ({ query, setQuery }) => {
   const handleInputChange = (event) => {
@@ -204,7 +205,6 @@ const RecommendedMealPlans = () => {
     // Add more meals as needed
   ];
 
-
   const filteredMeals = meals.filter((meal) => {
     //   meal.name.toLowerCase().includes(query.toLowerCase())
     // );
@@ -385,6 +385,11 @@ const RecommendedMealPlans = () => {
                   ))}
                 </div>
               </div>
+              <img
+                src={Bookmark}
+                alt="Bookmark Icon"
+                className="w-6 h-6 bg-blue-500 cursor-pointer"
+              />
             </li>
           ))}
         </ul>
