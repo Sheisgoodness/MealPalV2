@@ -19,12 +19,13 @@ import ProfilePage from "./pages/ProfilePage";
 import CommunityPage from "./pages/CommunityPage";
 import Navbar from "./Components/Navbar";
 import Notification from "./pages/NotificationPage";
-// import Savedmeal from "./pages/Savedmeal";
+import Savedmeal from "./pages/Savedmeal";
 import ContactUsPage from "./pages/ContactUsPage";
 import SuccessPage from "./pages/SuccessPage";
 import BookmarkPage from "./pages/BookmarkPage";
 import FAQPage from "./pages/FAQPage";
 import Report from "./pages/report";
+import MealDetail from "./Components/MealDetail"
 
 function App() {
   const { userLoggedIn } = useAuth();
@@ -53,7 +54,7 @@ function App() {
               </PrivateRoute>
             }
           />
-          
+
           <Route
             path="/CreateMealPlan"
             element={
@@ -91,7 +92,7 @@ function App() {
             path="/mealdetails/:id"
             element={
               <PrivateRoute>
-                <Mealdetails />
+                <MealDetail />
               </PrivateRoute>
             }
           />
@@ -127,7 +128,7 @@ function App() {
               </PrivateRoute>
             }
           />
-           <Route
+          <Route
             path="/report"
             element={
               <PrivateRoute>
@@ -159,8 +160,16 @@ function App() {
               </PrivateRoute>
             }
           />
-      
-            <Route
+          <Route
+            path="/meal/:mealName"
+            element={
+              <PrivateRoute>
+                <MealDetail />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
             path="/contactUs"
             element={
               <PrivateRoute>
@@ -168,7 +177,7 @@ function App() {
               </PrivateRoute>
             }
           />
-          
+
           <Route
             path="/success"
             element={
@@ -178,7 +187,7 @@ function App() {
             }
           />
 
-           <Route
+          <Route
             path="/bookmark"
             element={
               <PrivateRoute>
@@ -186,7 +195,7 @@ function App() {
               </PrivateRoute>
             }
           />
-           <Route
+          <Route
             path="/faq"
             element={
               <PrivateRoute>
@@ -195,12 +204,8 @@ function App() {
             }
           />
         </Routes>
-
-             
-                   </>
+      </>
     </div>
-
-    
   );
 }
 
