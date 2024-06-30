@@ -1,20 +1,21 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import iconButton from "/src/assets/IconButton.png";
 // import Categories from "/src/Components/Categories"
 import PropTypes from "prop-types";
 import SelectCategory from "/src/Components/Categories";
+import  Bookmark   from "/src/assets/bookmark.png";
+import { useBookmarks } from "/src/Contexts/BookmarkContext";
+import BookmarkIcon from "/src/Components/BookmarkIcon"
 
 
-  
 const SearchBar = ({ query, setQuery }) => {
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
 
-  
   // const toggleFilterPanel = () => {
-  
+
   // };
 
   const toggleFilterPanel = () => {};
@@ -38,6 +39,12 @@ const SearchBar = ({ query, setQuery }) => {
   );
 };
 
+
+SearchBar.propTypes = {
+  query: PropTypes.string.isRequired,
+  setQuery: PropTypes.func.isRequired,
+};
+
 const RecommendedMealPlans = () => {
   const [query, setQuery] = useState("");
   const [filters, setFilters] = useState({
@@ -47,6 +54,8 @@ const RecommendedMealPlans = () => {
   });
 
   const [showFilterPanel, setShowFilterPanel] = useState(false);
+const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
+
 
   const toggleFilterPanel = () => {
     setShowFilterPanel(!showFilterPanel);
@@ -60,7 +69,17 @@ const RecommendedMealPlans = () => {
     }));
   };
 
+ 
   // const navigate = useNavigate();
+
+  const toggleBookmark = (meal) => {
+    if (bookmarks.some((item) => item.name === meal.name)) {
+      removeBookmark(meal);
+    } else {
+      addBookmark(meal);
+    }
+  };
+
 
   const meals = [
     {
@@ -203,8 +222,7 @@ const RecommendedMealPlans = () => {
   ];
 
   const filteredMeals = meals.filter((meal) => {
-    //   meal.name.toLowerCase().includes(query.toLowerCase())
-    // );
+    
 
     // Filter by search query
     if (query && !meal.name.toLowerCase().includes(query.toLowerCase())) {
@@ -241,19 +259,6 @@ const RecommendedMealPlans = () => {
     return true;
   });
 
-  // const availableCategories = [
-  //   "Recommended",
-  //   "Popular",
-  //   "Vegan Only",
-  //   "Classic",
-  //   "Keto",
-  //   "LowCarbs",
-  //   "Flexitarian",
-  //   "Omnivore",
-  //   "Vegan",
-  //   "Non-Vegan",
-  // ];
-
   return (
     <>
       <h1 className="text-3xl text-black font-Manrope font-bold mt-4 mb-4">
@@ -263,7 +268,7 @@ const RecommendedMealPlans = () => {
       <SearchBar
         query={query}
         setQuery={setQuery}
-        toggleFilterPanel={toggleFilterPanel}
+        // toggleFilterPanel={toggleFilterPanel}
       />
 
       {showFilterPanel && (
@@ -382,6 +387,17 @@ const RecommendedMealPlans = () => {
                   ))}
                 </div>
               </div>
+              {/* <img
+                src={Bookmark ? Bookmark : Bookmark}
+                alt="Bookmark Icon"
+                className="bookmarkIcon w-6 h-6 cursor-pointer bg-[#F4F4F4] "
+                onClick={() => toggleBookmark(meal)}
+              /> */}
+
+              <BookmarkIcon
+                filled={bookmarks.some((item) => item.name === meal.name)}
+                onClick={() => toggleBookmark(meal)}
+              />
             </li>
           ))}
         </ul>

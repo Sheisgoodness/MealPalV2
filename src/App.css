@@ -158,6 +158,12 @@ button:hover {
 }
 
 
+.blue-bullet li::marker {
+  color: blue;
+}
+
+
+
 /* community report page  */
 
 .custom-checkbox1 {
