@@ -16,8 +16,9 @@ import {
     collection,
     serverTimestamp,
   } from "firebase/firestore";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Makepost = () => {
+  const navigate = useNavigate();
     const text = useRef("");
     const [image, setImage] = useState(null);
     const [file, setFile] = useState(null);
@@ -92,22 +93,35 @@ const Makepost = () => {
               throw new Error("User ID is undefined");
             }
     
-            const postDocRef = doc(collection(db, "posts"));
-            const documentId = postDocRef.id;
+            // const postDocRef = doc(collection(db, "posts"));
+            // const documentId = postDocRef.id;
     
-            await setDoc(postDocRef, {
-              documentId: documentId,
+            // await setDoc(postDocRef, {
+            //   documentId: documentId,
+            //   uid: currentUser.uid,
+            //   logo: currentUser?.photoURL,
+            //   name: name,
+            //   email: email,
+            //   text: text.current.value,
+            //   image: image,
+            //   timestamp: serverTimestamp(),
+            // });
+            // text.current.value = "";
+
+            sessionStorage.setItem("userPost", JSON.stringify({
+              // documentId: documentId,
               uid: currentUser.uid,
               logo: currentUser?.photoURL,
               name: name,
               email: email,
               text: text.current.value,
               image: image,
-              timestamp: serverTimestamp(),
-            });
-            text.current.value = "";
+            }));
+
+            navigate('/selectcategory')
+
           } catch (err) {
-            dispatch({ type: HANDLE_ERROR });
+            // dispatch({ type: HANDLE_ERROR });
             // alert(err.message);
             toast.error(err.message);
             console.log(err.message);
@@ -128,7 +142,7 @@ const Makepost = () => {
                   type="text"
                   name="text"
                   placeholder="Write something"
-                  className="outline-none w-full bg-[#f4f4f4] rounded-md"
+                  className="outline-none w-full bg-[#f4f4f4] rounded-md p-4"
                   ref={text}
                   ></textarea>
               </div>
@@ -171,13 +185,14 @@ const Makepost = () => {
             )}
           </div>
           <div className="pr-5">
-            <Link to='/selectcategory'>
               <button
+              onClick={handleSubmitPost}
                 className="py-2 px-5 bg-[#4248fb] text-white font-semibold rounded-md shadow-md hover:bg-[#4248fb]-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75"
                 >
                 Post
               </button>
-            </Link>
+            {/* <Link to=>
+            </Link> */}
           </div>
         </div>
     </div>
