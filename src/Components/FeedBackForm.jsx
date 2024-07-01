@@ -9,17 +9,28 @@ const FeedbackForm = ({ onNext }) => {
     emailjs.init('KYgb0SF17-2P5HPAC');
   }, []);
 
-  const sendFeedback = (e) => {
+  const sendFeedback = async (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_kx1nuvi', 'template_53buy4a', e.target)
-      .then((result) => {
-        console.log(result.text);
+    try {
+      const serviceId = 'service_kx1nuvi';
+      const templateId = 'template_53buy4a';
+      const userConfirmationTemplateId = 'template_53buy4a';
+      const userId = 'KYgb0SF17-2P5HPAC';
 
-        onNext();
-      }, (error) => {
-        console.log(error.text);
+      
+      await emailjs.sendForm(serviceId, templateId, e.target);
+
+      
+      await emailjs.send(serviceId, userConfirmationTemplateId, {
+        to_email: e.target.email.value, 
       });
+
+      console.log('Feedback submitted successfully');
+      onNext(); 
+    } catch (error) {
+      console.error('Error sending feedback:', error);
+    }
   };
 
   return (
