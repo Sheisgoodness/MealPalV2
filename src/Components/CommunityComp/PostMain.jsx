@@ -137,6 +137,7 @@ const PostMain = () => {
       const q = query(collectionRef, orderBy("timestamp", "asc"));
       const unsubscribe = onSnapshot(q, (querySnapshot) => {
         const postsData = querySnapshot.docs.map((doc) => doc.data());
+        console.log("Posts", postsData);
         dispatch({ type: SUBMIT_POST, posts: postsData });
         scrollRef?.current?.scrollIntoView({ behavior: "smooth" });
         setImage(null);
@@ -159,7 +160,7 @@ const PostMain = () => {
         ) : (
           <div>
             {state?.posts?.length > 0 &&
-              state?.posts?.map((post, index) => {
+              state?.posts?.sort((a, b) => b.timestamp.toDate() - a.timestamp.toDate()).map((post, index) => {
                 const timestamp = new Date(post?.timestamp?.toDate());
 
                 // Calculate the difference between now and the post timestamp

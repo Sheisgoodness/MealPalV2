@@ -25,7 +25,7 @@ import { Link, useNavigate, useNavigation } from "react-router-dom";
 import { toast } from "react-toastify";
 
 // eslint-disable-next-line react/prop-types
-const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
+const BookmarkedPostCard = ({ id, name, logo, email, text, image, timestamp, getBookmarks }) => {
   const { currentUser, userData } = useContext(AuthContext);
   const [state, dispatch] = useReducer(PostsReducer, postsStates);
   const likesRef = doc(collection(db, "posts", id, "likes"));
@@ -34,7 +34,7 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
   const [open, setOpen] = useState(false);
   const [comments, setComments] = useState([]);
   const [showOptions, setShowOptions] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   function toggleShowOption() {
     setShowOptions(prevShowOptions => !prevShowOptions);
@@ -97,31 +97,19 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
     getComments();
   }, [ADD_LIKE, HANDLE_ERROR, id]);
 
-  const bookmarkPost = () => {
+  // const bookmarkPost = () => {
 
-    onAuthStateChanged(auth, async (u) => {
-      console.log("u", u.uid);
-      console.log("Post", id);
-      const bookmark = collection(db, "bookmarks");
-      const r = query(bookmark, where("post", "==", id), where("user", "==", u.uid));
-      const docs = await getDocs(r);
-      const result = docs.docs.map(d => d.data());
-      if (result.length > 0) {
+  //   onAuthStateChanged(auth, u => {
+  //     console.log("u", u.uid);
+  //     console.log("Post", id);
+  //     const bookmark = collection(db, "bookmarks");
+  //     addDoc(bookmark, {
+  //       post: id,
+  //       user: u.uid
+  //     });
+  //   });
 
-        for(let docRef of docs.docs) {
-          await deleteDoc(docRef.ref);
-        }
-        toast.success("Bookmark removed");
-      } else {
-        addDoc(bookmark, {
-          post: id,
-          user: u.uid
-        });
-        toast.success("Bookmark added");
-      }
-    });
-
-  }
+  // }
 
   const copyLink = () => {
     navigator.clipboard.writeText(`${location.origin}/communitypage/${id}`);
@@ -136,43 +124,60 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
     navigate("/profile");
   };
 
-  return (
-   <div className="relative">
-       <div className="my-6 border border-[#F1F1F1] rounded-md p-3 shadow-neutral-300">
-      <div className="flex gap-2 items-center" to="/profile" onClick={handleNavigateToProfile}>
-        <img className="object-cover rounded-full object-center w-[50px] h-[50px]" src={logo || avatar} alt="user photo" />
-        <div>
-          <h4 className="font-medium truncate max-w-[180px] text-md text-[#101010]">{name}</h4>
-          <p className="text-[#504F4F] text-[14px]">{timestamp}</p>
-        </div>
-      </div>
-      <p className="text-[#272727] font-normal text-[16px] leading-6 my-3">{text}</p>
-      {image &&
-      <div className="w-full rounded-lg">
-        <img className="w-full h-[150px] object-cover object-center rounded-lg" src={image} alt="food" />
-      </div>
+  const deleteBookmark = () => {
+    onAuthStateChanged(auth, async (u) => {
+
+      const bookmarks = collection(db, "bookmarks");
+      const document = query(bookmarks, where("post", "==", id), where("user", "==", u.uid));
+      const result = await getDocs(document);
+
+      for(let docRef of result.docs) {
+        await deleteDoc(docRef.ref);
       }
-      <div className="flex items-center justify-between mt-7 mb-3">
-        <div className="flex items-center gap-8">
-          <div className="flex items-center gap-2">
-            <span onClick={handleLike} className="material-symbols-outlined text-[25px] hover:cursor-pointer font-thin">favorite</span>
-            <span>{state?.likes?.length}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span onClick={handleOpen} className="material-symbols-outlined text-[25px] hover:cursor-pointer font-thin">chat</span>
-            <span>{commentCount}</span>
+      
+      toggleShowOption();
+      getBookmarks();
+      toast.success("Bookmark removed successfully");
+    });
+  }
+
+  return (
+    <div className="relative">
+      <div className="my-6 border border-[#F1F1F1] rounded-md p-3 shadow-neutral-300">
+        <div className="flex gap-2 items-center" onClick={handleNavigateToProfile}>
+          <img className="object-cover rounded-full object-center w-[50px] h-[50px]" src={logo || avatar} alt="user photo" />
+          <div>
+            <h4 className="font-medium truncate max-w-[180px] text-md text-[#101010]">{name}</h4>
+            <p className="text-[#504F4F] text-[14px]">{timestamp}</p>
           </div>
         </div>
-        <span className="material-symbols-outlined text-[25px] hover:cursor-pointer font-thin" onClick={bookmarkPost}>bookmark</span>
+        <p className="text-[#272727] font-normal text-[16px] leading-6 my-3">{text}</p>
+        {image &&
+          <div className="w-full rounded-lg">
+            <img className="w-full h-[150px] object-cover object-center rounded-lg" src={image} alt="food" />
+          </div>
+        }
+        <div className="flex items-center justify-between mt-7 mb-3">
+          <div className="flex items-center gap-8">
+            <div className="flex items-center gap-2">
+              <span onClick={handleLike} className="material-symbols-outlined text-[25px] hover:cursor-pointer font-thin">favorite</span>
+              <span>{state?.likes?.length}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span onClick={handleOpen} className="material-symbols-outlined text-[25px] hover:cursor-pointer font-thin">chat</span>
+              <span>{commentCount}</span>
+            </div>
+          </div>
+          {/* <span className="material-symbols-outlined text-[25px] hover:cursor-pointer font-thin" onClick={bookmarkPost}>bookmark</span> */}
+        </div>
+        {open && <CommentSection postId={id}></CommentSection>}
       </div>
-      {open && <CommentSection postId={id}></CommentSection>}
-    </div>
-    <div onClick={toggleShowOption} className="absolute top-4 right-4 ">
-          <span className="material-symbols-outlined text-[#D9D9D9] text-3xl cursor-pointer">more_horiz</span>
-    </div>
-    {
+      <div onClick={toggleShowOption} className="absolute top-4 right-4 ">
+        <span className="material-symbols-outlined text-[#D9D9D9] text-3xl cursor-pointer">more_horiz</span>
+      </div>
+      {
         showOptions && (
-          <div className="absolute top-12 right-4 text-[#242424] flex flex-col gap-3 bg-[#F4F4F4] px-4 py-3 rounded-lg hover:cursor-pointer">
+          <div className="absolute top-12 right-4 text-[#242424] flex flex-col gap-3 bg-[#F4F4F4] px-4 py-3 rounded-lg">
             <div className="items-center flex gap-2" onClick={copyLink}>
               <span className="material-symbols-outlined">content_copy</span>
               <span className="">Copy Link</span>
@@ -185,22 +190,26 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
                 </div>
                 <div className="items-center flex gap-2 hover:cursor-pointer">
                   <span className="material-symbols-outlined">delete</span>
-                  <span>Delete</span>
+                  <span>Delete Post</span>
                 </div>
               </>
             ) : (
               <Link to="/report">
                 <div className="items-center flex gap-2 hover:cursor-pointer">
-                <span className="material-symbols-outlined">flag</span>
-                <span>Report</span>
+                  <span className="material-symbols-outlined">flag</span>
+                  <span>Report</span>
                 </div>
               </Link>
             )}
+            <div className="items-center flex gap-2 hover:cursor-pointer" onClick={deleteBookmark}>
+              <span className="material-symbols-outlined">delete</span>
+              <span>Remove Bookmark</span>
+            </div>
           </div>
         )
       }
-   </div>
+    </div>
   );
 };
 
-export default PostCard;
+export default BookmarkedPostCard;
