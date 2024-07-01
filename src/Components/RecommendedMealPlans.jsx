@@ -5,20 +5,13 @@ import PropTypes from "prop-types";
 import SelectCategory from "/src/Components/Categories";
 // import  Bookmark   from "/src/assets/bookmark.png";
 import { useBookmarks } from "/src/Contexts/BookmarkContext";
-import BookmarkIcon from "/src/Components/BookmarkIcon"
-import { meals } from "../Data"
-
-
-
+import BookmarkIcon from "/src/Components/BookmarkIcon";
+import { meals } from "../Data";
 
 const SearchBar = ({ query, setQuery }) => {
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
-
-
-
-  
 
   return (
     <div className="flex items-center mb-10">
@@ -39,7 +32,6 @@ const SearchBar = ({ query, setQuery }) => {
   );
 };
 
-
 SearchBar.propTypes = {
   query: PropTypes.string.isRequired,
   setQuery: PropTypes.func.isRequired,
@@ -54,8 +46,8 @@ const RecommendedMealPlans = () => {
   });
 
   const [showFilterPanel, setShowFilterPanel] = useState(false);
-const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
-const navigate = useNavigate();
+  const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
+  const navigate = useNavigate();
 
   const toggleFilterPanel = () => {
     setShowFilterPanel(!showFilterPanel);
@@ -69,9 +61,6 @@ const navigate = useNavigate();
     }));
   };
 
- 
-  
-
   const toggleBookmark = (meal) => {
     if (bookmarks.some((item) => item.name === meal.name)) {
       removeBookmark(meal);
@@ -80,151 +69,7 @@ const navigate = useNavigate();
     }
   };
 
-
- const meals = [
-   {
-     name: "Grilled Salmon with Lemon-Dill Sauce",
-     image:
-       "https://cdn.pixabay.com/photo/2021/06/21/15/03/salmon-6353898_960_720.jpg",
-     categories: ["Popular", "Vegan Only"],
-     mealTypes: " morning",
-   },
-   {
-     name: "Lentil and Vegetable Curry",
-     image:
-       "https://cdn.pixabay.com/photo/2021/06/21/15/03/salmon-6353898_960_720.jpg",
-     categories: ["Popular", "Vegan Only"],
-     mealTypes: " lunch",
-   },
-   {
-     name: "Mushroom Risotto",
-     image:
-       "https://cdn.pixabay.com/photo/2021/01/06/13/01/pearl-barley-5894346_960_720.jpg",
-     categories: ["Popular", "Vegan", "Non-Vegan"],
-     mealTypes: "dinner",
-   },
-   {
-     name: "Grilled Lemon Herb Chicken Bowl",
-     image:
-       "https://cdn.pixabay.com/photo/2024/02/24/23/22/ai-generated-8594918_960_720.jpg",
-     categories: ["Popular", "Vegan", "Non-Vegan"],
-     mealTypes: "dinner",
-   },
-   {
-     name: "Mexican Ground Beef Tacos",
-     image:
-       "/src/assets/mexican cuisine images/Mexican Ground Beef Tacos 1.png",
-     categories: ["Popular", "Omnivore", "Flexitarian"],
-     mealTypes: "morning",
-     cuisines: "Mexican",
-   },
-   {
-     name: "Pozole Rojo",
-     image: "/src/assets/mexican cuisine images/Pozole Rojo 1.png",
-     categories: ["Popular", "Classic"],
-     mealTypes: "lunch",
-     cuisines: "Mexican",
-   },
-   {
-     name: " Mexican Rice",
-     image: "/src/assets/mexican cuisine images/Mexican-Rice-768x994 1.png",
-     categories: ["Popular", "Classic"],
-     mealTypes: "dinner",
-     cuisines: "Mexican",
-   },
-   {
-     name: "  West African Peanut (Groundnut) Soup",
-     image:
-       "/src/assets/African cuisine images/istockphoto-1432610370-612x612 1.png",
-     categories: ["Popular", "LowCarbs"],
-     mealTypes: "morning",
-     cuisines: "African",
-   },
-   {
-     name: "Catfish Pepper Soup",
-     image: "/src/assets/African cuisine images/Catfish Pepper Soup 1.png",
-     categories: ["Popular", "Classic", "keto"],
-     mealTypes: "lunch",
-     cuisines: "African",
-   },
-   {
-     name: "Cameroonian Sese Plantains",
-     image: "/src/assets/African cuisine images/image 5.png",
-     categories: ["Popular", "Classic", "keto"],
-     mealTypes: "dinner",
-     cuisines: "African",
-   },
-   {
-     name: "   Moroccan Harira Soup",
-     image: "/src/assets/African cuisine images/Moroccan Harira Soup 1.png",
-     categories: ["Popular", "Classic", "keto"],
-     mealTypes: "morning",
-     cuisines: "African",
-   },
-   {
-     name: "Chicken Cabbage Stew",
-     image: "/src/assets/African cuisine images/image 5.png",
-     categories: ["Popular", "Classic"],
-     mealTypes: "lunch",
-     cuisines: "African",
-   },
-   {
-     name: "  Scallion Chicken",
-     image: "/src/assets/Chinese cuisine images/Scallion Chicken 1.png",
-     categories: ["Popular", "Omnivore", "Classic"],
-     mealTypes: "dinner",
-     cuisines: "Chinese",
-   },
-   {
-     name: "   Chinese Green Beans",
-     image: "/src/assets/Chinese cuisine images/g 1.png",
-     categories: ["Popular", "Keto", "LowCarbs"],
-     mealTypes: "morning",
-     cuisines: "Chinese",
-   },
-   {
-     name: "   Chinese Chicken Mancurian",
-     image: "/src/assets/Chinese cuisine images/image 2.png",
-     categories: ["Popular", "Classic", "Omnivore"],
-     mealTypes: "lunch",
-     cuisines: "Chinese",
-   },
-   {
-     name: "   Crispy Tofu With Peanut Sauce",
-     image: "/src/assets/Chinese cuisine images/image 3.png",
-     categories: ["Popular", "Keto", "LowCarbs"],
-     mealTypes: "dinner",
-     cuisines: "Chinese",
-   },
-
-   {
-     name: "   Dan Dan Noodles With Shrimps",
-     image: "/src/assets/Chinese cuisine images/image 4.png",
-     categories: ["Popular", "Keto", "Classic"],
-     mealTypes: "morning",
-     cuisines: "Chinese",
-   },
-   {
-     name: "   Stacked Beef Enchiladas",
-     image: "/src/assets/mexican cuisine images/Stacked Beef Enchiladas 1.png",
-     categories: ["Popular", "Classic"],
-     mealTypes: "lunch",
-     cuisines: "Mexican",
-   },
-   {
-     name: "   Hummus and Falafel",
-     image: "/src/assets/recipe4.png",
-     categories: ["Popular", "Vegan Only", "Non-Vegan"],
-     mealTypes: "dinner",
-   },
-
-   // Add more meals as needed
- ];
-
-
   const filteredMeals = meals.filter((meal) => {
-    
-
     // Filter by search query
     if (query && !meal.name.toLowerCase().includes(query.toLowerCase())) {
       return false;
@@ -301,21 +146,18 @@ const navigate = useNavigate();
                   {meal.name}
                 </p>
                 <div className="flex self-start p-1 gap-6 text-[10px] font-semibold">
-                  {meal.categories.map((categories, idx) => (
-                    <span
-                      key={idx}
-                      className={`bg-${
-                        categories.includes("Popular")
-                          ? "[#F0F6FF]"
-                          : "[#FFF0F0]"
-                      } p-1 rounded-md`}
-                    >
-                      {categories}
-                    </span>
-                  ))}
+                  <span
+                    className={`bg-${
+                      meal.category.includes("Popular")
+                        ? "[#F0F6FF]"
+                        : "[#FFF0F0]"
+                    } p-1 rounded-md`}
+                  >
+                    {meal.category}
+                  </span>
+                  
                 </div>
               </div>
-              
 
               <BookmarkIcon
                 filled={bookmarks.some((item) => item.name === meal.name)}

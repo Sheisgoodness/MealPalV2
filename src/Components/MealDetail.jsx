@@ -8,27 +8,42 @@ const MealDetail = () => {
   const meal = meals.find((meal) => meal.id.toString() === id);
 
  if (!meal) {
-   return <div>Meal not found</div>;
+   return (
+     <div  className="text-center text-xl font-semibold mt-10">
+       Meal not found
+     </div>
+   );
  }
 
 
   
   return (
-    <div>
-      <h1>{meal.name}</h1>
-      {meal.image && <img src={meal.image} alt={meal.name} />}
-      <p>Category: {meal.category.join}</p>
+    <div className="p-6 max-w-4xl mx-auto bg-white rounded-xl shadow-md space-y-6">
+      <h1 className="text-3xl font-bold text-gray-900">{meal.name}</h1>
+      {meal.image && (
+        <img src={meal.image} alt={meal.name} className="  rounded-md" />
+      )}
+      {/* <p>CATEGORY: {meal.category.join}</p> */}
+
       {meal.nutritionalValue && (
         <>
-          <h2>Nutritional Value</h2>
-          <p>{meal.nutritionalValue}</p>
+          <h2 className="text-2xl font-semibold text-gray-700 mt-4">
+            NUTRITIONAL VALUE
+          </h2>
+          <ul className=" ">
+            {meal.nutritionalValue.map((nutritionalValue, index) => (
+              <li key={index}>{nutritionalValue}</li>
+            ))}
+          </ul>
         </>
       )}
 
       {meal.ingredients && (
         <>
-          <h2>Ingredients</h2>
-          <ul>
+          <h2 className="text-2xl font-semibold text-gray-700 mt-4">
+            INGREDIENTS
+          </h2>
+          <ul className="">
             {meal.ingredients.map((ingredient, index) => (
               <li key={index}>{ingredient}</li>
             ))}
@@ -38,11 +53,14 @@ const MealDetail = () => {
 
       {meal.videoTutorial && (
         <>
-          <h2>Video Tutorial</h2>
+          <h2 className="text-2xl font-semibold text-gray-700 mt-4">
+            VIDEO TUTORIAL
+          </h2>
           <a
             href={meal.videoTutorial}
             target="_blank"
             rel="noopener noreferrer"
+            className="text-blue-500 hover:text-blue-700 underline mt-2 block"
           >
             Watch Tutorial
           </a>
