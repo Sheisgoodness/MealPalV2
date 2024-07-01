@@ -163,6 +163,19 @@ button:hover {
 }
 
 
+.deleteIcon {
+  width: 24px; 
+  height: 24px; 
+  cursor: pointer;
+  background-color: #F4F4F4; 
+  padding: 4px; 
+  border-radius: 8px;
+  margin-right: 10px;
+  
+}
+
+
+
 
 /* community report page  */
 

@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useAuth } from "./Contexts/AuthContext";
 import PrivateRoute from "./Contexts/PrivateRoute";
 import CreateMealPlanPage from "./pages/CreateMealPlanPage";
@@ -26,9 +27,18 @@ import BookmarkPage from "./pages/BookmarkPage";
 import FAQPage from "./pages/FAQPage";
 import Report from "./pages/report";
 import MealDetail from "./Components/MealDetail";
-
+import MealList from "./Components/MealList";
+import { meals } from "./Data/index";
 function App() {
   const { userLoggedIn } = useAuth();
+
+  const [mealData, setMealData] = useState(meals);
+
+  const handleEdit = (id) => {};
+
+  const handleDelete = (id) => {
+    setMealData(mealData.filter((meal) => meal.id !== id));
+  };
 
   return (
     <div className="font-[Manrope]">
@@ -160,14 +170,22 @@ function App() {
               </PrivateRoute>
             }
           />
+
+          <Route path="/meals/:mealId"
+            element={<MealDetail />}
+          />
           <Route
-            path="/meal/:mealName"
+            path="/meals"
             element={
-              <PrivateRoute>
-                <MealDetail />
-              </PrivateRoute>
+              <MealList
+                categories="Popular Meals" // Or dynamically set categories
+                meals={mealData}
+                onEdit={handleEdit}
+                onDelete={handleDelete}
+              />
             }
           />
+          
 
           <Route
             path="/contactUs"

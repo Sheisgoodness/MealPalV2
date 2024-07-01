@@ -166,18 +166,4 @@ export const meals = [
     name: "   Hummus and Falafel",
     category: "Popular, Vegan Only, Non-Vegan",
   },
-
-  // Add more meals as needed
-];
-
-export const categories = [
-  "Classic",
-  "Popular",
-  "Recommended",
-  "Keto",
-  "Vegan Only",
-  "Non-Vegan",
-  "Omnivore",
-  "Flexitarian",
-  "LowCarbs",
-];
+]

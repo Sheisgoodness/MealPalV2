@@ -33,7 +33,7 @@ const SearchBar = ({ query, setQuery }) => {
         src={iconButton}
         alt="Search Icon"
         className=" flex justify-end item-end ml-2 w-9 h-9 cursor-pointer bg-[#F4F4F4]"
-        onClick={toggleFilterPanel}
+        onClick={() => {}}
       />
     </div>
   );
@@ -55,7 +55,7 @@ const RecommendedMealPlans = () => {
 
   const [showFilterPanel, setShowFilterPanel] = useState(false);
 const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
-
+const navigate = useNavigate();
 
   const toggleFilterPanel = () => {
     setShowFilterPanel(!showFilterPanel);
@@ -70,7 +70,7 @@ const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
   };
 
  
-  // const navigate = useNavigate();
+  
 
   const toggleBookmark = (meal) => {
     if (bookmarks.some((item) => item.name === meal.name)) {
@@ -111,6 +111,7 @@ const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
       mealTypes: "dinner",
     },
     {
+      
       name: "Mexican Ground Beef Tacos",
       image:
         "/src/assets/mexican cuisine images/Mexican Ground Beef Tacos 1.png",
@@ -259,6 +260,10 @@ const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
     return true;
   });
 
+  const handleMealClick = (meals) => {
+    navigate(`/Recommended/${meals}`);
+  };
+
   return (
     <>
       <h1 className="text-3xl text-black font-Manrope font-bold mt-4 mb-4">
@@ -273,94 +278,18 @@ const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
 
       {showFilterPanel && (
         <div className="filter-panel bg-white p-4 rounded-md shadow-md mb-4">
-          <h2 className="text-xl font-bold mb-2">Filter Options</h2>
-          <div className="mb-4">
-            <h3 className="font-semibold">Categories</h3>
-            <div className="flex gap-2 flex-wrap">
-              {[
-                "Recommended",
-                "Popular",
-                "Omnivore",
-                "Vegan Only",
-                "Vegan",
-                "Non-Vegan",
-                "Flexitarian",
-                "Classic",
-                "Keto",
-                "LowCarbs",
-              ].map((category) => (
-                <button
-                  key={category}
-                  className={`p-2 rounded-md ${
-                    filters.categories.includes(category)
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200"
-                  }`}
-                  onClick={() => toggleFilter("categories", category)}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="mb-4">
-            <h3 className="font-semibold">Meal Types</h3>
-            <div className="flex gap-2 flex-wrap">
-              {["morning", "lunch", "dinner"].map((mealType) => (
-                <button
-                  key={mealType}
-                  className={`p-2 rounded-md ${
-                    filters.mealTypes.includes(mealType)
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200"
-                  }`}
-                  onClick={() => toggleFilter("mealTypes", mealType)}
-                >
-                  {mealType}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="mb-4">
-            <h3 className="font-semibold">Cuisines</h3>
-            <div className="flex gap-2 flex-wrap">
-              {["American", "Indian", "Mexican", "African", "Chinese"].map(
-                (cuisine) => (
-                  <button
-                    key={cuisine}
-                    className={`p-2 rounded-md ${
-                      filters.cuisines.includes(cuisine)
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-200"
-                    }`}
-                    onClick={() => toggleFilter("cuisines", cuisine)}
-                  >
-                    {cuisine}
-                  </button>
-                )
-              )}
-            </div>
-          </div>
         </div>
-      )}
+ )}
+ 
 
-      {/* <div className="flex mb-5 ">
-        <h3 className="border-2 rounded bg-blue-500 text-white">Recommended</h3>
-        <h3 className="ml-2"> Popular</h3>
-        <h3 className="ml-2">Classic</h3>
-        <h3 className="ml-2">Vegan Only</h3>
-        <h3 className="ml-2">Non-Vegan </h3>
-        <h3 className="ml-2">Keto</h3>
-        <h3 className="ml-2">LowCarbs</h3>
-        <h3 className="ml-2">Omivore</h3>
-        <h3 className="ml-2">Flexitarian</h3>
-      </div> */}
+      
       <div>
         <ul className="flex flex-col gap-2 font-semibold">
           {filteredMeals.map((meal, index) => (
             <li
               key={index}
               className="flex flex-row items-center justify-between"
+              onClick={() => handleMealClick(meal.id)}
             >
               <div className="flex gap-2">
                 <img

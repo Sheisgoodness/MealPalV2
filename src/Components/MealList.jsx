@@ -1,4 +1,3 @@
-
 // import React from "react";
 // import PropTypes from "prop-types";
 
@@ -25,21 +24,18 @@
 
 // export default MealList;
 
-
 // import RecommendedMealPlans from "./Meals";
+
+import React from "react";
+import Meal from "/src/Components/Meals"; // Ensure you have a Meal component to render individual meals
 
 const MealList = ({ categories, meals, onEdit, onDelete }) => {
   return (
     <div>
-      <h2>{category}</h2>
+      <h2>{categories}</h2>
       <ul>
         {meals.map((meal) => (
-          <meals
-            key={meal.id}
-            meal={meals}
-            onEdit={onEdit}
-            onDelete={onDelete}
-          />
+          <Meal key={meal.id} meal={meal} onEdit={onEdit} onDelete={onDelete} />
         ))}
       </ul>
     </div>

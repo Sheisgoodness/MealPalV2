@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Frameone from "../assets/Frameone.png";
+import MexicanGB from "../assets/mexican cuisine images/Mexican Ground Beef Tacos 1.png"
 import reset from "../assets/reset.png";
 import servingIcon from "../assets/servingIcon.png";
 import bookmark from "../assets/bookmark.png";
@@ -27,7 +28,7 @@ return(
           Cabbage Stir Fry
         </h1>
         <img
-          src={Frameone}
+          src={MexicanGB}
           alt="food image"
           className="rounded rounded-t-md"
         />
