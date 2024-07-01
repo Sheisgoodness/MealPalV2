@@ -2,9 +2,12 @@
 import React from "react";
 // import PostMain from "../Components/CommunityComp/PostMain";
 import Newcommunity from "../Components/CommunityComp/newcommunity";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CommunityPage = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className="w-full">
       <div className="flex bg-white-100 relative">
@@ -13,11 +16,11 @@ const CommunityPage = () => {
             <h4 className="font-medium leading-10 text-3xl mb-5">Welcome To The Community!</h4>
             {/* <PostMain></PostMain> */}
             <Newcommunity />
-           <Link to='/makepost'>
-              <button className="bg-[#4268FB] text-white text-xl rounded-lg fixed bottom-[10%] px-5 s py-4 cursor-pointer right-[5%]">
+              <button onClick={() => {navigate("/makepost")}} className="bg-[#4268FB] hover:w-fit text-white text-xl rounded-lg fixed bottom-[10%] px-5 s py-4 cursor-pointer right-[5%]">
                   Create a Post
               </button>
-           </Link>
+           {/* <Link to='/makepost'>
+           </Link> */}
           </div>
         </div>
       </div>
