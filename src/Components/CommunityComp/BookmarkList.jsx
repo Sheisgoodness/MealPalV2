@@ -19,13 +19,12 @@ import {
   deleteDoc,
   addDoc,
 } from "firebase/firestore";
-import { auth, db, onAuthStateChanged } from "../../firebase/firebase";
+import { db } from "../../firebase/firebase";
 import CommentSection from "./CommentSection";
 import { Link, useNavigate, useNavigation } from "react-router-dom";
-import { toast } from "react-toastify";
 
 // eslint-disable-next-line react/prop-types
-const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
+const BookmrkCardList = ({ id, name, logo, email, text, image, timestamp }) => {
   const { currentUser, userData } = useContext(AuthContext);
   const [state, dispatch] = useReducer(PostsReducer, postsStates);
   const likesRef = doc(collection(db, "posts", id, "likes"));
@@ -98,35 +97,19 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
   }, [ADD_LIKE, HANDLE_ERROR, id]);
 
   const bookmarkPost = () => {
-
-    onAuthStateChanged(auth, async (u) => {
-      console.log("u", u.uid);
-      console.log("Post", id);
-      const bookmark = collection(db, "bookmarks");
-      const r = query(bookmark, where("post", "==", id), where("user", "==", u.uid));
-      const docs = await getDocs(r);
-      const result = docs.docs.map(d => d.data());
-      if (result.length > 0) {
-
-        for(let docRef of docs.docs) {
-          await deleteDoc(docRef.ref);
-        }
-        toast.success("Bookmark removed");
-      } else {
-        addDoc(bookmark, {
-          post: id,
-          user: u.uid
-        });
-        toast.success("Bookmark added");
-      }
+    console.log("User", currentUser.uid);
+    console.log("Post", id);
+    const bookmark = collection(db, "bookmarks");
+    addDoc(bookmark, {
+      post: id,
+      user: currentUser.uid
     });
-
   }
 
   const copyLink = () => {
     navigator.clipboard.writeText(`${location.origin}/communitypage/${id}`);
-    toast.success("Link copied");
-    toggleShowOption();
+    console.log(location.hostname)
+    console.log(location.origin)
   }
 
   const commentCount = comments.length;
@@ -172,25 +155,25 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
     </div>
     {
         showOptions && (
-          <div className="absolute top-12 right-4 text-[#242424] flex flex-col gap-3 bg-[#F4F4F4] px-4 py-3 rounded-lg hover:cursor-pointer">
+          <div className="absolute top-12 right-4 text-[#242424] flex flex-col gap-3 bg-[#F4F4F4] px-4 py-3 rounded-lg">
             <div className="items-center flex gap-2" onClick={copyLink}>
               <span className="material-symbols-outlined">content_copy</span>
               <span className="">Copy Link</span>
             </div>
             {currentUser.displayName === name ? (
               <>
-                <div className="items-center flex gap-2 hover:cursor-pointer">
+                <div className="items-center flex gap-2">
                   <span className="material-symbols-outlined">border_color</span>
                   <span>Edit</span>
                 </div>
-                <div className="items-center flex gap-2 hover:cursor-pointer">
+                <div className="items-center flex gap-2">
                   <span className="material-symbols-outlined">delete</span>
                   <span>Delete</span>
                 </div>
               </>
             ) : (
               <Link to="/report">
-                <div className="items-center flex gap-2 hover:cursor-pointer">
+                <div className="items-center flex gap-2">
                 <span className="material-symbols-outlined">flag</span>
                 <span>Report</span>
                 </div>
@@ -203,4 +186,4 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
   );
 };
 
-export default PostCard;
+export default BookmrkCardList;
