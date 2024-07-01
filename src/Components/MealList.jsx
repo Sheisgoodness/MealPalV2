@@ -27,7 +27,7 @@
 // import RecommendedMealPlans from "./Meals";
 
 import React from "react";
-import Meal from "/src/Components/Meals"; // Ensure you have a Meal component to render individual meals
+import { meals } from "../Data"; // Ensure you have a Meal component to render individual meals
 
 const MealList = ({ categories, meals, onEdit, onDelete }) => {
   return (

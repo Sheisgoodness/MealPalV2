@@ -1,11 +1,11 @@
 // import React from "react";
 import { useParams } from "react-router-dom";
-import { meals } from "/src/Data/index.js";
+import { meals } from "../Data";
 
 
 const MealDetail = () => {
-  const { mealId } = useParams();
-  const meal = meals.find((meal) => meal.id.toString() === mealId);
+  const { id } = useParams();
+  const meal = meals.find((meal) => meal.id.toString() === id);
 
  if (!meal) {
    return <div>Meal not found</div>;
@@ -17,27 +17,25 @@ const MealDetail = () => {
     <div>
       <h1>{meal.name}</h1>
       {meal.image && <img src={meal.image} alt={meal.name} />}
-      <p>Category: {meal.category}</p>
+      <p>Category: {meal.category.join}</p>
       {meal.nutritionalValue && (
         <>
           <h2>Nutritional Value</h2>
           <p>{meal.nutritionalValue}</p>
         </>
       )}
-      
-        {/* {
-           {meal.ingredients.map((ingredient, index) => (
-          <li key={index}>{ingredient}</li>
-        ))} */}
 
+      {meal.ingredients && (
+        <>
+          <h2>Ingredients</h2>
+          <ul>
+            {meal.ingredients.map((ingredient, index) => (
+              <li key={index}>{ingredient}</li>
+            ))}
+          </ul>
+        </>
+      )}
 
-        {meal.ingredients && (
-          <>
-            <h2>Ingredients</h2>
-            <p>{meal.ingredients}</p>
-          </> ) }
-        
-      
       {meal.videoTutorial && (
         <>
           <h2>Video Tutorial</h2>
@@ -56,14 +54,6 @@ const MealDetail = () => {
 
 
 
-//     <div>
-//       <h1>{meal.name}</h1>
-//       <img src={meal.image} alt={meal.name} />
-//       <p>Categories: {meal.category.join(", ")}</p>
-//       <p>Meal Types: {meal.mealTypes}</p>
-//       <p>cuisines: {meal.cuisines}</p>
-//     </div>
-//   );
-// };
+
 
 export default MealDetail;

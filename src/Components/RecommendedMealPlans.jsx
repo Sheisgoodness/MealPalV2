@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import iconButton from "/src/assets/IconButton.png";
-// import Categories from "/src/Components/Categories"
 import PropTypes from "prop-types";
 import SelectCategory from "/src/Components/Categories";
-import  Bookmark   from "/src/assets/bookmark.png";
+// import  Bookmark   from "/src/assets/bookmark.png";
 import { useBookmarks } from "/src/Contexts/BookmarkContext";
 import BookmarkIcon from "/src/Components/BookmarkIcon"
+import { meals } from "../Data"
+
+
 
 
 const SearchBar = ({ query, setQuery }) => {
@@ -14,11 +16,9 @@ const SearchBar = ({ query, setQuery }) => {
     setQuery(event.target.value);
   };
 
-  // const toggleFilterPanel = () => {
 
-  // };
 
-  const toggleFilterPanel = () => {};
+  
 
   return (
     <div className="flex items-center mb-10">
@@ -81,146 +81,146 @@ const navigate = useNavigate();
   };
 
 
-  const meals = [
-    {
-      name: "Grilled Salmon with Lemon-Dill Sauce",
-      image:
-        "https://cdn.pixabay.com/photo/2021/06/21/15/03/salmon-6353898_960_720.jpg",
-      categories: ["Popular", "Vegan Only"],
-      mealTypes: " morning",
-    },
-    {
-      name: "Lentil and Vegetable Curry",
-      image:
-        "https://cdn.pixabay.com/photo/2021/06/21/15/03/salmon-6353898_960_720.jpg",
-      categories: ["Popular", "Vegan Only"],
-      mealTypes: " lunch",
-    },
-    {
-      name: "Mushroom Risotto",
-      image:
-        "https://cdn.pixabay.com/photo/2021/01/06/13/01/pearl-barley-5894346_960_720.jpg",
-      categories: ["Popular", "Vegan", "Non-Vegan"],
-      mealTypes: "dinner",
-    },
-    {
-      name: "Grilled Lemon Herb Chicken Bowl",
-      image:
-        "https://cdn.pixabay.com/photo/2024/02/24/23/22/ai-generated-8594918_960_720.jpg",
-      categories: ["Popular", "Vegan", "Non-Vegan"],
-      mealTypes: "dinner",
-    },
-    {
-      
-      name: "Mexican Ground Beef Tacos",
-      image:
-        "/src/assets/mexican cuisine images/Mexican Ground Beef Tacos 1.png",
-      categories: ["Popular", "Omnivore", "Flexitarian"],
-      mealTypes: "morning",
-      cuisines: "Mexican",
-    },
-    {
-      name: "Pozole Rojo",
-      image: "/src/assets/mexican cuisine images/Pozole Rojo 1.png",
-      categories: ["Popular", "Classic"],
-      mealTypes: "lunch",
-      cuisines: "Mexican",
-    },
-    {
-      name: " Mexican Rice",
-      image: "/src/assets/mexican cuisine images/Mexican-Rice-768x994 1.png",
-      categories: ["Popular", "Classic"],
-      mealTypes: "dinner",
-      cuisines: "Mexican",
-    },
-    {
-      name: "  West African Peanut (Groundnut) Soup",
-      image:
-        "/src/assets/African cuisine images/istockphoto-1432610370-612x612 1.png",
-      categories: ["Popular", "LowCarbs"],
-      mealTypes: "morning",
-      cuisines: "African",
-    },
-    {
-      name: "Catfish Pepper Soup",
-      image: "/src/assets/African cuisine images/Catfish Pepper Soup 1.png",
-      categories: ["Popular", "Classic", "keto"],
-      mealTypes: "lunch",
-      cuisines: "African",
-    },
-    {
-      name: "Cameroonian Sese Plantains",
-      image: "/src/assets/African cuisine images/image 5.png",
-      categories: ["Popular", "Classic", "keto"],
-      mealTypes: "dinner",
-      cuisines: "African",
-    },
-    {
-      name: "   Moroccan Harira Soup",
-      image: "/src/assets/African cuisine images/Moroccan Harira Soup 1.png",
-      categories: ["Popular", "Classic", "keto"],
-      mealTypes: "morning",
-      cuisines: "African",
-    },
-    {
-      name: "Chicken Cabbage Stew",
-      image: "/src/assets/African cuisine images/image 5.png",
-      categories: ["Popular", "Classic"],
-      mealTypes: "lunch",
-      cuisines: "African",
-    },
-    {
-      name: "  Scallion Chicken",
-      image: "/src/assets/Chinese cuisine images/Scallion Chicken 1.png",
-      categories: ["Popular", "Omnivore", "Classic"],
-      mealTypes: "dinner",
-      cuisines: "Chinese",
-    },
-    {
-      name: "   Chinese Green Beans",
-      image: "/src/assets/Chinese cuisine images/g 1.png",
-      categories: ["Popular", "Keto", "LowCarbs"],
-      mealTypes: "morning",
-      cuisines: "Chinese",
-    },
-    {
-      name: "   Chinese Chicken Mancurian",
-      image: "/src/assets/Chinese cuisine images/image 2.png",
-      categories: ["Popular", "Classic", "Omnivore"],
-      mealTypes: "lunch",
-      cuisines: "Chinese",
-    },
-    {
-      name: "   Crispy Tofu With Peanut Sauce",
-      image: "/src/assets/Chinese cuisine images/image 3.png",
-      categories: ["Popular", "Keto", "LowCarbs"],
-      mealTypes: "dinner",
-      cuisines: "Chinese",
-    },
+ const meals = [
+   {
+     name: "Grilled Salmon with Lemon-Dill Sauce",
+     image:
+       "https://cdn.pixabay.com/photo/2021/06/21/15/03/salmon-6353898_960_720.jpg",
+     categories: ["Popular", "Vegan Only"],
+     mealTypes: " morning",
+   },
+   {
+     name: "Lentil and Vegetable Curry",
+     image:
+       "https://cdn.pixabay.com/photo/2021/06/21/15/03/salmon-6353898_960_720.jpg",
+     categories: ["Popular", "Vegan Only"],
+     mealTypes: " lunch",
+   },
+   {
+     name: "Mushroom Risotto",
+     image:
+       "https://cdn.pixabay.com/photo/2021/01/06/13/01/pearl-barley-5894346_960_720.jpg",
+     categories: ["Popular", "Vegan", "Non-Vegan"],
+     mealTypes: "dinner",
+   },
+   {
+     name: "Grilled Lemon Herb Chicken Bowl",
+     image:
+       "https://cdn.pixabay.com/photo/2024/02/24/23/22/ai-generated-8594918_960_720.jpg",
+     categories: ["Popular", "Vegan", "Non-Vegan"],
+     mealTypes: "dinner",
+   },
+   {
+     name: "Mexican Ground Beef Tacos",
+     image:
+       "/src/assets/mexican cuisine images/Mexican Ground Beef Tacos 1.png",
+     categories: ["Popular", "Omnivore", "Flexitarian"],
+     mealTypes: "morning",
+     cuisines: "Mexican",
+   },
+   {
+     name: "Pozole Rojo",
+     image: "/src/assets/mexican cuisine images/Pozole Rojo 1.png",
+     categories: ["Popular", "Classic"],
+     mealTypes: "lunch",
+     cuisines: "Mexican",
+   },
+   {
+     name: " Mexican Rice",
+     image: "/src/assets/mexican cuisine images/Mexican-Rice-768x994 1.png",
+     categories: ["Popular", "Classic"],
+     mealTypes: "dinner",
+     cuisines: "Mexican",
+   },
+   {
+     name: "  West African Peanut (Groundnut) Soup",
+     image:
+       "/src/assets/African cuisine images/istockphoto-1432610370-612x612 1.png",
+     categories: ["Popular", "LowCarbs"],
+     mealTypes: "morning",
+     cuisines: "African",
+   },
+   {
+     name: "Catfish Pepper Soup",
+     image: "/src/assets/African cuisine images/Catfish Pepper Soup 1.png",
+     categories: ["Popular", "Classic", "keto"],
+     mealTypes: "lunch",
+     cuisines: "African",
+   },
+   {
+     name: "Cameroonian Sese Plantains",
+     image: "/src/assets/African cuisine images/image 5.png",
+     categories: ["Popular", "Classic", "keto"],
+     mealTypes: "dinner",
+     cuisines: "African",
+   },
+   {
+     name: "   Moroccan Harira Soup",
+     image: "/src/assets/African cuisine images/Moroccan Harira Soup 1.png",
+     categories: ["Popular", "Classic", "keto"],
+     mealTypes: "morning",
+     cuisines: "African",
+   },
+   {
+     name: "Chicken Cabbage Stew",
+     image: "/src/assets/African cuisine images/image 5.png",
+     categories: ["Popular", "Classic"],
+     mealTypes: "lunch",
+     cuisines: "African",
+   },
+   {
+     name: "  Scallion Chicken",
+     image: "/src/assets/Chinese cuisine images/Scallion Chicken 1.png",
+     categories: ["Popular", "Omnivore", "Classic"],
+     mealTypes: "dinner",
+     cuisines: "Chinese",
+   },
+   {
+     name: "   Chinese Green Beans",
+     image: "/src/assets/Chinese cuisine images/g 1.png",
+     categories: ["Popular", "Keto", "LowCarbs"],
+     mealTypes: "morning",
+     cuisines: "Chinese",
+   },
+   {
+     name: "   Chinese Chicken Mancurian",
+     image: "/src/assets/Chinese cuisine images/image 2.png",
+     categories: ["Popular", "Classic", "Omnivore"],
+     mealTypes: "lunch",
+     cuisines: "Chinese",
+   },
+   {
+     name: "   Crispy Tofu With Peanut Sauce",
+     image: "/src/assets/Chinese cuisine images/image 3.png",
+     categories: ["Popular", "Keto", "LowCarbs"],
+     mealTypes: "dinner",
+     cuisines: "Chinese",
+   },
 
-    {
-      name: "   Dan Dan Noodles With Shrimps",
-      image: "/src/assets/Chinese cuisine images/image 4.png",
-      categories: ["Popular", "Keto", "Classic"],
-      mealTypes: "morning",
-      cuisines: "Chinese",
-    },
-    {
-      name: "   Stacked Beef Enchiladas",
-      image: "/src/assets/mexican cuisine images/Stacked Beef Enchiladas 1.png",
-      categories: ["Popular", "Classic"],
-      mealTypes: "lunch",
-      cuisines: "Mexican",
-    },
-    {
-      name: "   Hummus and Falafel",
-      image: "/src/assets/recipe4.png",
-      categories: ["Popular", "Vegan Only", "Non-Vegan"],
-      mealTypes: "dinner",
-    },
+   {
+     name: "   Dan Dan Noodles With Shrimps",
+     image: "/src/assets/Chinese cuisine images/image 4.png",
+     categories: ["Popular", "Keto", "Classic"],
+     mealTypes: "morning",
+     cuisines: "Chinese",
+   },
+   {
+     name: "   Stacked Beef Enchiladas",
+     image: "/src/assets/mexican cuisine images/Stacked Beef Enchiladas 1.png",
+     categories: ["Popular", "Classic"],
+     mealTypes: "lunch",
+     cuisines: "Mexican",
+   },
+   {
+     name: "   Hummus and Falafel",
+     image: "/src/assets/recipe4.png",
+     categories: ["Popular", "Vegan Only", "Non-Vegan"],
+     mealTypes: "dinner",
+   },
 
-    // Add more meals as needed
-  ];
+   // Add more meals as needed
+ ];
+
 
   const filteredMeals = meals.filter((meal) => {
     
@@ -260,8 +260,8 @@ const navigate = useNavigate();
     return true;
   });
 
-  const handleMealClick = (meals) => {
-    navigate(`/Recommended/${meals}`);
+  const handleMealClick = (id) => {
+    navigate(`/mealdetails/${id}`);
   };
 
   return (
@@ -278,11 +278,10 @@ const navigate = useNavigate();
 
       {showFilterPanel && (
         <div className="filter-panel bg-white p-4 rounded-md shadow-md mb-4">
+          <SelectCategory filters={filters} toggleFilter={toggleFilter} />
         </div>
- )}
- 
+      )}
 
-      
       <div>
         <ul className="flex flex-col gap-2 font-semibold">
           {filteredMeals.map((meal, index) => (
@@ -316,12 +315,7 @@ const navigate = useNavigate();
                   ))}
                 </div>
               </div>
-              {/* <img
-                src={Bookmark ? Bookmark : Bookmark}
-                alt="Bookmark Icon"
-                className="bookmarkIcon w-6 h-6 cursor-pointer bg-[#F4F4F4] "
-                onClick={() => toggleBookmark(meal)}
-              /> */}
+              
 
               <BookmarkIcon
                 filled={bookmarks.some((item) => item.name === meal.name)}
