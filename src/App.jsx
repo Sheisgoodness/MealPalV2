@@ -26,6 +26,7 @@ import BookmarkPage from "./pages/BookmarkPage";
 import FAQPage from "./pages/FAQPage";
 import Report from "./pages/report";
 import MealDetail from "./Components/MealDetail";
+import SelectPreference from "./Components/SelectPreference";
 
 function App() {
   const { userLoggedIn } = useAuth();
@@ -55,6 +56,7 @@ function App() {
             }
           />
 
+          
           <Route
             path="/CreateMealPlan"
             element={
@@ -63,6 +65,15 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route
+            path="/SelectPreferrence"
+            element={
+              <PrivateRoute>
+                <SelectPreference />
+              </PrivateRoute>
+            }
+          />
+        
           <Route
             path="/history"
             element={

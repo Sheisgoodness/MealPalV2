@@ -12,7 +12,7 @@ const options = {
   Spices: ["Onion Powder", "Thyme", "Curry", "Ginger", "Garlic powder", "Bay leaves", "Turmeric", "Cinnamon"],
 };
 
-const SelectPreference = () => {
+const SelectPreference = ({ onNext }) => {
   const [selectedItems, setSelectedItems] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ const SelectPreference = () => {
         await setDoc(doc(db, "userPreferences", currentUser.uid), {
           selectPreferences: selectedItems,
         });
-        navigate("/MealSchedule");
+        onNext();
       } catch (error) {
         console.error("Error saving preferences: ", error);
       }
@@ -57,12 +57,6 @@ const SelectPreference = () => {
 
   return (
     <div className="flex flex-col justify-center items-center mb-10 mt-6 p-6">
-      <img
-        src={back}
-        alt="Back icon"
-        style={{ cursor: 'pointer', position: 'absolute', top: 70, left: 10, width: 20, height: 20 }}
-        onClick={() => navigate(-1)}
-      />
       <div className="inline-flex w-[358px] h-[80px] flex-col items-start">
         <h1 className="font-manrope text-lg font-semibold leading-normal">Select preference</h1>
         <p className="font-manrope text-sm text-[#545454] mt-2 font-normal leading-normal">
@@ -80,7 +74,7 @@ const SelectPreference = () => {
                   key={item}
                   onClick={() => isSelected(category, item) ? handleDeselect(category, item) : handleSelect(category, item)}
                   className={`flex justify-center items-center gap-2 p-1.25 px-2.125 rounded-full border cursor-pointer ${
-                    isSelected(category, item) ? 'bg-blue-500 text-white border-blue-500' : 'border-gray-600'
+                    isSelected(category, item) ? 'bg-green-700 text-white border-green-700' : 'border-gray-600'
                   }`}
                 >
                   <p className="text-center font-manrope text-xs leading-normal p-1 font-medium">{item}</p>
@@ -94,7 +88,8 @@ const SelectPreference = () => {
       <button
         onClick={handleSavePreferences}
         className="font-manrope text-md font-medium leading-normal
-          flex w-[358px] h-[40px] p-4 justify-center items-center mt-4 gap-2 flex-shrink-0 rounded-[8px] border bg-[#4268FB]"
+          flex w-[358px] h-[40px] p-4 justify-center items-center mt-4 gap-2 
+          flex-shrink-0 rounded-[8px] text-white border bg-green-700 hover:bg-green-300"
       >
         Generate meal plan
       </button>

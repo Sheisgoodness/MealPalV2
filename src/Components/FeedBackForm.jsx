@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import { useNavigate } from 'react-router-dom';
 
-const FeedbackForm = () => {
+const FeedbackForm = ({ onNext }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const FeedbackForm = () => {
       .then((result) => {
         console.log(result.text);
 
-        navigate('/ThankYou');
+        onNext();
       }, (error) => {
         console.log(error.text);
       });
@@ -52,7 +52,8 @@ const FeedbackForm = () => {
         ></textarea>
         <button
           type="submit"
-          className="w-full h-[40px] flex justify-center items-center rounded-lg bg-[#4268FB] text-white"
+          className="w-full h-[40px] flex justify-center items-center rounded-lg
+           text-white border hover:bg-green-300 bg-green-700"
         >
           Submit
         </button>
