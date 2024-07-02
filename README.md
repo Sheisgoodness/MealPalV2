@@ -103,7 +103,7 @@ If you already have an account, log in using these steps:
 
 ### Team Two
 
-- Babatunde Maryam [Joyfuol](https://github.com/Joyfuol)
+- Babatunde Maryam [Joyfuol](https://github.com/Joyfuol/MealPalV2.git)
 
 
   # Overview
