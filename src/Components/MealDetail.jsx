@@ -1,12 +1,18 @@
 // import React from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { meals } from "../Data";
+import iconButton from "/src/assets/IconButton.png";
+// import PropTypes from "prop-types";
 
 
 const MealDetail = () => {
+  
   const { id } = useParams();
   const meal = meals.find((meal) => meal.id.toString() === id);
+ const [searchTerm, setSearchTerm] = useState("");
 
+  
  if (!meal) {
    return (
      <div  className="text-center text-xl font-semibold mt-10">
@@ -15,10 +21,23 @@ const MealDetail = () => {
    );
  }
 
-
+ const handleSearch = (e) => {
+   setSearchTerm(e.target.value);
+ };
+  
   
   return (
     <div className="p-6 max-w-4xl mx-auto bg-white rounded-xl shadow-md space-y-6">
+      <div className="flex items-center space-x-4 mb-6">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={handleSearch}
+          placeholder="Search for a meal"
+          className="p-2 border rounded-md w-full"
+        />
+        <img src={iconButton} alt="Filter" className="h-8 w-8 cursor-pointer" />
+      </div>
       <h1 className="text-3xl font-bold text-gray-900">{meal.name}</h1>
       {meal.image && (
         <img src={meal.image} alt={meal.name} className="  rounded-md" />
@@ -48,10 +67,7 @@ const MealDetail = () => {
           </h2>
           <ul className="">
             {meal.ingredients.map((ingredient, index) => (
-              <li
-                className="flex  justify-between space-y-2  "
-                key={index}
-              >
+              <li className="flex  justify-between space-y-2  " key={index}>
                 <div className="w-[40%]">{ingredient[0]}</div>
                 <div className="flex w-[60%]">
                   <p className="text-start w-full">{ingredient[1]}</p>
