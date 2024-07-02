@@ -30,9 +30,12 @@ const MealDetail = () => {
           <h2 className="text-2xl font-semibold text-gray-700 mt-4">
             NUTRITIONAL VALUE
           </h2>
-          <ul className=" ">
-            {meal.nutritionalValue.map((nutritionalValue, index) => (
-              <li key={index}>{nutritionalValue}</li>
+          <ul>
+            {meal.nutritionalValue.map((nutrition, index) => (
+              <li className="flex justify-between" key={index}>
+                <div>{nutrition[0]}</div>
+                <div>{nutrition[1]}</div>
+              </li>
             ))}
           </ul>
         </>
@@ -45,7 +48,15 @@ const MealDetail = () => {
           </h2>
           <ul className="">
             {meal.ingredients.map((ingredient, index) => (
-              <li key={index}>{ingredient}</li>
+              <li
+                className="flex  justify-between space-y-2  "
+                key={index}
+              >
+                <div className="w-[40%]">{ingredient[0]}</div>
+                <div className="flex w-[60%]">
+                  <p className="text-start w-full">{ingredient[1]}</p>
+                </div>
+              </li>
             ))}
           </ul>
         </>
