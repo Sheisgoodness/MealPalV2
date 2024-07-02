@@ -116,10 +116,17 @@ If you already have an account, log in using these steps:
 
 - Allergies : [Joyfuol] Added more allergies to ensure users with different ailments can benefit from the app.
 
-- Diet Options : [Joyfuol] Included more diets to the dietary options. This will enable 70% of individuals to benefit from the app.
+- Diet Options : [Joyfuol] Included more diets options to the dietary options. This will enable 70% of individuals to benefit from the app.
 
-- Meal list : [Joyfuol] Updated the recommended meal plans by adding different types of meal ranging from African dishes, Chinese dishes ...
+- Meal list : [Joyfuol] Updated the recommended meal plans by adding different types of cuisines which includes  African dishes, Chinese dishes and Mexican dishes.
 
+- Meal Details : [Joyfuol] Created meal details page which displays details about the meal starting from ingredients, nutritional values and video tutorial on how to make it.
+
+- Search Bar   : [Joyfuol] Added a search bar option to the recommended meals which enables easy search instead of scrolling through a long search.
+
+- FAQ : [Joyfuol] FAQ serve as an app guide. I created a FAQ page to solve any problem users might encounter while navigating through the app.
+
+- Bookmark  : [Joyfuol] Created bookmark option for users to save favorite meals and learn how to prepare them.
 
   - Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
 
