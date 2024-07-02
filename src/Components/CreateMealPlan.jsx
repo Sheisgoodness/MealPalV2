@@ -4,7 +4,7 @@ import { auth, db, onAuthStateChanged } from "../firebase/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import back from "../assets/back.png";
 
-const CreateMealPlan = () => {
+const CreateMealPlan = ({ onNext }) => {
   const [dietType, setDietType] = useState("");
   const [budget, setBudget] = useState("");
   const [allergies, setAllergies] = useState([]);
@@ -115,12 +115,6 @@ const CreateMealPlan = () => {
 
   return (
     <div className="flex flex-col justify-center items-center mb-10 mt-6">
-      <img
-        src={back}
-        alt="Back icon"
-        style={{ cursor: "pointer", position: "absolute", top: 70, left: 10, width: 20, height: 20 }}
-        onClick={() => navigate(-1)}
-      />
 
       <div className="inline-flex w-[358px] h-[80px] flex-col items-start">
         <h1 className="font-manrope text-lg font-semibold leading-normal">Create meal plan</h1>
@@ -129,19 +123,21 @@ const CreateMealPlan = () => {
 
       <div className="flex flex-col w-[358px] items-start mb-6 gap-2">
         <p className="font-manrope text-sm font-bold leading-[21px]">Meal plan title</p>
-        <div className="flex p-4 items-start content-start gap-4 self-stretch flex-wrap rounded-[4px] border">
+        <div className="flex items-start content-start self-stretch flex-wrap">
           <textarea
             placeholder=" Add a title"
-            className="font-manrope bg-white text-gray-600 text-sm w-[360px] h-[53px] leading-[150%]"
+            className="font-manrope p-3 bg-white text-gray-600 text-sm w-[360px] h-[90px] leading-[150%]"
             disabled={!isEditing}
           ></textarea>
         </div>
       </div>
 
       <div className="flex flex-col">
-        <p className="font-manrope text-[13px] mb-2 font-bold leading-normal text-[#545454]">Your dietary record</p>
+        <p className="font-manrope text-[13px] mb-2 font-bold leading-normal 
+        text-[#545454]">Your dietary record</p>
 
-        <div className="inline-flex p-2 w-[358px] h-[80px] mb-2 flex-col items-start gap-2 rounded-lg border border-[#EAEAEA] bg-[#F4F4F4]">
+        <div className="inline-flex p-2 w-[358px] h-[80px] mb-2 flex-col items-start 
+        gap-2 rounded-lg border border-[#EAEAEA] bg-[#F4F4F4]">
           <p className="font-manrope text-sm font-bold leading-normal text-[#545454]">Diet Type:</p>
           <select value={dietType} onChange={handleDietTypeChange} className="font-manrope text-sm leading-normal text-[#545454]" disabled={!isEditing}>
             <option value="Vegetarian">Vegetarian</option>
@@ -151,9 +147,13 @@ const CreateMealPlan = () => {
           </select>
         </div>
 
-        <div className="inline-flex p-2 flex-col w-[358px] h-[80px] mb-2 items-start gap-2 rounded-lg border border-[#EAEAEA] bg-[#F4F4F4]">
+        <div className="inline-flex p-2 flex-col w-[358px] h-[80px] mb-2 items-start
+         gap-2 rounded-lg border border-[#EAEAEA] bg-[#F4F4F4]">
           <p className="font-manrope text-sm font-bold leading-normal text-[#545454]">Budget:</p>
-          <select value={budget} onChange={handleBudgetChange} className="font-manrope text-sm leading-normal text-[#545454]" disabled={!isEditing}>
+          <select 
+          value={budget} 
+          onChange={handleBudgetChange} 
+          className="font-manrope text-sm leading-normal text-[#545454]" disabled={!isEditing}>
             <option value="Flexible">Flexible</option>
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
@@ -161,7 +161,8 @@ const CreateMealPlan = () => {
           </select>
         </div>
 
-        <div className="inline-flex p-2 flex-col w-[358px] h-[auto] mb-2 items-start gap-2 rounded-lg border bg-[#F4F4F4] border-[#EAEAEA]">
+        <div className="inline-flex p-2 flex-col w-[358px] h-[auto] mb-2 items-start 
+        gap-2 rounded-lg border bg-[#F4F4F4] border-[#EAEAEA]">
           <p className="font-manrope text-sm font-bold leading-normal text-[#545454]">Allergies:</p>
           <div className="flex w-[342px] items-start content-start gap-2 flex-wrap">
             {allergies.map((allergy) => (
@@ -170,7 +171,7 @@ const CreateMealPlan = () => {
               </div>
             ))}
           </div>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 ">
             {allergyOptions.map((option) => (
               <label key={option} className="flex items-center space-x-1">
                 <input
@@ -186,7 +187,8 @@ const CreateMealPlan = () => {
           </div>
         </div>
 
-        <div className="inline-flex p-2 flex-col w-[358px] h-[auto] mb-2 items-start gap-2 rounded-lg border bg-[#F4F4F4] border-[#EAEAEA]">
+        <div className="inline-flex p-2 flex-col w-[358px] h-[auto]  items-start gap-2 
+        rounded-lg border bg-[#F4F4F4] border-[#EAEAEA]">
           <p className="font-manrope text-sm font-bold leading-normal text-[#545454]">Dislikes:</p>
           <div className="flex w-[342px] items-start content-start gap-2 flex-wrap">
             {dislikes.map((dislike) => (
@@ -197,7 +199,7 @@ const CreateMealPlan = () => {
           </div>
           <div className="flex flex-wrap gap-3">
             {dislikeOptions.map((option) => (
-              <label key={option} className="flex items-center space-x-1">
+              <label key={option} className="flex items-center flex-nowrap space-x-1">
                 <input
                   type="checkbox"
                   value={option}
@@ -205,7 +207,7 @@ const CreateMealPlan = () => {
                   onChange={handleDislikesChange}
                   disabled={!isEditing}
                 />
-                <span className="font-manrope text-sm leading-normal text-[#545454]">{option}</span>
+                <span className="font-manrope text-sm text-nowrap leading-normal text-[#545454]">{option}</span>
               </label>
             ))}
           </div>
@@ -214,22 +216,25 @@ const CreateMealPlan = () => {
 
       <div className="flex flex-col">
         <button
-          className="font-manrope text-md font-medium leading-normal text-[#545454]
+          className="font-manrope text-md font-medium leading-normal
          flex w-[358px] h-[40px] mt-6 mb-2 p-4 justify-center items-center gap-2 flex-shrink-0
-          rounded-[8px] border border-[#4268FB]"
+          rounded-[8px] border border-green-700 hover:bg-green-300"
+          style={{ border: '2px solid green' }}
           onClick={handleEditClick}
         >
           {isEditing ? "Save dietary record" : "Edit dietary record"}
         </button>
-        <Link to={`/SelectPreference`}>
+        
           <button
             className="font-manrope text-md font-medium leading-normal
           flex w-[358px] h-[40px] p-4
-         justify-center items-center gap-2 flex-shrink-0 rounded-[8px] border bg-[#4268FB]"
+         justify-center items-center gap-2 flex-shrink-0 rounded-[8px] text-white 
+         border hover:bg-green-300 bg-green-700"
+         onClick={onNext}
           >
             Proceed
           </button>
-        </Link>
+        
       </div>
     </div>
   );
