@@ -14,7 +14,7 @@ const SearchBar = ({ query, setQuery }) => {
   };
 
   return (
-    <div className="flex items-center mb-10">
+    <div className="flex items-center mb-10 ">
       <input
         type="text"
         value={query}
