@@ -19,7 +19,8 @@ const ThankYou = () => {
       <button
         type="button"
         onClick={handleClose}
-        className="w-full h-[40px] flex justify-center items-center rounded-lg bg-[#4268FB] text-white"
+        className="w-full h-[40px] flex justify-center items-center rounded-lg
+         bg-green-700 hover:bg-green-300 text-white"
       >
         Close
       </button>

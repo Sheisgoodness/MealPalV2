@@ -69,6 +69,10 @@ const MealSchedule = () => {
     fetchMealData();
   }, []);
 
+  const handleBackClick = () => {
+    navigate(-1);
+  };
+
   const handleChevronClick = (meal) => {
     navigate('/MealNutrients', { state: { meal } });
   };
@@ -79,7 +83,7 @@ const MealSchedule = () => {
         src={back}
         alt="Back icon"
         style={{ cursor: 'pointer', position: 'absolute', top: 70, left: 10, width: 20, height: 20 }}
-        onClick={() => navigate(-1)}
+        onClick={handleBackClick} 
       />
       <div className='flex flex-col items-start'>
         <h1 className="text-2xl font-bold text-start">Meal schedule</h1>
@@ -105,47 +109,38 @@ const MealSchedule = () => {
       </div>
 
       <div className="flex flex-col mt-4 pl-12 pr-6">
-      {Object.keys(mealPlan[activeWeek]).map(day => (
-  <div key={day} className="flex flex-col items-start gap-4 mb-4">
-    <h3 className="text-md font-medium">{day}</h3>
-    {Array.isArray(mealPlan[activeWeek][day]) ? (
-      mealPlan[activeWeek][day].map((meal, index) => (
-        <div
-          key={index}
-          className="flex justify-between items-center border-gray-100 border-b-2 p-2  w-[390px]"
-        >
-          <div className="flex flex-col justify-center items-start">
-            <p>{meal.title}</p>
-            <p className="bg-[#F4F4F4] text-blue-500 p-1 rounded">{meal.type}</p>
+        {Object.keys(mealPlan[activeWeek]).map(day => (
+          <div key={day} className="flex flex-col items-start gap-4 mb-4">
+            <h3 className="text-md font-medium">{day}</h3>
+            {mealPlan[activeWeek][day].length > 0 ? (
+              mealPlan[activeWeek][day].map((meal, index) => (
+                <div
+                  key={index}
+                  className="flex justify-between items-center border-gray-100 border-b-2 p-2  w-[390px]"
+                >
+                  <div className="flex flex-col justify-center items-start">
+                    <p>{meal.title}</p>
+                    <p className="bg-[#F4F4F4] text-blue-500 p-1 rounded">{meal.type}</p>
+                  </div>
+                  <button
+                    onClick={() => handleChevronClick(meal)}
+                    className="cursor-pointer"
+                  >
+                    <img
+                      src={chevron}
+                      alt="chevron right"
+                      className="h-4 w-4"
+                    />
+                  </button>
+                </div>
+              ))
+            ) : (
+              <p className="m-3 text-red-600 w-[360px]">
+                No meals found. API call has been exceeded for the day. Try again in 24 hours.
+              </p>
+            )}
           </div>
-          <Link to="/MealNutrients" className="cursor-pointer" onClick={() => handleChevronClick(meal)}>
-            <img
-              src={chevron}
-              alt="chevron right"
-              className="h-4 w-4"
-            />
-          </Link>
-        </div>
-      ))
-    ) : (
-      <p className="m-3 text-red-600 w-[360px]">
-      No meals found. API call has been exceeded for the day. Try again in
-      24 hours.
-    </p>
-    )}
-  </div>
-))}
-      </div>
-      <div>
-        <Link to={`/MealNutrients`}>
-          <button
-            className="font-manrope text-md font-medium mt-10 leading-normal
-            flex w-[358px] h-[40px] p-4
-            justify-center items-center gap-2 flex-shrink-0 rounded-[8px] border text-white bg-[#4268FB]"
-          >
-            Proceed
-          </button>
-        </Link>
+        ))}
       </div>
     </div>
   );

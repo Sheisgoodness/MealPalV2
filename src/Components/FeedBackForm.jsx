@@ -2,24 +2,35 @@ import React, { useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import { useNavigate } from 'react-router-dom';
 
-const FeedbackForm = () => {
+const FeedbackForm = ({ onNext }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
     emailjs.init('KYgb0SF17-2P5HPAC');
   }, []);
 
-  const sendFeedback = (e) => {
+  const sendFeedback = async (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_kx1nuvi', 'template_53buy4a', e.target)
-      .then((result) => {
-        console.log(result.text);
+    try {
+      const serviceId = 'service_kx1nuvi';
+      const templateId = 'template_53buy4a';
+      const userConfirmationTemplateId = 'template_53buy4a';
+      const userId = 'KYgb0SF17-2P5HPAC';
 
-        navigate('/ThankYou');
-      }, (error) => {
-        console.log(error.text);
+      
+      await emailjs.sendForm(serviceId, templateId, e.target);
+
+      
+      await emailjs.send(serviceId, userConfirmationTemplateId, {
+        to_email: e.target.email.value, 
       });
+
+      console.log('Feedback submitted successfully');
+      onNext(); 
+    } catch (error) {
+      console.error('Error sending feedback:', error);
+    }
   };
 
   return (
@@ -52,7 +63,8 @@ const FeedbackForm = () => {
         ></textarea>
         <button
           type="submit"
-          className="w-full h-[40px] flex justify-center items-center rounded-lg bg-[#4268FB] text-white"
+          className="w-full h-[40px] flex justify-center items-center rounded-lg
+           text-white border hover:bg-green-300 bg-green-700"
         >
           Submit
         </button>
