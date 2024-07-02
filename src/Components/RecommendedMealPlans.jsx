@@ -133,9 +133,11 @@ const RecommendedMealPlans = () => {
             <li
               key={index}
               className="flex flex-row items-center justify-between"
-              onClick={() => handleMealClick(meal.id)}
             >
-              <div className="flex gap-2">
+              <div
+                className="flex gap-2 cursor-pointer"
+                onClick={() => handleMealClick(meal.id)}
+              >
                 <img
                   src={meal.image}
                   className="w-[80px] h-[80px] object-contain"
@@ -155,7 +157,6 @@ const RecommendedMealPlans = () => {
                   >
                     {meal.category}
                   </span>
-                  
                 </div>
               </div>
 
