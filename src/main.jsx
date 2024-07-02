@@ -12,10 +12,12 @@ import { BookmarkProvider } from "./Contexts/BookmarkContext.jsx";
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <BrowserRouter>
-      <ToastContainer />
-          <App />
-      </BrowserRouter>
+      <BookmarkProvider>
+        <BrowserRouter>
+        <ToastContainer />
+            <App />
+        </BrowserRouter>
+      </BookmarkProvider>
     </AuthProvider>
   </React.StrictMode>
 );
