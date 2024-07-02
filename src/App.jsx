@@ -56,7 +56,6 @@ function App() {
             }
           />
 
-          
           <Route
             path="/CreateMealPlan"
             element={
@@ -73,7 +72,7 @@ function App() {
               </PrivateRoute>
             }
           />
-        
+
           <Route
             path="/history"
             element={

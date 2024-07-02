@@ -39,6 +39,8 @@ function HomePage() {
       return;
     }
 
+    
+
     const filtered = meals.filter((meal) =>
       meal.title.toLowerCase().includes(searchTerm.toLowerCase())
     );

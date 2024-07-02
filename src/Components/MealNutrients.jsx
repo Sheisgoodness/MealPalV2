@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import back from '../assets/back.png';
 
-const MealNutrients = ({ onNext }) => {
+const MealNutrients = () => {
   const [recipeDetail, setRecipeDetail] = useState(null);
   const [activeTab, setActiveTab] = useState('nutrients');
   const navigate = useNavigate();
@@ -72,6 +72,11 @@ const MealNutrients = ({ onNext }) => {
 
   const handleBackClick = () => {
     navigate(-1);
+  };
+
+  const handleDoneClick = () => {
+    // Define what should happen when the "Done" button is clicked
+    console.log('Done button clicked');
   };
 
   return (
@@ -151,7 +156,7 @@ const MealNutrients = ({ onNext }) => {
       </Link>
 
       <button
-        onClick={onNext}
+        onClick={handleDoneClick}
         className="font-manrope text-md font-medium mt-10 leading-normal
         flex w-[358px] h-[40px] p-4
         justify-center items-center gap-2 flex-shrink-0 rounded-[8px] border text-white bg-green-700 hover:bg-green-300"

@@ -1,24 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import iconButton from "/src/assets/IconButton.png";
-// import Categories from "/src/Components/Categories"
 import PropTypes from "prop-types";
 import SelectCategory from "/src/Components/Categories";
-import  Bookmark   from "/src/assets/bookmark.png";
+// import  Bookmark   from "/src/assets/bookmark.png";
 import { useBookmarks } from "/src/Contexts/BookmarkContext";
-import BookmarkIcon from "/src/Components/BookmarkIcon"
-
+import BookmarkIcon from "/src/Components/BookmarkIcon";
+import { meals } from "../Data";
 
 const SearchBar = ({ query, setQuery }) => {
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
-
-  // const toggleFilterPanel = () => {
-
-  // };
-
-  const toggleFilterPanel = () => {};
 
   return (
     <div className="flex items-center mb-10">
@@ -33,12 +26,11 @@ const SearchBar = ({ query, setQuery }) => {
         src={iconButton}
         alt="Search Icon"
         className=" flex justify-end item-end ml-2 w-9 h-9 cursor-pointer bg-[#F4F4F4]"
-        onClick={toggleFilterPanel}
+        onClick={() => {}}
       />
     </div>
   );
 };
-
 
 SearchBar.propTypes = {
   query: PropTypes.string.isRequired,
@@ -54,8 +46,8 @@ const RecommendedMealPlans = () => {
   });
 
   const [showFilterPanel, setShowFilterPanel] = useState(false);
-const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
-
+  const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
+  const navigate = useNavigate();
 
   const toggleFilterPanel = () => {
     setShowFilterPanel(!showFilterPanel);
@@ -69,9 +61,6 @@ const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
     }));
   };
 
- 
-  // const navigate = useNavigate();
-
   const toggleBookmark = (meal) => {
     if (bookmarks.some((item) => item.name === meal.name)) {
       removeBookmark(meal);
@@ -80,150 +69,7 @@ const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
     }
   };
 
-
-  const meals = [
-    {
-      name: "Grilled Salmon with Lemon-Dill Sauce",
-      image:
-        "https://cdn.pixabay.com/photo/2021/06/21/15/03/salmon-6353898_960_720.jpg",
-      categories: ["Popular", "Vegan Only"],
-      mealTypes: " morning",
-    },
-    {
-      name: "Lentil and Vegetable Curry",
-      image:
-        "https://cdn.pixabay.com/photo/2021/06/21/15/03/salmon-6353898_960_720.jpg",
-      categories: ["Popular", "Vegan Only"],
-      mealTypes: " lunch",
-    },
-    {
-      name: "Mushroom Risotto",
-      image:
-        "https://cdn.pixabay.com/photo/2021/01/06/13/01/pearl-barley-5894346_960_720.jpg",
-      categories: ["Popular", "Vegan", "Non-Vegan"],
-      mealTypes: "dinner",
-    },
-    {
-      name: "Grilled Lemon Herb Chicken Bowl",
-      image:
-        "https://cdn.pixabay.com/photo/2024/02/24/23/22/ai-generated-8594918_960_720.jpg",
-      categories: ["Popular", "Vegan", "Non-Vegan"],
-      mealTypes: "dinner",
-    },
-    {
-      name: "Mexican Ground Beef Tacos",
-      image:
-        "/src/assets/mexican cuisine images/Mexican Ground Beef Tacos 1.png",
-      categories: ["Popular", "Omnivore", "Flexitarian"],
-      mealTypes: "morning",
-      cuisines: "Mexican",
-    },
-    {
-      name: "Pozole Rojo",
-      image: "/src/assets/mexican cuisine images/Pozole Rojo 1.png",
-      categories: ["Popular", "Classic"],
-      mealTypes: "lunch",
-      cuisines: "Mexican",
-    },
-    {
-      name: " Mexican Rice",
-      image: "/src/assets/mexican cuisine images/Mexican-Rice-768x994 1.png",
-      categories: ["Popular", "Classic"],
-      mealTypes: "dinner",
-      cuisines: "Mexican",
-    },
-    {
-      name: "  West African Peanut (Groundnut) Soup",
-      image:
-        "/src/assets/African cuisine images/istockphoto-1432610370-612x612 1.png",
-      categories: ["Popular", "LowCarbs"],
-      mealTypes: "morning",
-      cuisines: "African",
-    },
-    {
-      name: "Catfish Pepper Soup",
-      image: "/src/assets/African cuisine images/Catfish Pepper Soup 1.png",
-      categories: ["Popular", "Classic", "keto"],
-      mealTypes: "lunch",
-      cuisines: "African",
-    },
-    {
-      name: "Cameroonian Sese Plantains",
-      image: "/src/assets/African cuisine images/image 5.png",
-      categories: ["Popular", "Classic", "keto"],
-      mealTypes: "dinner",
-      cuisines: "African",
-    },
-    {
-      name: "   Moroccan Harira Soup",
-      image: "/src/assets/African cuisine images/Moroccan Harira Soup 1.png",
-      categories: ["Popular", "Classic", "keto"],
-      mealTypes: "morning",
-      cuisines: "African",
-    },
-    {
-      name: "Chicken Cabbage Stew",
-      image: "/src/assets/African cuisine images/image 5.png",
-      categories: ["Popular", "Classic"],
-      mealTypes: "lunch",
-      cuisines: "African",
-    },
-    {
-      name: "  Scallion Chicken",
-      image: "/src/assets/Chinese cuisine images/Scallion Chicken 1.png",
-      categories: ["Popular", "Omnivore", "Classic"],
-      mealTypes: "dinner",
-      cuisines: "Chinese",
-    },
-    {
-      name: "   Chinese Green Beans",
-      image: "/src/assets/Chinese cuisine images/g 1.png",
-      categories: ["Popular", "Keto", "LowCarbs"],
-      mealTypes: "morning",
-      cuisines: "Chinese",
-    },
-    {
-      name: "   Chinese Chicken Mancurian",
-      image: "/src/assets/Chinese cuisine images/image 2.png",
-      categories: ["Popular", "Classic", "Omnivore"],
-      mealTypes: "lunch",
-      cuisines: "Chinese",
-    },
-    {
-      name: "   Crispy Tofu With Peanut Sauce",
-      image: "/src/assets/Chinese cuisine images/image 3.png",
-      categories: ["Popular", "Keto", "LowCarbs"],
-      mealTypes: "dinner",
-      cuisines: "Chinese",
-    },
-
-    {
-      name: "   Dan Dan Noodles With Shrimps",
-      image: "/src/assets/Chinese cuisine images/image 4.png",
-      categories: ["Popular", "Keto", "Classic"],
-      mealTypes: "morning",
-      cuisines: "Chinese",
-    },
-    {
-      name: "   Stacked Beef Enchiladas",
-      image: "/src/assets/mexican cuisine images/Stacked Beef Enchiladas 1.png",
-      categories: ["Popular", "Classic"],
-      mealTypes: "lunch",
-      cuisines: "Mexican",
-    },
-    {
-      name: "   Hummus and Falafel",
-      image: "/src/assets/recipe4.png",
-      categories: ["Popular", "Vegan Only", "Non-Vegan"],
-      mealTypes: "dinner",
-    },
-
-    // Add more meals as needed
-  ];
-
   const filteredMeals = meals.filter((meal) => {
-    
-
     // Filter by search query
     if (query && !meal.name.toLowerCase().includes(query.toLowerCase())) {
       return false;
@@ -259,6 +105,10 @@ const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
     return true;
   });
 
+  const handleMealClick = (id) => {
+    navigate(`/mealdetails/${id}`);
+  };
+
   return (
     <>
       <h1 className="text-3xl text-black font-Manrope font-bold mt-4 mb-4">
@@ -273,88 +123,10 @@ const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
 
       {showFilterPanel && (
         <div className="filter-panel bg-white p-4 rounded-md shadow-md mb-4">
-          <h2 className="text-xl font-bold mb-2">Filter Options</h2>
-          <div className="mb-4">
-            <h3 className="font-semibold">Categories</h3>
-            <div className="flex gap-2 flex-wrap">
-              {[
-                "Recommended",
-                "Popular",
-                "Omnivore",
-                "Vegan Only",
-                "Vegan",
-                "Non-Vegan",
-                "Flexitarian",
-                "Classic",
-                "Keto",
-                "LowCarbs",
-              ].map((category) => (
-                <button
-                  key={category}
-                  className={`p-2 rounded-md ${
-                    filters.categories.includes(category)
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200"
-                  }`}
-                  onClick={() => toggleFilter("categories", category)}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="mb-4">
-            <h3 className="font-semibold">Meal Types</h3>
-            <div className="flex gap-2 flex-wrap">
-              {["morning", "lunch", "dinner"].map((mealType) => (
-                <button
-                  key={mealType}
-                  className={`p-2 rounded-md ${
-                    filters.mealTypes.includes(mealType)
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200"
-                  }`}
-                  onClick={() => toggleFilter("mealTypes", mealType)}
-                >
-                  {mealType}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="mb-4">
-            <h3 className="font-semibold">Cuisines</h3>
-            <div className="flex gap-2 flex-wrap">
-              {["American", "Indian", "Mexican", "African", "Chinese"].map(
-                (cuisine) => (
-                  <button
-                    key={cuisine}
-                    className={`p-2 rounded-md ${
-                      filters.cuisines.includes(cuisine)
-                        ? "bg-blue-500 text-white"
-                        : "bg-gray-200"
-                    }`}
-                    onClick={() => toggleFilter("cuisines", cuisine)}
-                  >
-                    {cuisine}
-                  </button>
-                )
-              )}
-            </div>
-          </div>
+          <SelectCategory filters={filters} toggleFilter={toggleFilter} />
         </div>
       )}
 
-      {/* <div className="flex mb-5 ">
-        <h3 className="border-2 rounded bg-blue-500 text-white">Recommended</h3>
-        <h3 className="ml-2"> Popular</h3>
-        <h3 className="ml-2">Classic</h3>
-        <h3 className="ml-2">Vegan Only</h3>
-        <h3 className="ml-2">Non-Vegan </h3>
-        <h3 className="ml-2">Keto</h3>
-        <h3 className="ml-2">LowCarbs</h3>
-        <h3 className="ml-2">Omivore</h3>
-        <h3 className="ml-2">Flexitarian</h3>
-      </div> */}
       <div>
         <ul className="flex flex-col gap-2 font-semibold">
           {filteredMeals.map((meal, index) => (
@@ -362,7 +134,10 @@ const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
               key={index}
               className="flex flex-row items-center justify-between"
             >
-              <div className="flex gap-2">
+              <div
+                className="flex gap-2 cursor-pointer"
+                onClick={() => handleMealClick(meal.id)}
+              >
                 <img
                   src={meal.image}
                   className="w-[80px] h-[80px] object-contain"
@@ -373,26 +148,17 @@ const { bookmarks, addBookmark, removeBookmark } = useBookmarks();
                   {meal.name}
                 </p>
                 <div className="flex self-start p-1 gap-6 text-[10px] font-semibold">
-                  {meal.categories.map((categories, idx) => (
-                    <span
-                      key={idx}
-                      className={`bg-${
-                        categories.includes("Popular")
-                          ? "[#F0F6FF]"
-                          : "[#FFF0F0]"
-                      } p-1 rounded-md`}
-                    >
-                      {categories}
-                    </span>
-                  ))}
+                  <span
+                    className={`bg-${
+                      meal.category.includes("Popular")
+                        ? "[#F0F6FF]"
+                        : "[#FFF0F0]"
+                    } p-1 rounded-md`}
+                  >
+                    {meal.category}
+                  </span>
                 </div>
               </div>
-              {/* <img
-                src={Bookmark ? Bookmark : Bookmark}
-                alt="Bookmark Icon"
-                className="bookmarkIcon w-6 h-6 cursor-pointer bg-[#F4F4F4] "
-                onClick={() => toggleBookmark(meal)}
-              /> */}
 
               <BookmarkIcon
                 filled={bookmarks.some((item) => item.name === meal.name)}
