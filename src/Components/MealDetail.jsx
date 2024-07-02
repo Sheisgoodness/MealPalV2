@@ -7,6 +7,7 @@ const MealDetail = () => {
   const { id } = useParams();
   const meal = meals.find((meal) => meal.id.toString() === id);
   const [searchTerm, setSearchTerm] = useState("");
+  const [imageFullScreen, setImageFullScreen] = useState(false);
 
   if (!meal) {
     return (
@@ -36,18 +37,35 @@ const MealDetail = () => {
         />
         <img src={iconButton} alt="Filter" className="h-8 w-8 cursor-pointer" />
       </div>
-      <h1 className="text-3xl font-bold text-gray-900">{meal.name}</h1>
-      {meal.image && (
-        <img src={meal.image} alt={meal.name} className="rounded-md" />
-      )}
-      {/* <p>CATEGORY: {meal.category.join}</p> */}
+      <div className="card bg-gray-100 p-4 rounded">
+        <h1 className="text-3xl font-bold text-gray-900">{meal.name}</h1>
+        <div className="relative mt-4">
+          <img
+            src={meal.image}
+            alt={meal.name}
+            className={`object-cover w-full rounded ${imageFullScreen ? 'fixed top-0 left-0 w-full h-full z-50' : 'h-64'}`}
+            onClick={() => setImageFullScreen(!imageFullScreen)}
+          />
+          {imageFullScreen && (
+            <button
+              className="absolute top-4 right-4 bg-white p-2 rounded-full"
+              onClick={() => setImageFullScreen(false)}
+            >
+              X
+            </button>
+          )}
+        </div>
+        <div className="flex justify-around mt-4 bg-gray-200 p-2 rounded">
+          <div className="text-gray-700">🕒 cooking time(1Hr 10 min){meal.cookTime}</div>
+          <div className="text-gray-700">🍽️ Meal serving(1){meal.serving}</div>
+          <div className="text-gray-700">⭐Meal Rating {meal.rating}</div>
+        </div>
+      </div>
 
       {meal.nutritionalValue && (
-        <>
-          <h2 className="text-2xl font-semibold text-gray-700 mt-4">
-            NUTRITIONAL VALUE
-          </h2>
-          <ul>
+        <div className="card bg-gray-100 p-4 rounded mt-4">
+          <h2 className="text-2xl font-semibold text-gray-700">Nutritional Information</h2>
+          <ul className="mt-2">
             {meal.nutritionalValue.map((nutrition, index) => (
               <li className="flex justify-between" key={index}>
                 <div>{nutrition[0]}</div>
@@ -55,15 +73,13 @@ const MealDetail = () => {
               </li>
             ))}
           </ul>
-        </>
+        </div>
       )}
 
       {meal.ingredients && (
-        <>
-          <h2 className="text-2xl font-semibold text-gray-700 mt-4">
-            INGREDIENTS
-          </h2>
-          <ul className="">
+        <div className="card bg-gray-100 p-4 rounded mt-4">
+          <h2 className="text-2xl font-semibold text-gray-700">Ingredients</h2>
+          <ul className="mt-2">
             {meal.ingredients.map((ingredient, index) => (
               <li className="flex justify-between space-y-2" key={index}>
                 <div className="w-[40%]">{ingredient[0]}</div>
@@ -73,31 +89,34 @@ const MealDetail = () => {
               </li>
             ))}
           </ul>
-        </>
+        </div>
       )}
 
       {meal.videoTutorial && (
-        <>
-          <h2 className="text-2xl font-semibold text-gray-700 mt-4">
-            VIDEO TUTORIAL
-          </h2>
+        <div className="card bg-gray-100 p-4 rounded mt-4">
+          <h2 className="text-2xl font-semibold text-gray-700">Video Tutorial</h2>
+          <div className="flex justify-center mt-2">
+            <img
+              src={meal.videoThumbnail}
+              alt="Video thumbnail"
+              className="w-[150px] h-[120px] object-cover rounded"
+            />
+          </div>
           <a
             href={meal.videoTutorial}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-700 underline mt-2 block"
+            className="text-blue-500 hover:text-blue-700 underline mt-2 block text-center"
           >
-            Watch Tutorial
+            Watch on YouTube
           </a>
-        </>
+        </div>
       )}
 
       {filteredMeals.length > 0 && (
-        <>
-          <h2 className="text-2xl font-semibold text-gray-700 mt-4">
-            SEARCH RESULTS
-          </h2>
-          <ul className="">
+        <div className="card bg-gray-100 p-4 rounded mt-4">
+          <h2 className="text-2xl font-semibold text-gray-700">Search Results</h2>
+          <ul className="mt-2">
             {filteredMeals.map((filteredMeal) => (
               <li
                 key={filteredMeal.id}
@@ -112,7 +131,7 @@ const MealDetail = () => {
               </li>
             ))}
           </ul>
-        </>
+        </div>
       )}
     </div>
   );
