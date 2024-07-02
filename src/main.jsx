@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {createRoot} from "react-dom/client";
-import App from "./App.jsx";
 import "./index.css";
+import App from "./App"
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./Contexts/AuthContext.jsx";
 import { ToastContainer } from "react-toastify";

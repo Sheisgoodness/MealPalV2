@@ -1,9 +1,8 @@
-<<<<<<< HEAD
+
 // import React from "react";
 import { useBookmarks } from "/src/Contexts/BookmarkContext";
 import DeleteIcon from "/src/assets/images/delete.png";
-import "/src/App.css"
-=======
+import "/src/App.css";
 import {
     doc,
     setDoc,
@@ -22,7 +21,6 @@ import { AuthContext } from "../Contexts/AuthContext";
 import PostCard from "../Components/CommunityComp/PostCard";
 import BookmarkedPostCard from "../Components/CommunityComp/BookmarkedPostCard";
 
->>>>>>> e43911f1c8b39fda9ebbea9783b326f539f041ad
 
 function BookmarkPage() {
 
