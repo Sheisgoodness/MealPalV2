@@ -91,6 +91,11 @@ const MealNutrients = () => {
     navigate(-1);
   };
 
+  const handleDoneClick = () => {
+    // Define what should happen when the "Done" button is clicked
+    console.log('Done button clicked');
+  };
+
   return (
     <div className="flex flex-col p-6 justify-center items-center">
       <img
