@@ -189,7 +189,7 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
                 </div>
               </>
             ) : (
-              <Link to="/report">
+              <Link to={`/report/${id}`}>
                 <div className="items-center flex gap-2 hover:cursor-pointer">
                 <span className="material-symbols-outlined">flag</span>
                 <span>Report</span>
