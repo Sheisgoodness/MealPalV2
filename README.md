@@ -104,7 +104,7 @@ If you already have an account, log in using these steps:
 ### Team Two
 
 - Babatunde Maryam [Joyfuol](https://github.com/Joyfuol/MealPalV2.git)
-
+- Ajisegbede Oluwamayowa [Ashaoluwaseeni] (https://github.com/Ashaoluwaseeni/MealPalV2.git)
 
   # Overview
 
@@ -128,9 +128,21 @@ If you already have an account, log in using these steps:
 
 - Bookmark  : [Joyfuol] Created bookmark option for users to save favorite meals and learn how to prepare them.
 
+- Contact Us : [Ashaoluwaseeni] I created and Worked on the contact Us page which entails Reasons for with a drop down options of (Question about the app, Report an issue with the app, Suggestions for the app, and Others), Emails Address, Full Name, and a Note which allows users to have the opportunity to give their feedbacks about the App.
+
+Success : [Ashaoluwaseeni] I created and Worked on the Success page which allows users to know their form has been submitted successfully thereby taking them back to the Home Page. 
+
+Bookmark : [Ashaoluwaseeni] I created a Bookmark work space for my partner for easy inputation of her work.
+
+FAQ : [Ashaoluwaseeni] I created a FAQ work space for my partner for easy inputation of her work.
+
+LogOut : [Ashaoluwaseeni] I worked on the LogOut so as to help users LogOut without stress and after which takes them back to the Home Page.
+
   - Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
 
   - Referral Link, Copy Link and Share Button: [Eucharian8] made the referral link redirect the new user to the signup page. Improved the UI of the referral link copy button and added a share button.
+
+
 
   # Features
 
