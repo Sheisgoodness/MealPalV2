@@ -27,6 +27,9 @@ import FAQPage from "./pages/FAQPage";
 import Report from "./pages/report";
 import MealDetail from "./Components/MealDetail";
 import SelectPreference from "./Components/SelectPreference";
+import MealNutrientsPage from "./pages/MealNutrientsPage";
+import FeedbackFormPage from "./pages/FeedbackFormPage";
+import ThankYouPage from "./pages/ThankYouPage";
 
 function App() {
   const { userLoggedIn } = useAuth();
@@ -56,6 +59,7 @@ function App() {
             }
           />
 
+          
           <Route
             path="/CreateMealPlan"
             element={
@@ -72,7 +76,31 @@ function App() {
               </PrivateRoute>
             }
           />
-
+          <Route
+            path="/MealNutrients"
+            element={
+              <PrivateRoute>
+                <MealNutrientsPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/FeedbackForm"
+            element={
+              <PrivateRoute>
+                <FeedbackFormPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/ThankYou"
+            element={
+              <PrivateRoute>
+                <ThankYouPage />
+              </PrivateRoute>
+            }
+          />
+        
           <Route
             path="/history"
             element={
@@ -139,10 +167,10 @@ function App() {
             }
           />
           <Route
-            path="/report"
+            path="/report/:postId"
             element={
               <PrivateRoute>
-                <report />
+                <Report />
               </PrivateRoute>
             }
           />

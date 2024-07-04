@@ -197,9 +197,9 @@ const PostMain = () => {
                 if (hours > 0) {
                   timestampString += `${hours}h `;
                 }
-                if (minutes > 0) {
-                  timestampString += `${minutes}m `;
-                }
+                // if (minutes > 0) {
+                //   timestampString += `${minutes}m `;
+                // }
 
                 return (
                   <PostCard

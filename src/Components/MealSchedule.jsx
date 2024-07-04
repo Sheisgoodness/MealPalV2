@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import chevron from "../assets/chevron.png";
 import back from '../assets/back.png';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
-import fetchMeals from '../loadData';
+import { meals } from './MealData';
 
 const initialMealPlan = {
   Week1: {
@@ -18,36 +18,81 @@ const initialMealPlan = {
   },
 };
 
-const MealSchedule = () => {
+const MealSchedule = ({ onNext }) => {
   const [mealPlan, setMealPlan] = useState(initialMealPlan);
   const [activeWeek, setActiveWeek] = useState('Week1');
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserPreferences = async () => {
-      const db = getFirestore();
-      const dislikesDoc = await getDoc(doc(db, 'userPreferences', 'dislikes'));
-      const preferencesDoc = await getDoc(doc(db, 'userPreferences', 'selectPreferences'));
-      const allergiesDoc = await getDoc(doc(db, 'userPreferences', 'allergies'));
+      try {
+        const db = getFirestore();
+        const dislikesDoc = await getDoc(doc(db, 'userPreferences', 'dislikes'));
+        const preferencesDoc = await getDoc(doc(db, 'userPreferences', 'selectPreferences'));
+        const allergiesDoc = await getDoc(doc(db, 'userPreferences', 'allergies'));
 
-      const dislikes = dislikesDoc.data()?.options || [];
-      const selectPreferences = preferencesDoc.data()?.preferences || [];
-      const allergies = allergiesDoc.data()?.options || [];
+        const dislikes = dislikesDoc.data()?.options || [];
+        const selectPreferences = preferencesDoc.data()?.preferences || [];
+        const allergies = allergiesDoc.data()?.options || [];
 
-      return { dislikes, selectPreferences, allergies };
+        return { dislikes, selectPreferences, allergies };
+      } catch (error) {
+        console.error('Error fetching user preferences:', error);
+        return { dislikes: [], selectPreferences: [], allergies: [] };
+      }
     };
+
+     //   const fetchMealData = async () => {
+  //     try {
+  //       const { dislikes, selectPreferences, allergies } = await fetchUserPreferences();
+
+  //       const week1Day1 = await fetchMeals(0, selectPreferences, dislikes, allergies);
+  //       const week1Day2 = await fetchMeals(3, selectPreferences, dislikes, allergies);
+  //       const week1Day3 = await fetchMeals(6, selectPreferences, dislikes, allergies);
+
+  //       const week2Day1 = await fetchMeals(1, selectPreferences, dislikes, allergies);
+  //       const week2Day2 = await fetchMeals(4, selectPreferences, dislikes, allergies);
+  //       const week2Day3 = await fetchMeals(7, selectPreferences, dislikes, allergies);
+
+  //       setMealPlan({
+  //         Week1: {
+  //           Day1: week1Day1,
+  //           Day2: week1Day2,
+  //           Day3: week1Day3,
+  //         },
+  //         Week2: {
+  //           Day1: week2Day1,
+  //           Day2: week2Day2,
+  //           Day3: week2Day3,
+  //         },
+  //       });
+  //     } catch (error) {
+  //       console.error('Error fetching meal data:', error);
+  //     }
+  //   };
+
+  //   fetchMealData();
+  // }, []);
 
     const fetchMealData = async () => {
       try {
         const { dislikes, selectPreferences, allergies } = await fetchUserPreferences();
-        
-        const week1Day1 = await fetchMeals(0, selectPreferences, dislikes, allergies);
-        const week1Day2 = await fetchMeals(3, selectPreferences, dislikes, allergies);
-        const week1Day3 = await fetchMeals(6, selectPreferences, dislikes, allergies);
 
-        const week2Day1 = await fetchMeals(1, selectPreferences, dislikes, allergies);
-        const week2Day2 = await fetchMeals(4, selectPreferences, dislikes, allergies);
-        const week2Day3 = await fetchMeals(7, selectPreferences, dislikes, allergies);
+        const filteredMeals = meals.filter(meal => {
+          return (
+            !dislikes.some(dislike => meal.ingredients.includes(dislike)) &&
+            !allergies.some(allergy => meal.ingredients.includes(allergy)) &&
+            (selectPreferences.length === 0 || selectPreferences.includes(meal.type))
+          );
+        });
+
+        const week1Day1 = filteredMeals.slice(0, 3);
+        const week1Day2 = filteredMeals.slice(3, 6);
+        const week1Day3 = filteredMeals.slice(6, 9);
+
+        const week2Day1 = filteredMeals.slice(9, 12);
+        const week2Day2 = filteredMeals.slice(12, 15);
+        const week2Day3 = filteredMeals.slice(15, 18);
 
         setMealPlan({
           Week1: {
@@ -74,6 +119,7 @@ const MealSchedule = () => {
   };
 
   const handleChevronClick = (meal) => {
+    onNext(); 
     navigate('/MealNutrients', { state: { meal } });
   };
 
@@ -95,13 +141,13 @@ const MealSchedule = () => {
      
       <div className="flex items-center gap-3 w-[360px] mt-4">
         <button
-          className={`px-4 py-2 rounded-full ${activeWeek === 'Week1' ? 'bg-black text-white' : 'bg-gray-200'}`}
+          className={`px-4 py-2 hover:w-[88px] hover:bg-gray-200 hover:text-black rounded-full ${activeWeek === 'Week1' ? 'bg-black text-white' : 'bg-gray-200'}`}
           onClick={() => setActiveWeek('Week1')}
         >
           Week 1
         </button>
         <button
-          className={`px-4 py-2 rounded-full ${activeWeek === 'Week2' ? 'bg-black text-white' : 'bg-gray-200'}`}
+          className={`px-4 py-2 hover:w-[98px] hover:bg-gray-200 hover:text-black rounded-full ${activeWeek === 'Week2' ? 'bg-black text-white' : 'bg-gray-200'}`}
           onClick={() => setActiveWeek('Week2')}
         >
           Week 2
@@ -112,15 +158,15 @@ const MealSchedule = () => {
         {Object.keys(mealPlan[activeWeek]).map(day => (
           <div key={day} className="flex flex-col items-start gap-4 mb-4">
             <h3 className="text-md font-medium">{day}</h3>
-            {mealPlan[activeWeek][day].length > 0 ? (
+            {mealPlan[activeWeek][day]?.length > 0 ? (
               mealPlan[activeWeek][day].map((meal, index) => (
                 <div
                   key={index}
-                  className="flex justify-between items-center border-gray-100 border-b-2 p-2  w-[390px]"
+                  className="flex justify-between items-center border-gray-100 border-b-2 p-2 w-[390px]"
                 >
                   <div className="flex flex-col justify-center items-start">
                     <p>{meal.title}</p>
-                    <p className="bg-[#F4F4F4] text-blue-500 p-1 rounded">{meal.type}</p>
+                    <p className="bg-[#F4F4F4] text-green-500 p-1 rounded">{meal.type}</p>
                   </div>
                   <button
                     onClick={() => handleChevronClick(meal)}

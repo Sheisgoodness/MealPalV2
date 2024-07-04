@@ -1,15 +1,12 @@
 # MealPal
 
 Welcome to MealPal, an innovative online platform that aims to provide users with personalized meal plans tailored to their individual needs or health challenges.
-Cohort 8 Pro Capstone Project
+Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagement through gamification features such as referral links, point awards, and meal plan points.
 
 ## Table of contents
 
 - [Features]()
 - [Team Members](#team-members)
-  - [Team Alpha](#team-alpha)
-  - [Team Beta](#team-beta)
-  - [Team Eta](#team-eta)
   - [Team One](#team-one)
 - [Tools](#tools)
 - [Resources](#resources)
@@ -58,44 +55,6 @@ If you already have an account, log in using these steps:
 
 ## Team Members
 
-### Team Alpha
-
-- Ayomikun Adeosun [ayomikun-ade](https://www.github.com/ayomikun-ade)
-- Ireoluwa Adegoke [Adereb-web](https://www.github.com/Adereb-web)
-- Fracesca Ezih [Cesca04](https://www.github.com/Cesca04)
-
-### Team Beta
-
-- Frieda Odagboyi [friedaodagboyi](https://www.github.com/friedaodagboyi)
-
-### Team Gamma
-
-- Divine Dibobie [divinedibobie](https://github.com/divinedibobie)
-- Elizabeth Godfrey [miyemicodes](https://github.com/miyemicodes)
-- Zahidat Alao [Ayomii1](https://github.com/Ayomii1)
-
-### Team Delta
-
-- Babatunde Maryam [Joyfuol](https://github.com/Joyfuol)
-
-### Team ETA - Gamification
-
-- Anezi Ugwuomarima [janeAnezi](https://www.github.com/janeAnezi)
-- Sarah Lutaaya [sarahlutaaya256](https://www.github.com/sarahlutaaya256)
-- Favour Joseph []()
-
-
-### Team Zeta
-
-- Ola Esther Pelumi [ESTHER-OLA](https://github.com/ESTHER-OLA/c8Project)
-- Joy Wilson []()
-- Moromoke Bello [moromoke01](https://github.com/moromoke01/c8Project/tree/master)
-
-### Team Epsilon
-
-- Chioma Marycynthia []()
-
-
 ### Team One
 
 - Achi Faith [IfyFaith24](https://github.com/ifyfaith24)
@@ -104,7 +63,7 @@ If you already have an account, log in using these steps:
 ### Team Two
 
 - Babatunde Maryam [Joyfuol](https://github.com/Joyfuol/MealPalV2.git)
-- Ajisegbede Oluwamayowa [Ashaoluwaseeni] (https://github.com/Ashaoluwaseeni/MealPalV2.git)
+
 
   # Overview
 
@@ -112,37 +71,25 @@ If you already have an account, log in using these steps:
 
   # Team Contributions
 
-  - Profile : [Joyfuol] Worked on the profile input section by changing the dummy text to a placeholder which allows users to input their details without having to delete any text.
+- Profile : [Joyfuol] Worked on the profile input section by changing the dummy text to a placeholder which allows users to input their details without having to delete any text.
 
 - Allergies : [Joyfuol] Added more allergies to ensure users with different ailments can benefit from the app.
 
 - Diet Options : [Joyfuol] Included more diets options to the dietary options. This will enable 70% of individuals to benefit from the app.
 
-- Meal list : [Joyfuol] Updated the recommended meal plans by adding different types of cuisines which includes  African dishes, Chinese dishes and Mexican dishes.
+- Meal list : [Joyfuol] Updated the recommended meal plans by adding different types of cuisines which includes African dishes, Chinese dishes and Mexican dishes.
 
 - Meal Details : [Joyfuol] Created meal details page which displays details about the meal starting from ingredients, nutritional values and video tutorial on how to make it.
 
-- Search Bar   : [Joyfuol] Added a search bar option to the recommended meals which enables easy search instead of scrolling through a long search.
+- Search Bar : [Joyfuol] Added a search bar option to the recommended meals which enables easy search instead of scrolling through a long search.
 
 - FAQ : [Joyfuol] FAQ serve as an app guide. I created a FAQ page to solve any problem users might encounter while navigating through the app.
 
-- Bookmark  : [Joyfuol] Created bookmark option for users to save favorite meals and learn how to prepare them.
-
-- Contact Us : [Ashaoluwaseeni] I created and Worked on the contact Us page which entails Reasons for with a drop down options of (Question about the app, Report an issue with the app, Suggestions for the app, and Others), Emails Address, Full Name, and a Note which allows users to have the opportunity to give their feedbacks about the App.
-
-Success : [Ashaoluwaseeni] I created and Worked on the Success page which allows users to know their form has been submitted successfully thereby taking them back to the Home Page. 
-
-Bookmark : [Ashaoluwaseeni] I created a Bookmark work space for my partner for easy inputation of her work.
-
-FAQ : [Ashaoluwaseeni] I created a FAQ work space for my partner for easy inputation of her work.
-
-LogOut : [Ashaoluwaseeni] I worked on the LogOut so as to help users LogOut without stress and after which takes them back to the Home Page.
+- Bookmark : [Joyfuol] Created bookmark option for users to save favorite meals and learn how to prepare them.
 
   - Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
 
   - Referral Link, Copy Link and Share Button: [Eucharian8] made the referral link redirect the new user to the signup page. Improved the UI of the referral link copy button and added a share button.
-
-
 
   # Features
 
@@ -160,7 +107,6 @@ LogOut : [Ashaoluwaseeni] I worked on the LogOut so as to help users LogOut with
     Enhance the ability for users to create customized meal plans based on dietary preferences, health goals, and calorie requirements. 
 
   # Installation
-
   - Clone the repository:
     git clone https://github.com/PrincessMaggy/MealPalV2
   - Install dependencies:
@@ -168,7 +114,6 @@ LogOut : [Ashaoluwaseeni] I worked on the LogOut so as to help users LogOut with
   - Build and run the application:
     npm run build
     npm run dev
-
 
 ## Tools
 
