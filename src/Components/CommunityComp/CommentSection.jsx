@@ -89,7 +89,7 @@ const CommentSection = ({ postId }) => {
               className="w-full rounded-2xl outline-none border-collapse-0 p-2 bg-gray-100"
               ref={comment}
             ></input>
-            <button type="submit" className="hover:w-fit hover:bg-white">
+            <button type="submit" className="hover:w-fit h-fit px-4 py-2 bg-white text-[grey] hover:bg-[grey] hover:text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

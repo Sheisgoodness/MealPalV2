@@ -139,10 +139,10 @@ function App() {
             }
           />
           <Route
-            path="/report"
+            path="/report/:postId"
             element={
               <PrivateRoute>
-                <report />
+                <Report />
               </PrivateRoute>
             }
           />
