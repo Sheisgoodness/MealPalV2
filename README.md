@@ -88,11 +88,31 @@ If you already have an account, log in using these steps:
 
 - Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
 
- - Referral Link, Copy Link and Share Button: [Eucharian8] made the referral link redirect the new user to the signup page. Improved the UI of the referral link copy button and added a share button.
-  
- - Community Page : [IwuchukwuDivine] design the community page to help users navigate through the components of the community page for more informations and also improve users experience.
-  
-- Community Page Functionalities : [madukafavour] implemented the functionality of the community page
+  - Referral Link, Copy Link and Share Button: [Eucharian8] made the referral link redirect the new user to the signup page. Improved the UI of the referral link copy button and added a share button.
+
+  - Create Meal Plan Page: [ifyfaith24] a dynamic and user-centric feature within our meal planning application. This page allows users to generate personalized meal plans based on their dietary records and preferences. Key aspects of this feature include:
+
+  . User Preferences Integration: I integrated user-specific dietary information such as allergies, diet type, budget, and dislikes. This ensures that the meal plans generated are tailored to each user's unique needs and restrictions.
+
+  . Preference-based Meal Generation: By considering users' food preferences, the system generates a    comprehensive meal plan schedule. Users can opt for meal plans that span either a week or two weeks.
+  . Interactive User Experience: The interface is designed to be intuitive and responsive, allowing users to easily navigate through their personalized meal plans and make adjustments as needed.
+
+  - Feedback Form feature: [ifyfaith24] an essential component for collecting user insights and improving our service.
+
+  # Features
+
+  - Referral System
+    Users can generate unique referral links.
+    Points are awarded to users when someone signs up using their referral link.
+    Detailed analytics and reporting on referral activities.
+  - Point System
+    Points are awarded for various in-app actions such as completing tasks, reaching milestones, and engaging with content.
+    Points can be redeemed for rewards or used to unlock premium features.
+  - Meal Plan Points
+    Users earn points for following the meal plan provided by the app.
+    Points are awarded based on adherence to the plan, healthy eating choices, and consistency.
+  - Create Meal Plan
+    Enhance the ability for users to create customized meal plans based on dietary preferences, health goals, and calorie requirements. 
 
   # Installation
   - Clone the repository:
