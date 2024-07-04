@@ -62,7 +62,7 @@ const RecommendedMealPlans = () => {
   };
 
   const toggleBookmark = (meal) => {
-    if (bookmarks.some((item) => item.name === meal.name)) {
+    if (bookmarks.some((item) => item.id === meal.id)) {
       removeBookmark(meal);
     } else {
       addBookmark(meal);
@@ -161,6 +161,7 @@ const RecommendedMealPlans = () => {
               </div>
 
               <BookmarkIcon
+                
                 filled={bookmarks.some((item) => item.name === meal.name)}
                 onClick={() => toggleBookmark(meal)}
               />
