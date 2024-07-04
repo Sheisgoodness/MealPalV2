@@ -64,9 +64,13 @@ If you already have an account, log in using these steps:
 
 - Babatunde Maryam [Joyfuol](https://github.com/Joyfuol/MealPalV2.git)
 
+### Team Five
+- Maduka Favour [madukafavour](https://github.com/madukafavour)
+- Iwuchukwu Divine [IwuchukwuDivine](https://github.com/IwuchukwuDivine)
+
   # Team Contributions
 
-  - Profile : [Joyfuol] Worked on the profile input section by changing the dummy text to a placeholder which allows users to input their details without having to delete any text.
+- Profile : [Joyfuol] Worked on the profile input section by changing the dummy text to a placeholder which allows users to input their details without having to delete any text.
 
 - Allergies : [Joyfuol] Added more allergies to ensure users with different ailments can benefit from the app.
 
@@ -82,12 +86,15 @@ If you already have an account, log in using these steps:
 
 - Bookmark : [Joyfuol] Created bookmark option for users to save favorite meals and learn how to prepare them.
 
-  - Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
+- Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
 
-  - Referral Link, Copy Link and Share Button: [Eucharian8] made the referral link redirect the new user to the signup page. Improved the UI of the referral link copy button and added a share button.
+ - Referral Link, Copy Link and Share Button: [Eucharian8] made the referral link redirect the new user to the signup page. Improved the UI of the referral link copy button and added a share button.
+  
+ - Community Page : [IwuchukwuDivine] design the community page to help users navigate through the components of the community page for more informations and also improve users experience.
+  
+- Community Page Functionalities : [madukafavour] implemented the functionality of the community page
 
   # Installation
-
   - Clone the repository:
     git clone https://github.com/PrincessMaggy/MealPalV2
   - Install dependencies:
