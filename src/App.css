@@ -73,7 +73,7 @@ input, textarea, select {
 }
 
 button {
-  padding: 50px 20px;
+  /* padding: 50px 20px; */
   background-color: #007BFF;
   color: #fff;
   border: none;
@@ -81,14 +81,16 @@ button {
   cursor: pointer;
   text-align: center;
   display: block;
-  margin: 20px 0;
+  /* margin: 20px 0; */
 }
 
 button:hover {
   background-color: #0056b3;
-  width: 100%;
-  /* text-transform: center; */
+  /* width: 100%; */
 }
+
+
+/* text-transform: center; */
 .custom-checkbox {
   width: 20px;
   height: 20px;
