@@ -64,9 +64,10 @@ If you already have an account, log in using these steps:
 
 - Babatunde Maryam [Joyfuol](https://github.com/Joyfuol/MealPalV2.git)
 
-### Team Five
-- Maduka Favour [madukafavour](https://github.com/madukafavour)
-- Iwuchukwu Divine [IwuchukwuDivine](https://github.com/IwuchukwuDivine)
+
+  # Overview
+
+  The app is designed to incentivize user engagement through gamification features such as referral links, point awards, and meal plan points.
 
   # Team Contributions
 
@@ -86,13 +87,24 @@ If you already have an account, log in using these steps:
 
 - Bookmark : [Joyfuol] Created bookmark option for users to save favorite meals and learn how to prepare them.
 
-- Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
+  - Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
 
- - Referral Link, Copy Link and Share Button: [Eucharian8] made the referral link redirect the new user to the signup page. Improved the UI of the referral link copy button and added a share button.
-  
- - Community Page : [IwuchukwuDivine] design the community page to help users navigate through the components of the community page for more informations and also improve users experience.
-  
-- Community Page Functionalities : [madukafavour] implemented the functionality of the community page
+  - Referral Link, Copy Link and Share Button: [Eucharian8] made the referral link redirect the new user to the signup page. Improved the UI of the referral link copy button and added a share button.
+
+  # Features
+
+  - Referral System
+    Users can generate unique referral links.
+    Points are awarded to users when someone signs up using their referral link.
+    Detailed analytics and reporting on referral activities.
+  - Point System
+    Points are awarded for various in-app actions such as completing tasks, reaching milestones, and engaging with content.
+    Points can be redeemed for rewards or used to unlock premium features.
+  - Meal Plan Points
+    Users earn points for following the meal plan provided by the app.
+    Points are awarded based on adherence to the plan, healthy eating choices, and consistency.
+  - Create Meal Plan
+    Enhance the ability for users to create customized meal plans based on dietary preferences, health goals, and calorie requirements. 
 
   # Installation
   - Clone the repository:

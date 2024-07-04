@@ -4,10 +4,9 @@ import CreateMealPlan from "../Components/CreateMealPlan";
 import SelectPreference from "../Components/SelectPreference";
 import MealSchedule from "../Components/MealSchedule";
 import MealNutrients from "../Components/MealNutrients";
-import FeedBackForm from "../Components/FeedBackForm"
-import ThankYou from "../Components/ThankYou"
+import FeedBackForm from "../Components/FeedBackForm";
+import ThankYou from "../Components/ThankYou";
 import back from '../assets/back.png';
-
 
 const CreateMealPlanPage = () => {
   const navigate = useNavigate();
@@ -34,8 +33,8 @@ const CreateMealPlanPage = () => {
       {currentPage === "SelectPreference" && <SelectPreference onNext={() => handlePageChange("MealSchedule")} />}
       {currentPage === "MealSchedule" && <MealSchedule onNext={() => handlePageChange("MealNutrients")} />}
       {currentPage === "MealNutrients" && <MealNutrients onNext={() => handlePageChange("FeedBackForm")} />}
-      {currentPage === "FeedBackForm" && <FeedBackForm onNext={() => handlePageChange("ThankYou")}/>}
-      {currentPage === "ThankYou" && <ThankYou/>}
+      {currentPage === "FeedBackForm" && <FeedBackForm onNext={() => handlePageChange("ThankYou")} />}
+      {currentPage === "ThankYou" && <ThankYou />}
     </div>
   );
 }
