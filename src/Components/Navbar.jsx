@@ -129,7 +129,7 @@ function Navbar() {
                 LogOut
               </button>
             </ul>
-          </div>
+            </div>
         </div>
       </nav>
     </>
@@ -152,4 +152,4 @@ function NavItem({ to, currentPath, children }) {
   );
 }
 
-export default Navbar;
+  export default Navbar;
