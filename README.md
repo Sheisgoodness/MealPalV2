@@ -55,9 +55,22 @@ Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagemen
 
   - Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
 
-  - Referral Link, Copy Link and Share Button: [Eucharian8] made the referral link redirect the new user to the signup page. Improved the UI of the referral link copy button and added a share button.
+ - Referral Link, Copy Link and Share Button: [Eucharian8] made the referral link redirect the new user to the signup page. Improved the UI of the referral link copy button and added a share button.
+
+- Create Meal Plan Page: [ifyfaith24] a dynamic and user-centric feature within our meal planning application. This page allows users to generate personalized meal plans based on their dietary records and preferences.
+
+- Feedback Form feature: [ifyfaith24] an essential component for collecting user insights and improving our service.
 
 # Features
+
+### Create Meal Plan
+    Enhance the ability for users to create customized meal plans based on dietary preferences, health goals, and calorie requirements. Key aspects of this feature include:
+
+     . User Preferences Integration: user-specific dietary information such as allergies, diet type, budget, and dislikes. This ensures that the meal plans generated are tailored to each user's unique needs and restrictions.
+
+     . Preference-based Meal Generation: By considering users' food preferences, the system generates a    comprehensive meal plan schedule. Users can opt for meal plans that span either a week or two weeks.
+
+     . Interactive User Experience: The interface is designed to be intuitive and responsive, allowing users to easily navigate through their personalized meal plans and make adjustments as needed.
 
 ### Landing Page
 
