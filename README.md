@@ -8,8 +8,6 @@ Cohort 9 Pro Capstone Project
 - [Features]()
 - [Team Members](#team-members)
   - [Team Alpha](#team-alpha)
-  - [Team Beta](#team-beta)
-  - [Team Eta](#team-eta)
 - [Tools](#tools)
 - [Resources](#resources)
 - [Hosted Project](#hosted-project)
@@ -52,25 +50,6 @@ If you already have an account, log in using these steps:
   # Overview
 
   The app is designed to incentivize user engagement through gamification features such as referral links, point awards, and meal plan points.
-
-  # Team Contributions
-
-  - Referral Link Generation and Point Awards: [janeAnezi] implemented the referral link generation feature and the logic for awarding points to users based on successful referrals.
-
-  - Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
-
-  # Features
-
-  - Referral System
-    Users can generate unique referral links.
-    Points are awarded to users when someone signs up using their referral link.
-    Detailed analytics and reporting on referral activities.
-  - Point System
-    Points are awarded for various in-app actions such as completing tasks, reaching milestones, and engaging with content.
-    Points can be redeemed for rewards or used to unlock premium features.
-  - Meal Plan Points
-    Users earn points for following the meal plan provided by the app.
-    Points are awarded based on adherence to the plan, healthy eating choices, and consistency.
 
   # Installation
 
