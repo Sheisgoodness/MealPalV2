@@ -1,7 +1,7 @@
 # MealPal
 
 Welcome to MealPal, an innovative online platform that aims to provide users with personalized meal plans tailored to their individual needs or health challenges.
-Cohort 8 Pro Capstone Project
+Cohort 9 Pro Capstone Project
 
 ## Table of contents
 
@@ -18,7 +18,7 @@ Cohort 8 Pro Capstone Project
 
 ### Landing Page
 
-The landing page includes the welcoming address, get started function and sign in function.
+The landing page features a visually appealing image, a welcoming address, a "Get Started" function, and a sign-in function.
 
 ### Get Started
 
@@ -30,6 +30,8 @@ The get started process is the first step to enjoy the full benefits of our meal
 - Fill in your personal details, including your name and contact information.
 - Review our Terms and Conditions and Privacy Policy.
 - Click the "Sign Up" button to create your account.
+  
+Upon successful registration, you'll be redirected to the home page.
 
 ### Sign In
 
@@ -39,60 +41,12 @@ If you already have an account, log in using these steps:
 - Enter your registered email address and password.
 - Click the "Sign In" button to access your account.
 
-### Referral Feature
-
-- Automatically generates a referral link for logged-in users.
-- Users earn points for every successful referral.
-- Points can be redeemed for rewards.
-- Users can copy their referral link to the clipboard.
-- Points are stored in local storage to persist across sessions.
-
-#### How It Works
-
-- Upon logging in, users are automatically provided with a referral link.
-- Users can copy their referral link to the clipboard by clicking the "Copy" button.
-- When a referral signs up using the referral link, the referring user earns points.
-- Points are displayed in the UI and stored in local storage.
-- Users can redeem their points for rewards by clicking the "Redeem Points" button.
 
 ## Team Members
 
 ### Team Alpha
 
-- Ayomikun Adeosun [ayomikun-ade](https://www.github.com/ayomikun-ade)
-- Ireoluwa Adegoke [Adereb-web](https://www.github.com/Adereb-web)
-- Fracesca Ezih [Cesca04](https://www.github.com/Cesca04)
-
-### Team Beta
-
-- Frieda Odagboyi [friedaodagboyi](https://www.github.com/friedaodagboyi)
-
-### Team Gamma
-
-- Divine Dibobie [divinedibobie](https://github.com/divinedibobie)
-- Elizabeth Godfrey [miyemicodes](https://github.com/miyemicodes)
-- Zahidat Alao [Ayomii1](https://github.com/Ayomii1)
-
-### Team Delta
-
-- Florence Ajayi []()
-
-### Team ETA - Gamification
-
-- Anezi Ugwuomarima [janeAnezi](https://www.github.com/janeAnezi)
-- Sarah Lutaaya [sarahlutaaya256](https://www.github.com/sarahlutaaya256)
-- Favour Joseph []()
-
-
-### Team Zeta
-
-- Ola Esther Pelumi [ESTHER-OLA](https://github.com/ESTHER-OLA/c8Project)
-- Joy Wilson []()
-- Moromoke Bello [moromoke01](https://github.com/moromoke01/c8Project/tree/master)
-
-### Team Epsilon
-
-- Chioma Marycynthia []()
+- Goodness David [sheisgoodness](https://github.com/Sheisgoodness)
 
 
   # Overview
