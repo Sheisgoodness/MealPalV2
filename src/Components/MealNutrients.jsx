@@ -1,67 +1,84 @@
-import  { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { meals } from './MealData';
 import back from '../assets/back.png';
 
 const MealNutrients = () => {
-  const [recipeDetail, setRecipeDetail] = useState(null);
+  const [meal, setMeal] = useState(null);
   const [activeTab, setActiveTab] = useState('nutrients');
   const navigate = useNavigate();
   const location = useLocation();
-  const { meal } = location.state;
-
-  const apiKey = process.env.REACT_APP_API_KEY;
+  const mealId = location.state?.meal?.id;
 
   useEffect(() => {
-    const fetchRecipe = async () => {
-      try {
-        const response = await fetch(
-          `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${apiKey}`
-        );
-        const recipeDetailData = await response.json();
-        setRecipeDetail(recipeDetailData);
-      } catch (error) {
-        console.error("Error fetching recipe:", error);
-      }
-    };
+    if (!mealId) {
+      console.error('Meal ID not found');
+      return;
+    }
 
-    fetchRecipe();
-  }, [apiKey, meal.id]);
+    const selectedMeal = meals.find(item => item.id === mealId);
+    if (selectedMeal) {
+      setMeal(selectedMeal);
+    } else {
+      console.error('Meal not found');
+    }
+  }, [mealId]);
+
+  const parseNutritionalValues = (nutritionalValue) => {
+    return nutritionalValue.split(', ').map(item => {
+      const splitIndex = item.search(/\d/);
+      const key = item.substring(0, splitIndex).trim();
+      const value = item.substring(splitIndex).trim();
+      return { key, value };
+    });
+  };
 
   const renderContent = () => {
-    if (!recipeDetail) {
+    if (!meal) {
       return <div>Loading...</div>;
     }
 
     switch (activeTab) {
       case 'nutrients':
+        const nutrients = parseNutritionalValues(meal.nutritionalValue);
         return (
-          <div className="w-[358px] h-[206px] mt-6 flex-shrink-0 rounded-lg border space-y-4 p-3 border-gray-300 bg-gray-100">
-            <h2 className="text-md font-medium mb-2">Nutrients</h2>
-            {recipeDetail.nutrition.nutrients.map((nutrient, index) => (
-              <p key={index} className="text-sm">{nutrient.title}: {nutrient.amount} {nutrient.unit}</p>
-            ))}
+          <div className="w-[358px] h-[auto] flex flex-col mt-6 flex-shrink-0 rounded-lg border space-y-4 p-3 border-gray-300 bg-gray-100">
+            <h2 className="text-md font-medium mb-2">Nutritional Value</h2>
+            {nutrients.length ? (
+              <div className="text-sm flex flex-col">
+                {nutrients.map((nutrient, index) => (
+                  <div key={index} className="flex justify-between">
+                    <span className="font-medium">{nutrient.key}</span>
+                    <span className="ml-auto">{nutrient.value}</span>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p>No nutritional data available.</p>
+            )}
           </div>
         );
       case 'ingredients':
         return (
-          <div className="w-[358px] h-[206px] mt-6 flex-shrink-0 rounded-lg border space-y-4 p-3 border-gray-300 bg-gray-100">
+          <div className="w-[358px] h-[auto] mt-6 flex-shrink-0 rounded-lg border space-y-4 p-3 border-gray-300 bg-gray-100">
             <h2 className="text-md font-medium mb-2">Ingredients</h2>
-            {recipeDetail.extendedIngredients.map((ingredient, index) => (
-              <p key={index} className="text-sm">{ingredient.original}</p>
-            ))}
-          </div>
-        );
-      case 'preparation':
-        return (
-          <div className="w-[358px] h-[206px] mt-6 flex-shrink-0 rounded-lg border space-y-4 p-3 border-gray-300 bg-gray-100">
-            <h2 className="text-md font-medium mb-2">How to prepare it</h2>
-            {recipeDetail.analyzedInstructions.length > 0 ? (
-              recipeDetail.analyzedInstructions[0].steps.map((step, index) => (
-                <p key={index} className="text-sm">{index + 1}. {step.step}</p>
+            {meal.ingredients ? (
+              meal.ingredients.split(', ').map((ingredient, index) => (
+                <p key={index} className="text-sm">{ingredient}</p>
               ))
             ) : (
-              <p className="text-sm">No instructions available.</p>
+              <p>No ingredients data available.</p>
+            )}
+          </div>
+        );
+      case 'video':
+        return (
+          <div className="w-[358px] h-[auto] mt-6 flex-shrink-0 rounded-lg border space-y-4 p-3 border-gray-300 bg-gray-100">
+            <h2 className="text-md font-medium mb-2">Video Tutorial</h2>
+            {meal.videoTutorial ? (
+              <a href={meal.videoTutorial} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-500 hover:underline">{meal.videoTutorial}</a>
+            ) : (
+              <p>No video tutorial available.</p>
             )}
           </div>
         );
@@ -87,29 +104,29 @@ const MealNutrients = () => {
         style={{ cursor: 'pointer', position: 'absolute', top: 20, left: 10, width: 20, height: 20 }}
         onClick={handleBackClick}
       />
-      {recipeDetail && (
+      {meal && (
         <div className="flex flex-col gap-3 w-[358px] h-[159px]">
           <h1 className="font-manrope text-lg font-semibold leading-normal">
-            {recipeDetail.title}
+            {meal.title}
           </h1>
           <img
-            src={recipeDetail.image}
-            className="w-[60px] h-[60px] object-contain rounded-md"
-            alt={recipeDetail.title}
+            src={meal.image}
+            className="w-[auto] h-[159px] border object-contain rounded-md"
+            alt={meal.title}
           />
         </div>
       )}
       <div className="flex mt-4 gap-6">
-        {recipeDetail && (
+        {meal && (
           <>
             <div className="inline-flex p-2 items-center gap-2 w-[137px] h-[32px] rounded-md border border-gray-300 bg-gray-50">
               <p className="text-[#171717] font-manrope text-xs font-semibold leading-[1.2]">
-                {recipeDetail.readyInMinutes} MINS
+                {meal.preparationTime} MINS
               </p>
             </div>
             <div className="inline-flex p-2 items-center gap-2 w-[137px] h-[32px] rounded-md border border-gray-300 bg-gray-50">
               <p className="text-[#171717] font-manrope text-xs font-semibold leading-[1.2]">
-                {recipeDetail.servings} SERVINGS
+                {meal.servings} SERVINGS
               </p>
             </div>
           </>
@@ -133,11 +150,11 @@ const MealNutrients = () => {
           </p>
         </div>
         <div
-          className={`flex p-1 md:p-2 justify-center items-center w-[130px] h-[26px] gap-2 rounded-xl ${activeTab === 'preparation' ? 'border-green-500 bg-[#F0F6FF]' : 'bg-[#F4F4F4]'}`}
-          onClick={() => setActiveTab('preparation')}
+          className={`flex p-1 md:p-2 justify-center items-center w-[130px] h-[26px] gap-2 rounded-xl ${activeTab === 'video' ? 'border-green-500 bg-[#F0F6FF]' : 'bg-[#F4F4F4]'}`}
+          onClick={() => setActiveTab('video')}
         >
-          <p className={`text-center font-manrope text-xs font-semibold leading-[1.5] ${activeTab === 'preparation' ? 'text-green-500' : ''}`}>
-            How to prepare it
+          <p className={`text-center font-manrope text-xs font-semibold leading-[1.5] ${activeTab === 'video' ? 'text-green-500' : ''}`}>
+            How to prepare
           </p>
         </div>
       </div>
@@ -148,21 +165,24 @@ const MealNutrients = () => {
         <button
           className="font-manrope text-md font-medium mt-10 leading-normal
           flex w-[358px] h-[40px] p-4
-         justify-center items-center gap-2 flex-shrink-0 rounded-[8px]
-          text-white border bg-green-700 hover:bg-green-300"
+          justify-center items-center gap-2 flex-shrink-0 rounded-[8px]
+          text-white border bg-green-700 hover:bg-green-300 hover:w-[358px]"
         >
           Added to bookmark
         </button>
       </Link>
 
+      <Link to={"/FeedBackForm"}>
       <button
-        onClick={handleDoneClick}
-        className="font-manrope text-md font-medium mt-10 leading-normal
+        className="font-manrope text-md font-medium mt-3 leading-normal
         flex w-[358px] h-[40px] p-4
-        justify-center items-center gap-2 flex-shrink-0 rounded-[8px] border text-white bg-green-700 hover:bg-green-300"
+        justify-center items-center gap-2 flex-shrink-0 rounded-[8px] border
+        text-white bg-green-700 hover:bg-green-300 hover:w-[358px]"
       >
         Done
       </button>
+      </Link>
+     
     </div>
   );
 }
