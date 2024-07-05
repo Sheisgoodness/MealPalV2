@@ -1,7 +1,7 @@
 import React from "react";
 import avatar from "../../assets/images/6596121.png";
 
-const Comment = ({ name, comment, logo }) => {
+const Comment = ({ name, comment, logo, timestamp }) => {
   return (
     <div className="flex items-center mt-2 w-full">
       <div className="flex -space-x-1 overflow-hidden">
@@ -17,6 +17,9 @@ const Comment = ({ name, comment, logo }) => {
         </p>
         <p className="font-roboto text-black text-sm no tracking-normal leading-none p-1 font-medium">
           {comment}
+        </p>
+        <p className="font-roboto text-gray-500 text-xs tracking-normal leading-none p-1 font-medium">
+          {timestamp}
         </p>
       </div>
     </div>
