@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import IconButton from "../assets/IconButton.png"
+import IconButton from "../assets/mexican cuisine images/IconButton.png"
 
 
 const SearchBar = ({ onSearch }) => {
