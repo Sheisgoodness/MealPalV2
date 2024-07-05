@@ -4,7 +4,7 @@ import Frameone from "../assets/Frameone.png";
 import MexicanGB from "../assets/mexican cuisine images/Mexican Ground Beef Tacos 1.png"
 import reset from "../assets/reset.png";
 import servingIcon from "../assets/servingIcon.png";
-import bookmark from "../assets/bookmark.png";
+import bookmark from "../assets/mexican cuisine images/bookmark.png";
 import back from "../assets/back.png";
 
 
