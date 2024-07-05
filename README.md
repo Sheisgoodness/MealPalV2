@@ -8,6 +8,7 @@ Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagemen
 - [Features]()
 - [Team Members](#team-members)
   - [Team One](#team-one)
+  - [Team Five](#team-five)
 - [Tools](#tools)
 - [Resources](#resources)
 - [Hosted Project](#hosted-project)
@@ -104,7 +105,26 @@ If you already have an account, log in using these steps:
     Users earn points for following the meal plan provided by the app.
     Points are awarded based on adherence to the plan, healthy eating choices, and consistency.
   - Create Meal Plan
-    Enhance the ability for users to create customized meal plans based on dietary preferences, health goals, and calorie requirements. 
+    Enhance the ability for users to create customized meal plans based on dietary preferences, health goals, and calorie requirements.
+
+    ## Team Five
+
+    ### Team Memebers
+    - Maduka Favour [madukafavour](https://github.com/madukafavour)
+    - Iwuchukwu Divine [IwuchukwuDivine](https://github.com/IwuchukwuDivine)
+
+    ## Community Page
+
+    ### Overview
+    - [IwuchukwuDivine] recreated the overall interface of the community page to give users a more detailed description and use of the page for better use and interaction with other users.
+    - [madukafavour] implemented the functionalities of the community page to provide accessible features for users. 
+
+    ### Features
+      - The community page contains routes for various features i.e it has space for internal storage of posts posted by another user and also the ability to remove such posts from the saved post lists.
+      - It also has user moderation support system, it helps other users to report violent or other issues related to a post for moderation of contents.
+      - Links can be copied and posted to other users within the plateform.
+      - The searchbar helps users to navigate to the desired post or content of their choice by inputting any keywords that supports the search.
+      - Create a new post button navigates to the position or location a user wants the post to appear in and displays the corresponding posts there.  
 
   # Installation
   - Clone the repository:
