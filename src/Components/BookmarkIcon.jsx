@@ -11,7 +11,7 @@ const BookmarkIcon = ({ filled, onClick }) => {
         width={24}
         height={24}
         className={`inline-block ${
-          filled ? "bg-blue-500" : "bg-gray-300"
+          filled ? "bg-blue-500" : "bg-[#F4F4F4]"
         } fill-current`}
       />
     </div>

@@ -29,7 +29,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Profile = ({ user }) => {
   const { currentUser } = useAuth();
   const [email, setEmail] = useState("");
-  const [bio, setBio] = useState("Write a few word about yourself...");
+  const [bio, setBio] = useState("");
   const [name, setName] = useState("");
   const [profileImage, setProfileImage] = useState(
     user && user.profileImage ? user.profileImage : ""
