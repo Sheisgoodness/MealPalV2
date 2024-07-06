@@ -71,6 +71,17 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
     }
   };
 
+  const deletePost = async () => {
+    onAuthStateChanged(auth, async (u) => {
+      if (u) {
+        const posts = collection(db, "posts");
+        await deleteDoc(doc(posts, id));
+        toast.success("Post deleted successfully");
+        navigate("/communitypage");
+      }
+    });
+  };
+
   useEffect(() => {
     const getLikes = async () => {
       try {
@@ -193,7 +204,7 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
                   <span className="material-symbols-outlined">border_color</span>
                   <span>Edit</span>
                 </div>
-                <div className="items-center flex gap-2 hover:cursor-pointer">
+                <div className="items-center flex gap-2 hover:cursor-pointer" onclick={deletePost}>
                   <span className="material-symbols-outlined">delete</span>
                   <span>Delete</span>
                 </div>
