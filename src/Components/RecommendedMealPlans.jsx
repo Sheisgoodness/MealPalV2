@@ -1,32 +1,31 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import iconButton from "/src/assets/IconButton.png";
+import iconButton from "../assets/mexican cuisine images/IconButton.png";
 import PropTypes from "prop-types";
-import SelectCategory from "/src/Components/Categories";
-// import  Bookmark   from "/src/assets/bookmark.png";
-import { useBookmarks } from "/src/Contexts/BookmarkContext";
-import BookmarkIcon from "/src/Components/BookmarkIcon";
+import SelectCategory from "../Components/Categories";
+import { useBookmarks } from "../Contexts/BookmarkContext";
+import BookmarkIcon from "../Components/BookmarkIcon";
 import { meals } from "../Data";
 
-const SearchBar = ({ query, setQuery }) => {
+const SearchBar = ({ query, setQuery, toggleFilterPanel }) => {
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
 
   return (
-    <div className="flex items-center mb-10 ">
+    <div className="flex items-center mb-10">
       <input
         type="text"
         value={query}
         onChange={handleInputChange}
-        placeholder="Search for a meal "
+        placeholder="Search for a meal"
         className="search-bar bg-[#F4F4F4]"
       />
       <img
         src={iconButton}
         alt="Search Icon"
-        className=" flex justify-end item-end ml-2 w-9 h-9 cursor-pointer bg-[#F4F4F4]"
-        onClick={() => {}}
+        className="flex justify-end items-end ml-2 w-9 h-9 cursor-pointer bg-[#F4F4F4]"
+        onClick={toggleFilterPanel}
       />
     </div>
   );
@@ -35,6 +34,7 @@ const SearchBar = ({ query, setQuery }) => {
 SearchBar.propTypes = {
   query: PropTypes.string.isRequired,
   setQuery: PropTypes.func.isRequired,
+  toggleFilterPanel: PropTypes.func.isRequired,
 };
 
 const RecommendedMealPlans = () => {
@@ -52,6 +52,7 @@ const RecommendedMealPlans = () => {
   const toggleFilterPanel = () => {
     setShowFilterPanel(!showFilterPanel);
   };
+
   const toggleFilter = (filterType, value) => {
     setFilters((prevFilters) => ({
       ...prevFilters,
@@ -62,7 +63,7 @@ const RecommendedMealPlans = () => {
   };
 
   const toggleBookmark = (meal) => {
-    if (bookmarks.some((item) => item.name === meal.name)) {
+    if (bookmarks.some((item) => item.id === meal.id)) {
       removeBookmark(meal);
     } else {
       addBookmark(meal);
@@ -118,7 +119,7 @@ const RecommendedMealPlans = () => {
       <SearchBar
         query={query}
         setQuery={setQuery}
-        // toggleFilterPanel={toggleFilterPanel}
+        toggleFilterPanel={toggleFilterPanel}
       />
 
       {showFilterPanel && (
@@ -135,7 +136,7 @@ const RecommendedMealPlans = () => {
               className="flex flex-row items-center justify-between"
             >
               <div
-                className="flex gap-2 cursor-pointer"
+                className="flex gap-2 cursor-pointer items-center"
                 onClick={() => handleMealClick(meal.id)}
               >
                 <img
@@ -143,25 +144,31 @@ const RecommendedMealPlans = () => {
                   className="w-[80px] h-[80px] object-contain"
                   alt=""
                   loading="lazy"
+                  onError={(e) => {
+                    console.log("Image failed to load: ", e.target.src);
+                    e.target.src = "/src/assets/defaultMealImage.png"; // Fallback image
+                  }}
                 />
-                <p className="text-lg flex items-start text-black-600 font-Manrope font-semibold">
-                  {meal.name}
-                </p>
-                <div className="flex self-start p-1 gap-6 text-[10px] font-semibold">
-                  <span
-                    className={`bg-${
-                      meal.category.includes("Popular")
-                        ? "[#F0F6FF]"
-                        : "[#FFF0F0]"
-                    } p-1 rounded-md`}
-                  >
-                    {meal.category}
-                  </span>
+                <div>
+                  <p className="text-lg flex items-start text-black-600 font-Manrope font-semibold">
+                    {meal.name}
+                  </p>
+                  <div className="flex self-start p-1 gap-6 text-[10px] font-semibold">
+                    <span
+                      className={`bg-${
+                        meal.category.includes("Popular")
+                          ? "blue-200"
+                          : "gray-200"
+                      } p-1 rounded-md`}
+                    >
+                      {meal.category}
+                    </span>
+                  </div>
                 </div>
               </div>
 
               <BookmarkIcon
-                filled={bookmarks.some((item) => item.name === meal.name)}
+                filled={bookmarks.some((item) => item.id === meal.id)}
                 onClick={() => toggleBookmark(meal)}
               />
             </li>

@@ -8,11 +8,69 @@ Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagemen
 - [Features]()
 - [Team Members](#team-members)
   - [Team One](#team-one)
+  - [Team Five](#team-five)
 - [Tools](#tools)
 - [Resources](#resources)
 - [Hosted Project](#hosted-project)
 
-## Features
+
+## Team Members
+
+### Team One
+
+- Achi Faith [IfyFaith24](https://github.com/ifyfaith24)
+- Chinechelum Eucharia [Eucharian8](https://github.com/Eucharian8)
+
+### Team Two
+
+- Babatunde Maryam [Joyfuol](https://github.com/Joyfuol/MealPalV2.git)
+
+## Team Five
+
+### Team Memebers
+ - Maduka Favour [madukafavour](https://github.com/madukafavour)
+  - Iwuchukwu Divine [IwuchukwuDivine](https://github.com/IwuchukwuDivine)
+
+# Overview
+
+  The app is designed to incentivize user engagement through gamification features such as referral links, point awards, and meal plan points.
+
+# Team Contributions
+
+- Profile : [Joyfuol] Worked on the profile input section by changing the dummy text to a placeholder which allows users to input their details without having to delete any text.
+
+- Allergies : [Joyfuol] Added more allergies to ensure users with different ailments can benefit from the app.
+
+- Diet Options : [Joyfuol] Included more diets options to the dietary options. This will enable 70% of individuals to benefit from the app.
+
+- Meal list : [Joyfuol] Updated the recommended meal plans by adding different types of cuisines which includes African dishes, Chinese dishes and Mexican dishes.
+
+- Meal Details : [Joyfuol] Created meal details page which displays details about the meal starting from ingredients, nutritional values and video tutorial on how to make it.
+
+- Search Bar : [Joyfuol] Added a search bar option to the recommended meals which enables easy search instead of scrolling through a long search.
+
+- FAQ : [Joyfuol] FAQ serve as an app guide. I created a FAQ page to solve any problem users might encounter while navigating through the app.
+
+- Bookmark : [Joyfuol] Created bookmark option for users to save favorite meals and learn how to prepare them.
+
+  - Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
+
+ - Referral Link, Copy Link and Share Button: [Eucharian8] made the referral link redirect the new user to the signup page. Improved the UI of the referral link copy button and added a share button.
+
+- Create Meal Plan Page: [ifyfaith24] a dynamic and user-centric feature within our meal planning application. This page allows users to generate personalized meal plans based on their dietary records and preferences.
+
+- Feedback Form feature: [ifyfaith24] an essential component for collecting user insights and improving our service.
+
+# Features
+
+### Create Meal Plan
+    Enhance the ability for users to create customized meal plans based on dietary preferences, health goals, and calorie requirements. Key aspects of this feature include:
+
+     . User Preferences Integration: user-specific dietary information such as allergies, diet type, budget, and dislikes. This ensures that the meal plans generated are tailored to each user's unique needs and restrictions.
+
+     . Preference-based Meal Generation: By considering users' food preferences, the system generates a    comprehensive meal plan schedule. Users can opt for meal plans that span either a week or two weeks.
+
+     . Interactive User Experience: The interface is designed to be intuitive and responsive, allowing users to easily navigate through their personalized meal plans and make adjustments as needed.
 
 ### Landing Page
 
@@ -64,8 +122,6 @@ If you already have an account, log in using these steps:
 
 - Babatunde Maryam [Joyfuol](https://github.com/Joyfuol/MealPalV2.git)
 
-- Ajisegbede Oluwamayowa Priscilla [Ashaoluwaseeni](https://github.com/Ashaoluwaseeni/MealPalV2.git)
-
 
   # Overview
 
@@ -89,16 +145,6 @@ If you already have an account, log in using these steps:
 
 - Bookmark : [Joyfuol] Created bookmark option for users to save favorite meals and learn how to prepare them.
 
-- Contact Us : [Ashaoluwaseeni] Worked on the Contact Us Page and this comprises of the "Reasons For which includes a drop down of (Options of 'Question about the app, Report an issue with the app, Suggestions for the app and Others', Email Address, Full Name, and Note). this section allows users to give their opinions about the MealPalV2 App.
-
-- Success : [Ashaoluwaseeni] I created and worked on the Success Page which authormatically takes users to Home Page after a Successful ContactUs form had been filled and sent. This also help users have the assurance that their request has been sent Successfully.
-
-- Bookmark : [Ashaoluwaseeni] I created bookmark work space for my partner in order for her to have fast and easy template.
-
-- FAQ : [Ashaoluwaseeni] FAQ is an app that serve as guide for users. I created a FAQ work space for easy and fast template for my partner to easily work on.
-
-- LogOut : [Ashaoluwaseeni] Created Log Out option for users to easily LogOut and this authormatically take them back to the Home Page.
-
   - Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
 
   - Referral Link, Copy Link and Share Button: [Eucharian8] made the referral link redirect the new user to the signup page. Improved the UI of the referral link copy button and added a share button.
@@ -116,7 +162,22 @@ If you already have an account, log in using these steps:
     Users earn points for following the meal plan provided by the app.
     Points are awarded based on adherence to the plan, healthy eating choices, and consistency.
   - Create Meal Plan
-    Enhance the ability for users to create customized meal plans based on dietary preferences, health goals, and calorie requirements. 
+    Enhance the ability for users to create customized meal plans based on dietary preferences, health goals, and calorie requirements.
+
+   
+
+ ## Community Page
+
+  ### Overview
+   - [IwuchukwuDivine] recreated the overall interface of the community page to give users a more detailed description and use of the page for better use and interaction with other users.
+    - [madukafavour] implemented the functionalities of the community page to provide accessible features for users. 
+
+  ### Features
+    - The community page contains routes for various features i.e it has space for internal storage of posts posted by another user and also the ability to remove such posts from the saved post lists.
+    - It also has user moderation support system, it helps other users to report violent or other issues related to a post for moderation of contents.
+    - Links can be copied and posted to other users within the plateform.
+    - The searchbar helps users to navigate to the desired post or content of their choice by inputting any keywords that supports the search.
+    - Create a new post button navigates to the position or location a user wants the post to appear in and displays the corresponding posts there.  
 
   # Installation
   - Clone the repository:
