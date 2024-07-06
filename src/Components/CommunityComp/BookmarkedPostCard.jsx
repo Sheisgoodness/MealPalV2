@@ -141,16 +141,6 @@ const BookmarkedPostCard = ({ id, name, logo, email, text, image, timestamp, get
     });
   }
 
-  const deletePost = () => {
-    onAuthStateChanged(auth, async (u) => {
-      const posts = collection(db, "posts");
-      if (posts)
-      await deleteDoc(doc(posts, id));
-      toast.success("Post deleted successfully");
-      navigate("/communitypage");
-    });
-  }
-
   return (
     <div className="relative">
       <div className="my-6 border border-[#F1F1F1] rounded-md p-3 shadow-neutral-300">
