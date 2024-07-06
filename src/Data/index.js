@@ -38,7 +38,7 @@ export const meals = [
       ["", "sour cream (optional)"],
       ["12 - 24", "tostada shells"]
     ],
-    videoThumbnail: "https://youtu.be/z-o1O4v91-4?si=ZqkI3wX9glBbkAdB",
+    videoTutorial: "https://youtu.be/z-o1O4v91-4?si=ZqkI3wX9glBbkAdB",
   },
   {
     id: 3,
@@ -73,7 +73,7 @@ export const meals = [
       ["¼ cup", "Cilantro (chopped)"],
       ["2 tsp", "Fresh lime juice"]
     ],
-    videoThumbnail: "https://www.onceuponachef.com/recipes/mexican-rice.html",
+    videoTutorial: "https://www.onceuponachef.com/recipes/mexican-rice.html",
   },
   {
     id: 4,
@@ -112,7 +112,7 @@ export const meals = [
       ["", "smoked paprika"],
       ["2 tbsp", "chopped cilantro, for garnish"]
     ],
-    videoThumbnail: "https://youtu.be/a-yXiT-gf7Q?si=mUCP0gEEJyrOBkEe",
+    videoTutorial: "https://youtu.be/a-yXiT-gf7Q?si=mUCP0gEEJyrOBkEe",
   },
   {
     id: 5,
@@ -151,7 +151,7 @@ export const meals = [
       ["", "sour cream (optional)"],
       ["", "lime (wedged)"]
     ],
-    videoThumbnail: "https://youtu.be/aPqwGwj1BrM",
+    videoTutorial: "https://youtu.be/aPqwGwj1BrM",
   },
   {
     id: 6,
@@ -210,7 +210,7 @@ export const meals = [
       ["", "salt to taste"],
       ["8 - 10 cups", "water"]
     ],
-    videoThumbnail: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    videoTutorial: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   },
 
 
@@ -255,7 +255,7 @@ export const meals = [
       ["1", "habanero or scotch bonnet pepper (optional)"],
       ["4 cups", "Baby spinach, sub with kale"]
     ],
-    videoThumbnail: "https://youtu.be/6IRRroD2ZkI"
+    videoTutorial: "https://youtu.be/6IRRroD2ZkI"
   },
   {
     id: 11,
@@ -293,7 +293,7 @@ export const meals = [
       ["", "Salt"],
       ["", "Ground black pepper"]
     ],
-    videoThumbnail: "https://youtu.be/J2tPrJZkO9E"
+    videoTutorial: "https://youtu.be/J2tPrJZkO9E"
   },
   {
     id: 12,
@@ -324,7 +324,7 @@ export const meals = [
       ["1 tbsp", "Curry"],
       ["130ml", "Oil"]
     ],
-    videoThumbnail: "https://youtu.be/Uiwf0TMG_Sk?si=XF7JnW0tM1-xoZBg"
+    videoTutorial: "https://youtu.be/Uiwf0TMG_Sk?si=XF7JnW0tM1-xoZBg"
   },
   {
     id: 13,
@@ -346,7 +346,7 @@ export const meals = [
       ["5 cups", "Chicken stock (or water)"],
       ["½ tsp", "Salt and white pepper to taste"]
     ],
-    videoThumbnail: "https://www.youtube.com/watch?v=06EVId1bUnM"
+    videoTutorial: "https://www.youtube.com/watch?v=06EVId1bUnM"
   },
   {
     id: 14,
@@ -377,7 +377,7 @@ export const meals = [
       ["1 tbsp", "Minced garlic"],
       ["1 tbsp", "Calamansi juice"]
     ],
-    videoThumbnail: "https://youtu.be/BS9pPhBAoLo?si=bkQ3Zd06GYNiZutG"
+    videoTutorial: "https://youtu.be/BS9pPhBAoLo?si=bkQ3Zd06GYNiZutG"
   },
   {
     id: 15,
@@ -408,7 +408,7 @@ export const meals = [
       ["1 tsp", "Sugar"],
       ["¼ cup", "Water"]
     ],
-    videoThumbnail: "https://youtu.be/I_6aMZwf9CU?si=fnVgRPRpeZ9q0UXT"
+    videoTutorial: "https://youtu.be/I_6aMZwf9CU?si=fnVgRPRpeZ9q0UXT"
   },
   {
     id: 16,
@@ -439,7 +439,7 @@ export const meals = [
       ["1 tbsp", "Minced garlic"],
       ["1 tbsp", "Calamansi juice"]
     ],
-    videoThumbnail: "https://youtu.be/BS9pPhBAoLo?si=bkQ3Zd06GYNiZutG"
+    videoTutorial: "https://youtu.be/BS9pPhBAoLo?si=bkQ3Zd06GYNiZutG"
   },
   {
     id: 17,
@@ -470,7 +470,7 @@ export const meals = [
       ["2-3 tbsp", "Szechuan bean paste"],
       ["2 tsp", "Sugar"]
     ],
-    videoThumbnail: "https://youtu.be/c0orugXU5zk?si=iFXDQRPOPATIT6jh"
+    videoTutorial: "https://youtu.be/c0orugXU5zk?si=iFXDQRPOPATIT6jh"
   },
   {
     id: 18,
@@ -507,7 +507,7 @@ export const meals = [
       ["10 (8-in)", "yellow corn tortillas, cut into quarters"],
       ["4 cups", "Shredded Mexican blend cheese"]
     ],
-    videoThumbnail: "https://www.onceuponachef.com/recipes/stacked-beef-enchiladas.html"
+    videoTutorial: "https://www.onceuponachef.com/recipes/stacked-beef-enchiladas.html"
   },
   {
     id: 19,
@@ -546,7 +546,7 @@ export const meals = [
       ["1/3-1/2", "cup shredded parmesan cheese(for the toast)"],
       
     ],
-    videoThumbnail: "https://youtu.be/Q3xg35pcLyo?si=WSUMZcSjzC89Vlbb"
+    videoTutorial: "https://youtu.be/Q3xg35pcLyo?si=WSUMZcSjzC89Vlbb"
   },
   {
     id: 21,
@@ -581,7 +581,7 @@ export const meals = [
       ["1 lbs", "Spaghetti"],
       
     ],
-    videoThumbnail: "https://youtu.be/zbgOitjizQI?si=9wTSar1lS1VxCHRp"
+    videoTutorial: "https://youtu.be/zbgOitjizQI?si=9wTSar1lS1VxCHRp"
   },
   {
     id: 22,
@@ -622,7 +622,7 @@ export const meals = [
       ["1 tsp", "Basil or parsley, finely minced"],
       
     ],
-    videoThumbnail: "https://youtu.be/gwSOwAe_IVY?si=rsjuOGgnuw-jVEiU"
+    videoTutorial: "https://youtu.be/gwSOwAe_IVY?si=rsjuOGgnuw-jVEiU"
   },
   {
     id: 23,
@@ -670,7 +670,7 @@ export const meals = [
       ["Rice and Naan Bread"],
       
     ],
-    videoThumbnail: "https://youtu.be/lnRmIKkGCIA?si=3ZtsO63MjveO0WX3"
+    videoTutorial: "https://youtu.be/lnRmIKkGCIA?si=3ZtsO63MjveO0WX3"
   },
   {
     id: 24,
@@ -698,7 +698,7 @@ export const meals = [
       ["3/4", "Cup grated Parmesan cheese (cold from the fridge)"],
       
     ],
-    videoThumbnail: "https://youtu.be/Tu9NKIDEirE?si=fwKmYAuFGiGpBhjP"
+    videoTutorial: "https://youtu.be/Tu9NKIDEirE?si=fwKmYAuFGiGpBhjP"
   },
   {
     id: 25,
@@ -729,7 +729,7 @@ export const meals = [
       
       
     ],
-    videoThumbnail: "https://youtu.be/A4yY7rkzATI?si=j1SUDlWeuqrlo3LV"
+    videoTutorial: "https://youtu.be/A4yY7rkzATI?si=j1SUDlWeuqrlo3LV"
   },
   {
     id: 26,
@@ -769,7 +769,7 @@ export const meals = [
       ["Toppings"],
       ["Chopped Cilantro"],
     ],
-    videoThumbnail: "https://youtu.be/prwyoQj0IOE?si=RNchvOGqBRkQFkVh"
+    videoTutorial: "https://youtu.be/prwyoQj0IOE?si=RNchvOGqBRkQFkVh"
   },
   {
     id: 27,
@@ -798,7 +798,7 @@ export const meals = [
       ["60-70%", "Rice"],
       
     ],
-    videoThumbnail: "https://youtu.be/LdeXSCcnJFY?si=6TEuYTXg5mF9eWRM"
+    videoTutorial: "https://youtu.be/LdeXSCcnJFY?si=6TEuYTXg5mF9eWRM"
   },
   {
     id: 28,
@@ -829,7 +829,7 @@ export const meals = [
       
       
     ],
-    videoThumbnail: "https://youtu.be/r3_tcQiyGG8?si=M6e9Fv3A-NoMN9nG"
+    videoTutorial: "https://youtu.be/r3_tcQiyGG8?si=M6e9Fv3A-NoMN9nG"
   },
   {
     id: 29,
@@ -854,7 +854,7 @@ export const meals = [
       ["1 tbsp", "Wasab"],
       
     ],
-    videoThumbnail: "https://youtu.be/X7dS2d7cie4?si=x6HgiTC8K0cqS56N"
+    videoTutorial: "https://youtu.be/X7dS2d7cie4?si=x6HgiTC8K0cqS56N"
   },
   {
     id: 30,
@@ -891,7 +891,7 @@ export const meals = [
       ["1 tbsp   ", "Sesame seeds"],
       
     ],
-    videoThumbnail: "https://youtu.be/_25r8jio3qQ?si=Yn3BzrGA3RAEkLKp"
+    videoTutorial: "https://youtu.be/_25r8jio3qQ?si=Yn3BzrGA3RAEkLKp"
   },
   {
     id: 31,
@@ -935,7 +935,7 @@ export const meals = [
       ["3 tbsp", " Fresh Cream"],
       
     ],
-    videoThumbnail: "https://youtu.be/6tMUbWjEWiY?si=jPaWbMIrRN0g5u_1"
+    videoTutorial: "https://youtu.be/6tMUbWjEWiY?si=jPaWbMIrRN0g5u_1"
   },
   {
     id: 32,
@@ -968,7 +968,7 @@ export const meals = [
       
       
     ],
-    videoThumbnail: "https://youtu.be/a5sr50WL1DY?si=qTtdkUx05QeAe4yC"
+    videoTutorial: "https://youtu.be/a5sr50WL1DY?si=qTtdkUx05QeAe4yC"
   },
   
   {
@@ -1005,7 +1005,7 @@ export const meals = [
       ["1 tbsp", "Lemon Juice"],
       
     ],
-    videoThumbnail: "https://youtu.be/3OZn-iCGf5s?si=ZGhX5ThIQbLGa2kr"
+    videoTutorial: "https://youtu.be/3OZn-iCGf5s?si=ZGhX5ThIQbLGa2kr"
   },
   {
     id: 34,
@@ -1044,7 +1044,7 @@ export const meals = [
       ["2 tsp", "Parsley finely chopped, plus more to garnish"],
       ["4", "cups mozzarella cheese shredded, divided"],
     ],
-    videoThumbnail: "https://youtu.be/fVDsTP-pTXs?si=ClQu7RdVfJI8twoI"
+    videoTutorial: "https://youtu.be/fVDsTP-pTXs?si=ClQu7RdVfJI8twoI"
   },
   
 ];

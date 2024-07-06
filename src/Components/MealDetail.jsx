@@ -7,13 +7,7 @@ const MealDetail = () => {
   const meal = meals.find((meal) => meal.id.toString() === id);
   const [imageFullScreen, setImageFullScreen] = useState(false);
 
-  if (!meal) {
-    return (
-      <div className="text-center text-xl font-semibold mt-10">
-        Meal not found
-      </div>
-    );
-  }
+  
 
   return (
     <div className="p-6 max-w-4xl mx-auto bg-white rounded-xl shadow-md space-y-6">
@@ -78,20 +72,20 @@ const MealDetail = () => {
         </div>
       )}
 
-      {meal.videoThumbnail && (
+      {meal.videoTutorial && (
         <div className="card bg-gray-100 p-4 rounded mt-4">
           <h2 className="text-2xl font-semibold text-gray-700">
             Video Tutorial
           </h2>
           <div className="flex justify-center mt-2">
             <img
-              src={meal.videoThumbnail} // Use the correct property for the thumbnail
-              alt="Video thumbnail"
+              src={meal.videoTutorial}
+              alt="Video Tutorial"
               className="w-[150px] h-[120px] object-cover rounded"
             />
           </div>
           <a
-            href={meal.videoThumbnail}
+            href={meal.videoTutorial} 
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-500 hover:text-blue-700 underline mt-2 block text-center"

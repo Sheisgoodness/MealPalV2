@@ -62,16 +62,20 @@ const RecommendedMealPlans = () => {
     }));
   };
 
-  const toggleBookmark = (meal) => {
-    if (bookmarks.some((item) => item.id === meal.id)) {
-      removeBookmark(meal);
-    } else {
-      addBookmark(meal);
-    }
-  };
+   const toggleBookmark = (meal) => {
+     if (bookmarks.some((item) => item.id === meal.id)) {
+       removeBookmark(meal)
+         .then(() => console.log("Bookmark removed successfully"))
+         .catch((error) => console.error("Error removing bookmark:", error));
+     } else {
+       addBookmark(meal)
+         .then(() => console.log("Bookmark added successfully"))
+         .catch((error) => console.error("Error adding bookmark:", error));
+     }
+   };
 
   const filteredMeals = meals.filter((meal) => {
-    // Filter by search query
+    
     if (query && !meal.name.toLowerCase().includes(query.toLowerCase())) {
       return false;
     }
@@ -146,7 +150,7 @@ const RecommendedMealPlans = () => {
                   loading="lazy"
                   onError={(e) => {
                     console.log("Image failed to load: ", e.target.src);
-                    e.target.src = "/src/assets/defaultMealImage.png"; // Fallback image
+                    e.target.src = required("../assets/defaultMealImage.png").default; 
                   }}
                 />
                 <div>
