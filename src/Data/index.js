@@ -3,7 +3,8 @@ export const meals = [
     id: 1,
     name: "Grilled Salmon with Lemon-Dill Sauce",
     category: "Popular, Vegan Only",
-    image: "https://cdn.pixabay.com/photo/2024/02/24/23/22/ai-generated-8594918_960_720.jpg",
+    image:
+      "https://cdn.pixabay.com/photo/2024/02/24/23/22/ai-generated-8594918_960_720.jpg",
     mealTypes: "dinner",
   },
   {
@@ -17,7 +18,7 @@ export const meals = [
       ["Calories", "771"],
       ["Total Fat", "40g"],
       ["Protein", "35g"],
-      ["Total Carbohydrates", "71g"]
+      ["Total Carbohydrates", "71g"],
     ],
     ingredients: [
       ["0.25 lb", "Dried guajillo or ancho chiles, or a combination of both"],
@@ -36,7 +37,7 @@ export const meals = [
       ["1", "Medium red onion or white onion, diced"],
       ["¼ cup", "Fresh finely chopped cilantro"],
       ["", "sour cream (optional)"],
-      ["12 - 24", "tostada shells"]
+      ["12 - 24", "tostada shells"],
     ],
     videoTutorial: "https://youtu.be/z-o1O4v91-4?si=ZqkI3wX9glBbkAdB",
   },
@@ -55,7 +56,7 @@ export const meals = [
       ["Total Carbohydrates", "4.3g"],
       ["Sugar", "2g"],
       ["Cholesterol", "0mg"],
-      ["Sodium", "491mg"]
+      ["Sodium", "491mg"],
     ],
     ingredients: [
       ["2 tbsp", "Olive oil"],
@@ -71,14 +72,15 @@ export const meals = [
       ["½ tsp", "Cumin"],
       ["½ cup", "Peas"],
       ["¼ cup", "Cilantro (chopped)"],
-      ["2 tsp", "Fresh lime juice"]
+      ["2 tsp", "Fresh lime juice"],
     ],
     videoTutorial: "https://www.onceuponachef.com/recipes/mexican-rice.html",
   },
   {
     id: 4,
     name: "West African Peanut (Groundnut) Soup",
-    image: "/src/assets/African cuisine images/istockphoto-1432610370-612x612 1.png",
+    image:
+      "/src/assets/African cuisine images/istockphoto-1432610370-612x612 1.png",
     categories: ["Popular", "LowCarbs"],
     mealTypes: "morning",
     cuisines: "African",
@@ -92,7 +94,7 @@ export const meals = [
       ["Sugar", "7g"],
       ["Cholesterol", "0mg"],
       ["Sodium", "600mg"],
-      ["Fiber", "6g"]
+      ["Fiber", "6g"],
     ],
     ingredients: [
       ["2 tbsp", "Vegetable oil"],
@@ -110,7 +112,7 @@ export const meals = [
       ["", "ground cumin"],
       ["", "ground coriander"],
       ["", "smoked paprika"],
-      ["2 tbsp", "chopped cilantro, for garnish"]
+      ["2 tbsp", "chopped cilantro, for garnish"],
     ],
     videoTutorial: "https://youtu.be/a-yXiT-gf7Q?si=mUCP0gEEJyrOBkEe",
   },
@@ -129,7 +131,7 @@ export const meals = [
       ["Cholesterol", "45.1mg"],
       ["Sodium", "551.4mg"],
       ["Vitamin A", "59.1µg"],
-      ["Vitamin C", "8mg"]
+      ["Vitamin C", "8mg"],
     ],
     ingredients: [
       ["1 tbsp", "Vegetable oil"],
@@ -149,14 +151,15 @@ export const meals = [
       ["1", "Medium red onion or white onion (diced)"],
       ["¼ cup", "Fresh finely chopped cilantro"],
       ["", "sour cream (optional)"],
-      ["", "lime (wedged)"]
+      ["", "lime (wedged)"],
     ],
     videoTutorial: "https://youtu.be/aPqwGwj1BrM",
   },
   {
     id: 6,
     name: "Lentil and Vegetable Curry",
-    image: "https://cdn.pixabay.com/photo/2021/06/21/15/03/salmon-6353898_960_720.jpg",
+    image:
+      "https://cdn.pixabay.com/photo/2021/06/21/15/03/salmon-6353898_960_720.jpg",
     mealTypes: " lunch",
     category: "Popular, Vegan Only",
   },
@@ -164,14 +167,16 @@ export const meals = [
     id: 7,
     name: "Mushroom Risotto",
     category: "Vegans, Non-Vegans",
-    image: "https://cdn.pixabay.com/photo/2021/01/06/13/01/pearl-barley-5894346_960_720.jpg",
+    image:
+      "https://cdn.pixabay.com/photo/2021/01/06/13/01/pearl-barley-5894346_960_720.jpg",
     mealTypes: "dinner",
   },
   {
     id: 8,
     name: "Grilled Lemon Herb Chicken Bowl",
     category: "Popular, Vegan Only, Non-Vegan",
-    image: "https://cdn.pixabay.com/photo/2024/02/24/23/22/ai-generated-8594918_960_720.jpg",
+    image:
+      "https://cdn.pixabay.com/photo/2024/02/24/23/22/ai-generated-8594918_960_720.jpg",
   },
   {
     id: 9,
@@ -196,7 +201,7 @@ export const meals = [
       ["Calcium", "67mg"],
       ["Iron", "2mg"],
       ["Vitamin A", "373IU"],
-      ["Vitamin C", "20mg"]
+      ["Vitamin C", "20mg"],
     ],
     ingredients: [
       ["4 lb", "catfish cleaned, gutted, cut into 1-2 inches chunks"],
@@ -208,11 +213,10 @@ export const meals = [
       ["", "fresh uziza leaves or bitterleaf (optional)"],
       ["2", "small seasoning cubes"],
       ["", "salt to taste"],
-      ["8 - 10 cups", "water"]
+      ["8 - 10 cups", "water"],
     ],
     videoTutorial: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   },
-
 
   {
     id: 10,
@@ -237,10 +241,13 @@ export const meals = [
       ["Calcium", "146mg"],
       ["Iron", "4mg"],
       ["Vitamin A", "3022IU"],
-      ["Vitamin C", "36mg"]
+      ["Vitamin C", "36mg"],
     ],
     ingredients: [
-      ["1 lb", "Goat meat, cut into 2 inch slices sub with cow meat or more dried fish or smoked fish"],
+      [
+        "1 lb",
+        "Goat meat, cut into 2 inch slices sub with cow meat or more dried fish or smoked fish",
+      ],
       ["2", "Medium onions (chopped)"],
       ["1½ tsp", "Salt"],
       ["10 cloves", "Garlic"],
@@ -253,9 +260,9 @@ export const meals = [
       ["6-8 cloves", "Garlic, peeled"],
       ["4", "Seasoning cubes (4g)"],
       ["1", "habanero or scotch bonnet pepper (optional)"],
-      ["4 cups", "Baby spinach, sub with kale"]
+      ["4 cups", "Baby spinach, sub with kale"],
     ],
-    videoTutorial: "https://youtu.be/6IRRroD2ZkI"
+    videoTutorial: "https://youtu.be/6IRRroD2ZkI",
   },
   {
     id: 11,
@@ -269,7 +276,7 @@ export const meals = [
       ["Total Fat", "8g"],
       ["Protein", "15g"],
       ["Total Carbohydrates", "40g"],
-      ["Fiber", "10g"]
+      ["Fiber", "10g"],
     ],
     ingredients: [
       ["2 tbsp", "Olive oil"],
@@ -291,9 +298,9 @@ export const meals = [
       ["½ cup", "Rice"],
       ["Lemon wedges", "for serving"],
       ["", "Salt"],
-      ["", "Ground black pepper"]
+      ["", "Ground black pepper"],
     ],
-    videoTutorial: "https://youtu.be/J2tPrJZkO9E"
+    videoTutorial: "https://youtu.be/J2tPrJZkO9E",
   },
   {
     id: 12,
@@ -306,7 +313,7 @@ export const meals = [
       ["Calories", "65"],
       ["Total Fat", "15g"],
       ["Protein", "47g"],
-      ["Total Carbohydrates", "38g"]
+      ["Total Carbohydrates", "38g"],
     ],
     ingredients: [
       ["500g", "Chicken breast"],
@@ -322,9 +329,9 @@ export const meals = [
       ["1 tbsp", "Garlic and ginger paste"],
       ["1 tbsp", "Thyme"],
       ["1 tbsp", "Curry"],
-      ["130ml", "Oil"]
+      ["130ml", "Oil"],
     ],
-    videoTutorial: "https://youtu.be/Uiwf0TMG_Sk?si=XF7JnW0tM1-xoZBg"
+    videoTutorial: "https://youtu.be/Uiwf0TMG_Sk?si=XF7JnW0tM1-xoZBg",
   },
   {
     id: 13,
@@ -337,16 +344,16 @@ export const meals = [
       ["Calories", "222"],
       ["Total Fat", "10g"],
       ["Protein", "20g"],
-      ["Total Carbohydrates", "16g"]
+      ["Total Carbohydrates", "16g"],
     ],
     ingredients: [
       ["2", "Chicken leg quarters"],
       ["1½ inches", "Ginger (thinly sliced)"],
       ["2", "Scallions"],
       ["5 cups", "Chicken stock (or water)"],
-      ["½ tsp", "Salt and white pepper to taste"]
+      ["½ tsp", "Salt and white pepper to taste"],
     ],
-    videoTutorial: "https://www.youtube.com/watch?v=06EVId1bUnM"
+    videoTutorial: "https://www.youtube.com/watch?v=06EVId1bUnM",
   },
   {
     id: 14,
@@ -360,7 +367,7 @@ export const meals = [
       ["Total Fat", "25g"],
       ["Protein", "30g"],
       ["Total Carbohydrates", "17g"],
-      ["Fiber", "3g"]
+      ["Fiber", "3g"],
     ],
     ingredients: [
       ["400g", "Tofu"],
@@ -375,9 +382,9 @@ export const meals = [
       ["1 tbsp", "Hoisin sauce"],
       ["1 tbsp", "Peanut butter"],
       ["1 tbsp", "Minced garlic"],
-      ["1 tbsp", "Calamansi juice"]
+      ["1 tbsp", "Calamansi juice"],
     ],
-    videoTutorial: "https://youtu.be/BS9pPhBAoLo?si=bkQ3Zd06GYNiZutG"
+    videoTutorial: "https://youtu.be/BS9pPhBAoLo?si=bkQ3Zd06GYNiZutG",
   },
   {
     id: 15,
@@ -390,7 +397,7 @@ export const meals = [
       ["Calories", "230"],
       ["Total Fat", "8.17g"],
       ["Protein", "20.60g"],
-      ["Total Carbohydrates", "17.36g"]
+      ["Total Carbohydrates", "17.36g"],
     ],
     ingredients: [
       ["350g", "Chicken breast"],
@@ -406,9 +413,9 @@ export const meals = [
       ["½ tsp", "Oyster sauce"],
       ["½ tsp", "White vinegar"],
       ["1 tsp", "Sugar"],
-      ["¼ cup", "Water"]
+      ["¼ cup", "Water"],
     ],
-    videoTutorial: "https://youtu.be/I_6aMZwf9CU?si=fnVgRPRpeZ9q0UXT"
+    videoTutorial: "https://youtu.be/I_6aMZwf9CU?si=fnVgRPRpeZ9q0UXT",
   },
   {
     id: 16,
@@ -422,7 +429,7 @@ export const meals = [
       ["Total Fat", "25g"],
       ["Protein", "30g"],
       ["Total Carbohydrates", "17g"],
-      ["Fiber", "3g"]
+      ["Fiber", "3g"],
     ],
     ingredients: [
       ["400g", "Tofu"],
@@ -437,9 +444,9 @@ export const meals = [
       ["1 tbsp", "Hoisin sauce"],
       ["1 tbsp", "Peanut butter"],
       ["1 tbsp", "Minced garlic"],
-      ["1 tbsp", "Calamansi juice"]
+      ["1 tbsp", "Calamansi juice"],
     ],
-    videoTutorial: "https://youtu.be/BS9pPhBAoLo?si=bkQ3Zd06GYNiZutG"
+    videoTutorial: "https://youtu.be/BS9pPhBAoLo?si=bkQ3Zd06GYNiZutG",
   },
   {
     id: 17,
@@ -452,7 +459,7 @@ export const meals = [
       ["Calories", "387"],
       ["Total fat", "12g"],
       ["Protein", "20g"],
-      ["Total Carbohydrates", "51g"]
+      ["Total Carbohydrates", "51g"],
     ],
     ingredients: [
       ["8 oz", "Noodles"],
@@ -468,9 +475,9 @@ export const meals = [
       ["2 tbsp", "Soy sauce"],
       ["2 tbsp", "Peanut butter"],
       ["2-3 tbsp", "Szechuan bean paste"],
-      ["2 tsp", "Sugar"]
+      ["2 tsp", "Sugar"],
     ],
-    videoTutorial: "https://youtu.be/c0orugXU5zk?si=iFXDQRPOPATIT6jh"
+    videoTutorial: "https://youtu.be/c0orugXU5zk?si=iFXDQRPOPATIT6jh",
   },
   {
     id: 18,
@@ -488,7 +495,7 @@ export const meals = [
       ["Sugar", "4g"],
       ["Cholesterol", "96mg"],
       ["Sodium", "608mg"],
-      ["Fiber", "3g"]
+      ["Fiber", "3g"],
     ],
     ingredients: [
       ["1½ lb", "90% lean ground beef"],
@@ -505,16 +512,17 @@ export const meals = [
       ["¼ cup", "Cilantro (chopped)"],
       ["6 cloves", "Garlic"],
       ["10 (8-in)", "yellow corn tortillas, cut into quarters"],
-      ["4 cups", "Shredded Mexican blend cheese"]
+      ["4 cups", "Shredded Mexican blend cheese"],
     ],
-    videoTutorial: "https://www.onceuponachef.com/recipes/stacked-beef-enchiladas.html"
+    videoTutorial:
+      "https://www.onceuponachef.com/recipes/stacked-beef-enchiladas.html",
   },
   {
     id: 19,
     name: "Hummus and Falafel",
     image: "/src/assets/recipe4.png",
     category: "Popular, Vegan Only, Non-Vegan",
-    mealTypes: "dinner"
+    mealTypes: "dinner",
   },
   {
     id: 20,
@@ -531,7 +539,7 @@ export const meals = [
       ["Sugar", "0.2g"],
       ["Cholesterol", "4.4mg"],
       ["Sodium", "428.5mg"],
-      [" Dietary Fiber", "2.3g"]
+      [" Dietary Fiber", "2.3g"],
     ],
     ingredients: [
       ["6", "Roma Tomatoes"],
@@ -544,9 +552,8 @@ export const meals = [
       ["1", "Baguette(for the toast)"],
       ["3 tsp", "Extravirgin olive oil(for the toast)"],
       ["1/3-1/2", "cup shredded parmesan cheese(for the toast)"],
-      
     ],
-    videoTutorial: "https://youtu.be/Q3xg35pcLyo?si=WSUMZcSjzC89Vlbb"
+    videoTutorial: "https://youtu.be/Q3xg35pcLyo?si=WSUMZcSjzC89Vlbb",
   },
   {
     id: 21,
@@ -563,7 +570,7 @@ export const meals = [
       ["Sugar", "6.99g"],
       ["Cholesterol", "30mg"],
       ["Sodium", "511mg"],
-      ["Potassium", "625mg"]
+      ["Potassium", "625mg"],
     ],
     ingredients: [
       ["1 tsp", "Olive oil"],
@@ -579,9 +586,8 @@ export const meals = [
       ["1 lbs", "Ground beef extra lean"],
       ["1/2 tsp", "Salt and pepper to taste"],
       ["1 lbs", "Spaghetti"],
-      
     ],
-    videoTutorial: "https://youtu.be/zbgOitjizQI?si=9wTSar1lS1VxCHRp"
+    videoTutorial: "https://youtu.be/zbgOitjizQI?si=9wTSar1lS1VxCHRp",
   },
   {
     id: 22,
@@ -598,7 +604,7 @@ export const meals = [
       ["Sugar", "8g"],
       ["Cholesterol", "163mg"],
       ["Sodium", "1613mg"],
-      [" Dietary Fiber", "3g"]
+      [" Dietary Fiber", "3g"],
     ],
     ingredients: [
       ["1 1/2", "(2 large) chicken breast cut in half for 4 cutlets"],
@@ -620,9 +626,8 @@ export const meals = [
       ["1/2 tsp", "Salt "],
       ["1/4 tsp", "Black pepper"],
       ["1 tsp", "Basil or parsley, finely minced"],
-      
     ],
-    videoTutorial: "https://youtu.be/gwSOwAe_IVY?si=rsjuOGgnuw-jVEiU"
+    videoTutorial: "https://youtu.be/gwSOwAe_IVY?si=rsjuOGgnuw-jVEiU",
   },
   {
     id: 23,
@@ -637,7 +642,7 @@ export const meals = [
       ["Protein", "30g"],
       ["Total Carbohydrates", "20g"],
       ["Sodium", "27mg"],
-      [" Dietary Fiber", "4g"]
+      [" Dietary Fiber", "4g"],
     ],
     ingredients: [
       ["Chicken Marinade"],
@@ -668,9 +673,8 @@ export const meals = [
       ["Chopped Coriander"],
       ["To serve"],
       ["Rice and Naan Bread"],
-      
     ],
-    videoTutorial: "https://youtu.be/lnRmIKkGCIA?si=3ZtsO63MjveO0WX3"
+    videoTutorial: "https://youtu.be/lnRmIKkGCIA?si=3ZtsO63MjveO0WX3",
   },
   {
     id: 24,
@@ -685,7 +689,7 @@ export const meals = [
       ["Protein", "10g"],
       ["Total Carbohydrates", "35-40g"],
       ["Sodium", "500mg"],
-      ["Fiber", "2-3g"]
+      ["Fiber", "2-3g"],
     ],
     ingredients: [
       ["1   2/3 tsp", "Saffron threads "],
@@ -693,12 +697,11 @@ export const meals = [
       ["2/3", "Cup white wine"],
       ["1/2", "White onion"],
       ["1 3/4 tsp", "Butter"],
-      [ "Hot beef broth as needed to mix in"],
+      ["Hot beef broth as needed to mix in"],
       ["1/2", "Cup butter (cold from the fridge)"],
       ["3/4", "Cup grated Parmesan cheese (cold from the fridge)"],
-      
     ],
-    videoTutorial: "https://youtu.be/Tu9NKIDEirE?si=fwKmYAuFGiGpBhjP"
+    videoTutorial: "https://youtu.be/Tu9NKIDEirE?si=fwKmYAuFGiGpBhjP",
   },
   {
     id: 25,
@@ -715,7 +718,7 @@ export const meals = [
       ["Sugar", "0g"],
       ["Cholesterol", "0mg"],
       ["Sodium", "0g"],
-      [" Dietary Fiber", "0g"]
+      [" Dietary Fiber", "0g"],
     ],
     ingredients: [
       ["1", "Chicken  Thigh (skin on)"],
@@ -726,10 +729,8 @@ export const meals = [
       ["1 and 1/2 tbsp", "Water"],
       ["1 and 1/2 tbsp", "Soy sauce"],
       ["2 tbsp", "Honey"],
-      
-      
     ],
-    videoTutorial: "https://youtu.be/A4yY7rkzATI?si=j1SUDlWeuqrlo3LV"
+    videoTutorial: "https://youtu.be/A4yY7rkzATI?si=j1SUDlWeuqrlo3LV",
   },
   {
     id: 26,
@@ -744,7 +745,7 @@ export const meals = [
       ["Protein", "8g"],
       ["Total Carbohydrates", "25g"],
       ["Sodium", "27g"],
-      [" Dietary Fiber", "7g"]
+      [" Dietary Fiber", "7g"],
     ],
     ingredients: [
       ["Vegetables"],
@@ -769,7 +770,7 @@ export const meals = [
       ["Toppings"],
       ["Chopped Cilantro"],
     ],
-    videoTutorial: "https://youtu.be/prwyoQj0IOE?si=RNchvOGqBRkQFkVh"
+    videoTutorial: "https://youtu.be/prwyoQj0IOE?si=RNchvOGqBRkQFkVh",
   },
   {
     id: 27,
@@ -785,7 +786,6 @@ export const meals = [
       ["Total Carbohydrates", "90.6g"],
       ["Sugar", "0g"],
       ["Sodium", "0g"],
-    
     ],
     ingredients: [
       ["130-150g", "Onions"],
@@ -796,9 +796,8 @@ export const meals = [
       ["90ml  ", "Sake"],
       ["30ml", "soy sauce"],
       ["60-70%", "Rice"],
-      
     ],
-    videoTutorial: "https://youtu.be/LdeXSCcnJFY?si=6TEuYTXg5mF9eWRM"
+    videoTutorial: "https://youtu.be/LdeXSCcnJFY?si=6TEuYTXg5mF9eWRM",
   },
   {
     id: 28,
@@ -815,7 +814,7 @@ export const meals = [
       ["Sugar", "0g"],
       ["Cholesterol", "0g"],
       ["Sodium", "0g"],
-      [" Dietary Fiber", "0g"]
+      [" Dietary Fiber", "0g"],
     ],
     ingredients: [
       ["300ml", "Hot water"],
@@ -826,10 +825,8 @@ export const meals = [
       ["1 tbsp", "Shoyu"],
       ["1 tbsp ", " sake"],
       ["1 tbsp", "Sugar"],
-      
-      
     ],
-    videoTutorial: "https://youtu.be/r3_tcQiyGG8?si=M6e9Fv3A-NoMN9nG"
+    videoTutorial: "https://youtu.be/r3_tcQiyGG8?si=M6e9Fv3A-NoMN9nG",
   },
   {
     id: 29,
@@ -844,7 +841,7 @@ export const meals = [
       ["Protein", "29.7g"],
       ["Total Carbohydrates", "59.5g"],
       ["Sodium", "0g"],
-      [" Dietary Fiber", "1.7g"]
+      [" Dietary Fiber", "1.7g"],
     ],
     ingredients: [
       ["2 tbsp", "Sriracha sauce"],
@@ -852,9 +849,8 @@ export const meals = [
       ["1 tbsp", "Sesame oil"],
       ["1 tbsp", "Sugar"],
       ["1 tbsp", "Wasab"],
-      
     ],
-    videoTutorial: "https://youtu.be/X7dS2d7cie4?si=x6HgiTC8K0cqS56N"
+    videoTutorial: "https://youtu.be/X7dS2d7cie4?si=x6HgiTC8K0cqS56N",
   },
   {
     id: 30,
@@ -869,7 +865,7 @@ export const meals = [
       ["Protein", "10g"],
       ["Total Carbohydrates", "56.3g"],
       ["Sodium", "0g"],
-      [" Dietary Fiber", "0g"]
+      [" Dietary Fiber", "0g"],
     ],
     ingredients: [
       ["2 packs", "udon  noodles"],
@@ -889,9 +885,8 @@ export const meals = [
       ["1 tbsp   ", "   sesame oil"],
       ["1 tbsp   ", "Green   onions"],
       ["1 tbsp   ", "Sesame seeds"],
-      
     ],
-    videoTutorial: "https://youtu.be/_25r8jio3qQ?si=Yn3BzrGA3RAEkLKp"
+    videoTutorial: "https://youtu.be/_25r8jio3qQ?si=Yn3BzrGA3RAEkLKp",
   },
   {
     id: 31,
@@ -933,9 +928,8 @@ export const meals = [
       ["5 tbsp", "Butter"],
       ["1/2 tsp", "Kasuri Methi Roasted & Powdered"],
       ["3 tbsp", " Fresh Cream"],
-      
     ],
-    videoTutorial: "https://youtu.be/6tMUbWjEWiY?si=jPaWbMIrRN0g5u_1"
+    videoTutorial: "https://youtu.be/6tMUbWjEWiY?si=jPaWbMIrRN0g5u_1",
   },
   {
     id: 32,
@@ -951,10 +945,9 @@ export const meals = [
       ["Total Carbohydrates", "20g"],
       ["Cholesterol", "4.4mg"],
       ["Sodium", "27g"],
-      [" Dietary Fiber", "7g"]
+      [" Dietary Fiber", "7g"],
     ],
     ingredients: [
-      
       ["2", "Spinach (washed and blanched)"],
       ["300 grams", "Paneer"],
       ["¼ cup", "Tomato Chopped"],
@@ -965,12 +958,10 @@ export const meals = [
       ["1 tsp", "Cumin Seeds"],
       ["5 tbsp", " Ghee"],
       ["½ cup", " Red Onions Chopped"],
-      
-      
     ],
-    videoTutorial: "https://youtu.be/a5sr50WL1DY?si=qTtdkUx05QeAe4yC"
+    videoTutorial: "https://youtu.be/a5sr50WL1DY?si=qTtdkUx05QeAe4yC",
   },
-  
+
   {
     id: 33,
     name: "Samosas",
@@ -984,7 +975,7 @@ export const meals = [
       ["Protein", "3g"],
       ["Total Carbohydrates", "15g"],
       ["Sodium", "0g"],
-      [" Dietary Fiber", "2g"]
+      [" Dietary Fiber", "2g"],
     ],
     ingredients: [
       ["250 grams", "Flour"],
@@ -1003,9 +994,8 @@ export const meals = [
       ["1 tsp", "Cumin Seeds"],
       ["1 tsp", "Turmeric"],
       ["1 tbsp", "Lemon Juice"],
-      
     ],
-    videoTutorial: "https://youtu.be/3OZn-iCGf5s?si=ZGhX5ThIQbLGa2kr"
+    videoTutorial: "https://youtu.be/3OZn-iCGf5s?si=ZGhX5ThIQbLGa2kr",
   },
   {
     id: 34,
@@ -1022,12 +1012,12 @@ export const meals = [
       ["Sugar", "14g"],
       ["Cholesterol", "165mg"],
       ["Sodium", "2130mg"],
-      [" Dietary Fiber", "7g"]
+      [" Dietary Fiber", "7g"],
     ],
     ingredients: [
       ["1", " lb ground beef (15-20% fat content)"],
       ["1", "Small onion finely diced"],
-      ["2","Large garlic cloves minced"],
+      ["2", "Large garlic cloves minced"],
       ["1/4", "Cup red wine (any kind), or beef broth"],
       ["1 tBsp", " olive oil"],
       ["24 oz", "Marinara Sauce (3 cups)"],
@@ -1044,10 +1034,6 @@ export const meals = [
       ["2 tsp", "Parsley finely chopped, plus more to garnish"],
       ["4", "cups mozzarella cheese shredded, divided"],
     ],
-    videoTutorial: "https://youtu.be/fVDsTP-pTXs?si=ClQu7RdVfJI8twoI"
+    videoTutorial: "https://youtu.be/fVDsTP-pTXs?si=ClQu7RdVfJI8twoI",
   },
-  
 ];
-
-
-
