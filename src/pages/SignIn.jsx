@@ -3,7 +3,7 @@ import Google from "../assets/google.png";
 import Facebook from "../assets/facebook.png";
 import Loader from "../Components/OnboardingLoader";
 import { useEffect, useState } from "react";
-import { auth } from "../firebase/firebase";
+import { auth,  } from "../firebase/firebase";
 import {
   signInWithEmailAndPassword,
   signInWithRedirect,
@@ -30,6 +30,7 @@ import { useForm } from "react-hook-form";
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
 
+  
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };

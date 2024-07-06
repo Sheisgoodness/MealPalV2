@@ -1,6 +1,6 @@
 import { useBookmarks } from "/src/Contexts/BookmarkContext";
 import DeleteIcon from "../assets/images/delete.png";
-import "../App/"; // Adjust the path to your CSS file
+import "../App/";
 
 const BookmarkPage = () => {
   const { bookmarks, removeBookmark } = useBookmarks();

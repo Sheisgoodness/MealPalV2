@@ -7,13 +7,21 @@ const MealDetail = () => {
   const meal = meals.find((meal) => meal.id.toString() === id);
   const [imageFullScreen, setImageFullScreen] = useState(false);
 
-  if (!meal) {
-    return (
-      <div className="text-center text-xl font-semibold mt-10">
-        Meal not found
-      </div>
-    );
-  }
+  // Function to convert different YouTube URL formats to embed URL
+  const getEmbedUrl = (url) => {
+    let videoId;
+    if (url.includes("v=")) {
+      videoId = url.split("v=")[1].split("&")[0];
+    } else if (url.includes("youtu.be/")) {
+      videoId = url.split("youtu.be/")[1].split("?")[0];
+    } else if (url.includes("/embed/")) {
+      videoId = url.split("/embed/")[1].split("?")[0];
+    } else {
+      console.error("Invalid YouTube URL");
+      return "";
+    }
+    return `https://www.youtube.com/embed/${videoId}`;
+  };
 
   return (
     <div className="p-6 max-w-4xl mx-auto bg-white rounded-xl shadow-md space-y-6">
@@ -39,9 +47,11 @@ const MealDetail = () => {
         </div>
         <div className="flex justify-around mt-4 bg-gray-200 p-2 rounded">
           <div className="text-gray-700">
-            🕒 cooking time(1Hr 10 min){meal.cookTime}
+            🕒 cooking time (1Hr 10 min) {meal.cookTime}
           </div>
-          <div className="text-gray-700">🍽️ Meal serving(1){meal.serving}</div>
+          <div className="text-gray-700">
+            🍽️ Meal serving (1) {meal.serving}
+          </div>
           <div className="text-gray-700">⭐Meal Rating {meal.rating}</div>
         </div>
       </div>
@@ -78,20 +88,25 @@ const MealDetail = () => {
         </div>
       )}
 
-      {meal.videoThumbnail && (
+      {meal.videoTutorial && (
         <div className="card bg-gray-100 p-4 rounded mt-4">
           <h2 className="text-2xl font-semibold text-gray-700">
             Video Tutorial
           </h2>
           <div className="flex justify-center mt-2">
-            <img
-              src={meal.videoThumbnail} // Use the correct property for the thumbnail
-              alt="Video thumbnail"
-              className="w-[150px] h-[120px] object-cover rounded"
-            />
+            <iframe
+              width="560"
+              height="315"
+              src={getEmbedUrl(meal.videoTutorial)}
+              title="Video Tutorial"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="rounded"
+            ></iframe>
           </div>
           <a
-            href={meal.videoThumbnail}
+            href={meal.videoTutorial}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-500 hover:text-blue-700 underline mt-2 block text-center"
