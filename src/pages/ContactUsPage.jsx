@@ -2,6 +2,7 @@ import { useState } from "react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import { useNavigate } from "react-router-dom";
+import emailjs from "emailjs-com"
 import "./ContactUsPage";
 
 const ContactUs = () => {
@@ -22,8 +23,28 @@ const ContactUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     generatePDF();
-    navigate("/success");
+    sendEmail()
+    
   };
+
+  const sendEmail = () => {
+    emailjs
+      .send(
+        "service_kx1nuvi",
+        "template_53buy4a",
+        formData,
+        "KYgb0SF17-2P5HPAC"
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          navigate("/success");
+        },
+        (err) => {
+          console.error("FAILED...", err);
+        }
+      );
+  }
   //  const OnSubmit = async (e) => {
   //     e.preventDefault();
   //     try {
@@ -54,6 +75,7 @@ const ContactUs = () => {
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <form
+        id="contact-us-form"
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded 
         shadow-md w-full max-w-md"
@@ -90,7 +112,7 @@ const ContactUs = () => {
             <option value="others">Others</option>
           </select>
         </div>
-        <div>
+        <div className="mb-4">
           <label
             htmlFor="email"
             className="block text-sm font-medium text-gray-700
@@ -110,7 +132,7 @@ const ContactUs = () => {
         rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
           />
         </div>
-        <div>
+        <div className="mb-4">
           <label
             htmlFor="fullName"
             className="block text-sm font-medium text-gray-700"
@@ -129,7 +151,7 @@ const ContactUs = () => {
             focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
           />
         </div>
-        <div>
+        <div className="mb-4">
           <label
             htmlFor="note"
             className="block text-sm font-medium text-gray-700"

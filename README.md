@@ -148,7 +148,7 @@ If you already have an account, log in using these steps:
 
 - Contact Us : [Ashaoluwaseeni] Worked on the Contact Us Page and this comprises of the "Reasons For which includes a drop down of (Options of 'Question about the app, Report an issue with the app, Suggestions for the app and Others', Email Address, Full Name, and Note). this section allows users to give their opinions about the MealPalV2 App.
 
-- Success : [Ashaoluwaseeni] I created and worked on the Success Page which authormatically takes users to Home Page after a Successful ContactUs form had been filled and sent. This also help users have the assurance that their request has been sent Successfully.
+- Success : [Ashaoluwaseeni] I created and worked on the Success Page which allows the users access to download the form filled in Contact Us Page after which, takes the user to the Home Page after a Successful ContactUs form had been filled and sent. This also help users have the assurance that their request has been sent Successfully.
 
 - Bookmark : [Ashaoluwaseeni] I created bookmark work space for my partner in order for her to have fast and easy template.
 
