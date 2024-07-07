@@ -33,6 +33,7 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
   const { ADD_LIKE, HANDLE_ERROR } = postActions;
   const [open, setOpen] = useState(false);
   const [comments, setComments] = useState([]);
+  const [color, setColor] = useState('');
   const [showOptions, setShowOptions] = useState(false);
   const navigate = useNavigate(); 
 
@@ -44,6 +45,8 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
     e.preventDefault();
     setOpen((prevOpen) => !prevOpen); // Toggle the open state
   };
+
+  const colorsIndex = ['pink', 'black']
 
   const handleLike = async (e) => {
     e.preventDefault();
@@ -59,10 +62,24 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
           id: currentUser?.uid,
         });
       }
+      // Change the color when the button is clicked
+      const newColor = colorsIndex[Math.floor(Math.random() * colorsIndex.length)];
+      setColor(newColor);
     } catch (err) {
       alert(err.message);
       console.log(err.message);
     }
+  };
+
+  const deletePost = async () => {
+    onAuthStateChanged(auth, async (u) => {
+      if (u) {
+        const posts = collection(db, "posts");
+        await deleteDoc(doc(posts, id));
+        toast.success("Post deleted successfully");
+        navigate("/communitypage");
+      }
+    });
   };
 
   useEffect(() => {
@@ -155,7 +172,11 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
       <div className="flex items-center justify-between mt-7 mb-3">
         <div className="flex items-center gap-8">
           <div className="flex items-center gap-2">
-            <span onClick={handleLike} className="material-symbols-outlined text-[25px] hover:cursor-pointer font-thin">favorite</span>
+            <span id="changeColorBtn" 
+            onClick={handleLike} 
+            className="material-symbols-outlined text-[25px] hover:cursor-pointer font-thin"
+            style={{ color:color }} > 
+            favorite</span>
             <span>{state?.likes?.length}</span>
           </div>
           <div className="flex items-center gap-2">
@@ -183,7 +204,7 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
                   <span className="material-symbols-outlined">border_color</span>
                   <span>Edit</span>
                 </div>
-                <div className="items-center flex gap-2 hover:cursor-pointer">
+                <div className="items-center flex gap-2 hover:cursor-pointer" onClick={deletePost}>
                   <span className="material-symbols-outlined">delete</span>
                   <span>Delete</span>
                 </div>

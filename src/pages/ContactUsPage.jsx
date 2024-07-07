@@ -2,7 +2,7 @@ import { useState } from "react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import { useNavigate } from "react-router-dom";
-import emailjs from "emailjs-com"
+import emailjs from "emailjs-com";
 import "./ContactUsPage";
 
 const ContactUs = () => {
@@ -23,8 +23,7 @@ const ContactUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     generatePDF();
-    sendEmail()
-    
+    sendEmail(); 
   };
 
   const sendEmail = () => {

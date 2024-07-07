@@ -8,6 +8,7 @@ Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagemen
 - [Features]()
 - [Team Members](#team-members)
   - [Team One](#team-one)
+  - [Team Two](#team-Two)
   - [Team Five](#team-five)
 - [Tools](#tools)
 - [Resources](#resources)
@@ -19,7 +20,7 @@ Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagemen
 ### Team One
 
 - Achi Faith [IfyFaith24](https://github.com/ifyfaith24)
-- Chinechelum Eucharia [Eucharian8](https://github.com/Eucharian8)
+- Nwachukwu Chinechelum Eucharia [Eucharian8](https://github.com/Eucharian8)
 
 ### Team Two
 
@@ -53,9 +54,11 @@ Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagemen
 
 - Bookmark : [Joyfuol] Created bookmark option for users to save favorite meals and learn how to prepare them.
 
-  - Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
-
- - Referral Link, Copy Link and Share Button: [Eucharian8] made the referral link redirect the new user to the signup page. Improved the UI of the referral link copy button and added a share button.
+- Meal Plan Points: [sarahlutaaya256] developed the functionality related to meal plan points, including tracking user activities and assigning points accordingly.
+  
+- Referral Link: [Eucharian8] Made the referral link redirect the new user to the signup page. Each referral link is generated with the User's ID that is stored in the firebase database, making it unique.
+  
+- Copy Link and Share Button: [Eucharian8] Improved the UI of the referral link copy button and added a share button.
 
 - Create Meal Plan Page: [ifyfaith24] a dynamic and user-centric feature within our meal planning application. This page allows users to generate personalized meal plans based on their dietary records and preferences.
 
@@ -98,10 +101,11 @@ If you already have an account, log in using these steps:
 ### Referral Feature
 
 - Automatically generates a referral link for logged-in users.
+- Referral links are unique to each users because it's been generated with the User's ID.
 - Users earn points for every successful referral.
 - Points can be redeemed for rewards.
 - Users can copy their referral link to the clipboard.
-- Points are stored in local storage to persist across sessions.
+- Points are stored in firebase database to add points to any user that refers a new user by successfully signing up.
 
 #### How It Works
 
@@ -180,15 +184,17 @@ If you already have an account, log in using these steps:
  ## Community Page
 
   ### Overview
-   - [IwuchukwuDivine] recreated the overall interface of the community page to give users a more detailed description and use of the page for better use and interaction with other users.
-    - [madukafavour] implemented the functionalities of the community page to provide accessible features for users. 
+
+- [IwuchukwuDivine] recreated the overall interface of the community page to give users a more detailed description and use of the page for better use and interaction with other users.
+- [madukafavour] implemented the functionalities of the community page to provide accessible features for users. 
 
   ### Features
-    - The community page contains routes for various features i.e it has space for internal storage of posts posted by another user and also the ability to remove such posts from the saved post lists.
-    - It also has user moderation support system, it helps other users to report violent or other issues related to a post for moderation of contents.
-    - Links can be copied and posted to other users within the plateform.
-    - The searchbar helps users to navigate to the desired post or content of their choice by inputting any keywords that supports the search.
-    - Create a new post button navigates to the position or location a user wants the post to appear in and displays the corresponding posts there.  
+
+- The community page contains routes for various features i.e it has space for internal storage of posts posted by another user and also the ability to remove such posts from the saved post lists.
+- It also has user moderation support system, it helps other users to report violent or other issues related to a post for moderation of contents.
+- Links can be copied and posted to other users within the platform.
+- The search-bar helps users to navigate to the desired post or content of their choice by inputting any keywords that supports the search.
+- Create a new post button navigates to the position or location a user wants the post to appear in and displays the corresponding posts there.  
 
   # Installation
   - Clone the repository:

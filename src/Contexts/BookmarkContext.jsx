@@ -1,4 +1,4 @@
-import  { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext } from "react";
 
 const BookmarkContext = createContext();
 
@@ -30,4 +30,4 @@ export const BookmarkProvider = ({ children }) => {
     </BookmarkContext.Provider>
   );
 };
-export default BookmarkContext
+export default BookmarkContext;

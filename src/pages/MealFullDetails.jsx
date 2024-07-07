@@ -33,7 +33,7 @@ function Mealdetails() {
     };
 
     fetchRecipe();
-  }, [id]);
+  }, [id, apiKey]);
 
   if (!recipeDetail) {
     return <div>Loading...</div>;
@@ -91,7 +91,7 @@ function Mealdetails() {
           className="flex items-center gap-2 bg-[#ebe9e9] border-slate-400 px-2 py-3 rounded-md text-[12px] font-semibold"
         >
           <IoLogoYoutube />
-          www.youtube.com/username/videotitle
+          www.youtube.com/username/videoTutorial
         </a>
       </div>
     </div>

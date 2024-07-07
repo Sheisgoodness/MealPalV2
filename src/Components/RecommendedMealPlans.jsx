@@ -64,19 +64,21 @@ const RecommendedMealPlans = () => {
 
   const toggleBookmark = (meal) => {
     if (bookmarks.some((item) => item.id === meal.id)) {
-      removeBookmark(meal);
+      removeBookmark(meal)
+        .then(() => console.log("Bookmark removed successfully"))
+        .catch((error) => console.error("Error removing bookmark:", error));
     } else {
-      addBookmark(meal);
+      addBookmark(meal)
+        .then(() => console.log("Bookmark added successfully"))
+        .catch((error) => console.error("Error adding bookmark:", error));
     }
   };
 
   const filteredMeals = meals.filter((meal) => {
-    // Filter by search query
     if (query && !meal.name.toLowerCase().includes(query.toLowerCase())) {
       return false;
     }
 
-    // Filter by dietary options
     if (filters.categories.length > 0) {
       let match = false;
       filters.categories.forEach((option) => {
@@ -87,7 +89,6 @@ const RecommendedMealPlans = () => {
       if (!match) return false;
     }
 
-    // Filter by meal types
     if (
       filters.mealTypes.length > 0 &&
       !filters.mealTypes.includes(meal.mealTypes[2])
@@ -95,7 +96,6 @@ const RecommendedMealPlans = () => {
       return false;
     }
 
-    // Filter by cuisines
     if (
       filters.cuisines.length > 0 &&
       !filters.cuisines.includes(meal.cuisines[3])
@@ -146,7 +146,9 @@ const RecommendedMealPlans = () => {
                   loading="lazy"
                   onError={(e) => {
                     console.log("Image failed to load: ", e.target.src);
-                    e.target.src = "/src/assets/defaultMealImage.png"; // Fallback image
+                    e.target.src = required(
+                      "../assets/defaultMealImage.png"
+                    ).default;
                   }}
                 />
                 <div>
