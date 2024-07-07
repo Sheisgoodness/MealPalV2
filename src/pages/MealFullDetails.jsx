@@ -33,7 +33,7 @@ function Mealdetails() {
     };
 
     fetchRecipe();
-  }, [id]);
+  }, [id, apiKey]);
 
   if (!recipeDetail) {
     return <div>Loading...</div>;
