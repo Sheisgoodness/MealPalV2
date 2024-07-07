@@ -204,7 +204,7 @@ const PostCard = ({ id, name, logo, email, text, image, timestamp }) => {
                   <span className="material-symbols-outlined">border_color</span>
                   <span>Edit</span>
                 </div>
-                <div className="items-center flex gap-2 hover:cursor-pointer" onclick={deletePost}>
+                <div className="items-center flex gap-2 hover:cursor-pointer" onClick={deletePost}>
                   <span className="material-symbols-outlined">delete</span>
                   <span>Delete</span>
                 </div>
