@@ -9,7 +9,9 @@ Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagemen
 - [Team Members](#team-members)
   - [Team One](#team-one)
   - [Team Two](#team-Two)
+  - [Team Three](#team-Three)
   - [Team Five](#team-five)
+  
 - [Tools](#tools)
 - [Resources](#resources)
 - [Hosted Project](#hosted-project)
@@ -25,6 +27,9 @@ Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagemen
 ### Team Two
 
 - Babatunde Maryam [Joyfuol](https://github.com/Joyfuol/MealPalV2.git)
+
+### Team Three
+- Michelle Kurgat[cheriahkay](https://github.com/cheriahkay/MealPalV2.git)
 
 ## Team Five
 
@@ -45,6 +50,7 @@ Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagemen
 - Diet Options : [Joyfuol] Included more diets options to the dietary options. This will enable 70% of individuals to benefit from the app.
 
 - Meal list : [Joyfuol] Updated the recommended meal plans by adding different types of cuisines which includes African dishes, Chinese dishes and Mexican dishes.
+
 
 - Meal Details : [Joyfuol] Created meal details page which displays details about the meal starting from ingredients, nutritional values and video tutorial on how to make it.
 
@@ -126,6 +132,9 @@ If you already have an account, log in using these steps:
 
 - Babatunde Maryam [Joyfuol](https://github.com/Joyfuol/MealPalV2.git)
 
+### Team Three
+-Michelle Kurgat[cheriahkay](https://github.com/cheriahkay/MealPalV2)
+
 - Ajisegbede Oluwamayowa Priscilla [Ashaoluwaseeni](https://github.com/Ashaoluwaseeni/MealPalV2.git)
 
   # Overview
@@ -140,11 +149,11 @@ If you already have an account, log in using these steps:
 
 - Diet Options : [Joyfuol] Included more diets options to the dietary options. This will enable 70% of individuals to benefit from the app.
 
-- Meal list : [Joyfuol] Updated the recommended meal plans by adding different types of cuisines which includes African dishes, Chinese dishes and Mexican dishes.
+- Meal list : [Joyfuol] Updated the recommended meal plans by adding different types of cuisines which includes  African dishes, Chinese dishes and Mexican dishes.
 
 - Meal Details : [Joyfuol] Created meal details page which displays details about the meal starting from ingredients, nutritional values and video tutorial on how to make it.
 
-- Search Bar : [Joyfuol] Added a search bar option to the recommended meals which enables easy search instead of scrolling through a long search.
+- Search Bar   : [Joyfuol] Added a search bar option to the recommended meals which enables easy search instead of scrolling through a long search.
 
 - FAQ : [Joyfuol] FAQ serve as an app guide. I created a FAQ page to solve any problem users might encounter while navigating through the app.
 
@@ -164,6 +173,23 @@ If you already have an account, log in using these steps:
 
   - Referral Link, Copy Link and Share Button: [Eucharian8] made the referral link redirect the new user to the signup page. Improved the UI of the referral link copy button and added a share button.
 
+  - Meal list : [cheriahkay] Updated the recommended meal plans by adding additional cusines.The cuisines included:Italian Cuisines,Indian Cuisines and Japanese Cuisines.
+
+  - Nutritional and Ingredients Cards: [cheriahkay] updated the meal detail page
+    - The Meal list  component now includes cards with a light gray   background for nutritional value and ingredients. Each card displays the respective information in a structured format.
+
+  - Full Screen Image Feature: [cheriahkay] added the full screen image feature
+    - Users can now click on the meal image to view it in full screen mode, enhancing the viewing experience.
+
+  - Cooking Time, Meal Serving, and Rating: [cheriahkay] integrated these features into the meal detail page
+   - Cooking time, meal serving amount, and rating are now displayed horizontally with a gray background below the meal image for quick reference.
+
+  - Dynamic Content Rendering: [cheriahkay] implemented dynamic content rendering
+    - The app dynamically updates the meal detail page based on the selected meal from the recommended meals page. Users can seamlessly navigate between different meal details.
+
+  - YouTube Video Embedding: [cheriahkay] created Embedded YouTube video tutorials directly in the meal detail page using the `react-youtube` component. Ensuring video thumbnails are displayed correctly and play without errors. 
+
+
   # Features
 
   - Referral System
@@ -177,7 +203,7 @@ If you already have an account, log in using these steps:
     Users earn points for following the meal plan provided by the app.
     Points are awarded based on adherence to the plan, healthy eating choices, and consistency.
   - Create Meal Plan
-    Enhance the ability for users to create customized meal plans based on dietary preferences, health goals, and calorie requirements.
+    Enhance the ability for users to create customized meal plans based on dietary preferences, health goals, and calorie requirements. 
 
    
 
