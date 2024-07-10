@@ -10,6 +10,7 @@ Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagemen
   - [Team One](#team-one)
   - [Team Two](#team-Two)
   - [Team Three](#team-Three)
+  - [Team Four](#team-four)
   - [Team Five](#team-five)
   
 - [Tools](#tools)
@@ -31,6 +32,9 @@ Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagemen
 ### Team Three
 - Michelle Kurgat[cheriahkay](https://github.com/cheriahkay/MealPalV2.git)
 
+  ### Team Four
+- Goodness David [Sheisgoodness](https://github.com/Sheisgoodness)
+
 ## Team Five
 
 ### Team Memebers
@@ -50,6 +54,11 @@ Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagemen
 - Diet Options : [Joyfuol] Included more diets options to the dietary options. This will enable 70% of individuals to benefit from the app.
 
 - Meal list : [Joyfuol] Updated the recommended meal plans by adding different types of cuisines which includes African dishes, Chinese dishes and Mexican dishes.
+  
+- BMI Calculation: [Goodness David] Implemented a feature to calculate the user's BMI and display their status.
+  
+- Goal Screen: [Goodness David] Added a goal screen where users can select their health and dietary goals.
+
 
 
 - Meal Details : [Joyfuol] Created meal details page which displays details about the meal starting from ingredients, nutritional values and video tutorial on how to make it.
