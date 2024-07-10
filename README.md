@@ -10,7 +10,7 @@ Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagemen
   - [Team One](#team-one)
   - [Team Two](#team-Two)
   - [Team Three](#team-Three)
-  - [Team Five](#team-four)
+  - [Team Four](#team-four)
   - [Team Five](#team-five)
   
 - [Tools](#tools)
