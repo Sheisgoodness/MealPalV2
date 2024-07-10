@@ -32,7 +32,7 @@ Cohort 9 Pro Capstone Project. The app is designed to incentivize user engagemen
 ### Team Three
 - Michelle Kurgat[cheriahkay](https://github.com/cheriahkay/MealPalV2.git)
 
-  ### Team Three
+  ### Team Four
 - Goodness David [Sheisgoodness](https://github.com/Sheisgoodness)
 
 ## Team Five
